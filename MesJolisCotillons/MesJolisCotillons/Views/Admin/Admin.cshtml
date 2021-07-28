@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="maskLoading">
+<head>
+    <link rel="icon" type="image/png" href="~/Content/Images/Icons/logoFavicon.png" />
+    <script src="~/Content/jQuery/jquery-3.1.0.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Administration Mes jolis petits cotillons</title>
+</head>
+<body>
+
+    @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>*@
+    @*<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
+    <script src="~/Content/jQuery/jquery-3.1.0.min.js"></script>
+
+    @Styles.Render("~/Content/Ext.ux.window.Notification/style")
+    @Styles.Render("~/Content/noty-2.3.8/Animate")
+    @Styles.Render("~/Content/extjs6/style")
+    @Styles.Render("~/Content/AdminCss")
+
+    @Scripts.Render("~/bundles/extjs-all")
+    @Scripts.Render("~/bundles/extensions")
+    @*<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>*@
+    <script src="~/Content/jQuery/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/DirectApi")"></script>
+    <script type="text/javascript">
+        Ext.Direct.addProvider(Ext.app.REMOTING_API);
+        Ext.ns('Mjc.app');
+        Ext.ns('Mjc.Admin.Const');
+        Mjc.Icon.setIconsBase('general', 'Content/Images/Icons/general');
+
+        Mjc.Admin.Const.FirstName = '@Html.Encode(CurrentUser.User.FirstName)';
+        Mjc.Admin.Const.LastName = '@Html.Encode(CurrentUser.User.LastName)';
+        Mjc.Admin.Const.FullName = '@Html.Encode(CurrentUser.User.FullName)';
+        Mjc.Admin.Const.User_ID = '@Html.Encode(CurrentUser.User.User_ID)';
+    </script>
+
+    @Scripts.Render("~/bundles/admin")
+
+    @*<script type="text/javascript">
+        $("html").removeClass("maskLoadingBig");
+    </script>*@
+
+</body>
+</html>
+

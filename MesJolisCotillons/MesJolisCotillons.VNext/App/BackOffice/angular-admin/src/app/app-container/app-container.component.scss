@@ -1,0 +1,14 @@
+:host {
+  height: 100%;
+  width: 100%;
+  grid-area: main;
+  background-color: #f2f2f2;
+  min-width: 100rem;
+  overflow: auto;
+
+  .app-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+}

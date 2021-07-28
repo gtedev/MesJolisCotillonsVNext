@@ -1,0 +1,140 @@
+﻿@model MesJolisCotillons.ViewModels.ProductItemViewModel
+
+@{
+    ViewBag.FacebookSharingParameters = Model.FacebookSharingParameters;
+}
+
+<div class="productItemContainer col-md-12 col-lg-8">
+    <div class="productInformation container-fluid">
+        <div class="flex-row">
+            <div class="productInformationBlock col-lg-5">
+                <div class="fotorama" data-fit="cover" data-allowfullscreen="true" data-autoplay="false" data-width="100%" data-height="500" data-transition="crossfade" data-navposition="bottom" data-nav="thumbs">
+
+                    @foreach (var blobBinaryStream in Model.BlobSteamBase64_Set)
+                    {
+                        var src = "data:image/jpg;base64," + blobBinaryStream;
+                        <img src="@src"/>
+                    }
+                </div>
+            </div>
+
+            <div class="height-space-30 d-block d-lg-none">
+            </div>
+
+            <div class="productInformationBlock col-lg-5">
+                <div class="productInformationTitle">@Model.DisplayName </div>
+                <div class="productInformationPrice inlineBlock">
+                    @Model.Price €
+                    <div id="productQuantityInfo" class="productQuantiteInfo d-inline-block @Model.ProductQuantityInfoView.FlagCls">@Model.ProductQuantityInfoView.InfoText</div>
+                </div>
+                <div class="productInformationDescription">@Model.Description</div>
+
+                @{
+                    List<string> list = new List<string>();
+
+                    #region Dimensions
+
+                    if (Model.Product.Product_XmlData.Height > 0)
+                    {
+                        var heightProductCm = (decimal) Model.Product.Product_XmlData.Height / (decimal) 10;
+                        list.Add("<div class=\"dimensionTitle\">Hauteur :</div>" + heightProductCm + " cm");
+                    }
+
+                    if (Model.Product.Product_XmlData.Depth > 0)
+                    {
+                        var depthProductCm = (decimal) Model.Product.Product_XmlData.Depth / (decimal) 10;
+                        list.Add("<div class=\"dimensionTitle\">Profondeur :</div>" + depthProductCm + " cm");
+                    }
+
+                    if (Model.Product.Product_XmlData.Diameter > 0)
+                    {
+                        var diameterProductCm = (decimal) Model.Product.Product_XmlData.Diameter / (decimal) 10;
+                        //list.Add("<div class=\"dimensionTitle\">&#8709; :</div>" + diameterProductCm + " cm");
+                        list.Add("<div class=\"dimensionTitle\">Diamètre :</div>" + diameterProductCm + " cm");
+                    }
+
+                    if (Model.Product.Product_XmlData.Width > 0)
+                    {
+                        var widthProductCm = (decimal) Model.Product.Product_XmlData.Width / (decimal) 10;
+                        list.Add("<div class=\"dimensionTitle\">Largeur :</div>" + widthProductCm + " cm");
+                    }
+
+                    if (Model.Product.Product_XmlData.Weight > 0)
+                    {
+                        var weightProductKg = (decimal) Model.Product.Product_XmlData.Weight / (decimal) 1000;
+                        list.Add("<div class=\"dimensionTitle\">Poids :</div>" + weightProductKg + " kg");
+                    }
+
+                    #endregion
+
+                }
+
+                @if (list.Count > 0)
+                {
+                    <div class="productDimension">
+                        <div class="productInformationDimensions underline">
+                            <b>Dimensions</b>
+                        </div>
+
+                        @for (int i = 0; i < list.Count; i = i + 2)
+                        {
+                            var leftDimension = list.ElementAtOrDefault(i);
+                            var rightDimension = list.ElementAtOrDefault(i + 1);
+
+                            <div class="productInformationDimensions">
+                                @if (!String.IsNullOrEmpty(leftDimension))
+                                {
+                                    <div class="dimensionInfo">
+                                        @Html.Raw(leftDimension)
+                                    </div>
+                                }
+                                @if (!String.IsNullOrEmpty(rightDimension))
+                                {
+                                    <div class="dimensionInfo">
+                                        @Html.Raw(rightDimension)
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+
+                <button id="productAddButton" class="product-add-button @Model.AddCartButtonView.AddButtonCls col-sm-12 col-md-8 col-lg-5" onclick="Mjc.product.addProduct(@Model.Product_ID)">
+                    AJOUTER AU PANIER
+                </button>
+
+                <div class="productShipping">
+                    <div id="productShippingTitle">
+                        <b>+</b>
+                        <div class="productShippingTitle">Informations livraison</div>
+                    </div>
+                    <div class="productShippingContent accordionPanel">Choisissez le mode de livraison entre le retrait chez Mes Jolis Cotillons (91120) ou la livraison à domicile en Colissimo (4/5 jours ouvrés).</div>
+                </div>
+
+
+                <div class="socialNetworkSharing">
+                    <div class="round facebookLogo" onclick="Mjc.product.shareProductItemOnSocialNetwork('https://www.facebook.com/sharer.php?u=', '@Model.ProductItemUrl')"></div>
+                    <div class="round emailLogo" onclick="Mjc.product.shareProductItemByEmail();"></div>
+                </div>
+
+                @{
+                    var listedCategory = Model.LinkedCategory_Set.Select(item => "<div class=\"categoryListed\" categoryId=\"" + item.Category_ID + "\"\">#" + item.DisplayName + "</div>").Aggregate((a, b) => a + b);
+                }
+
+                <div>@Html.Raw(listedCategory)</div>
+
+            </div>
+        </div>
+        <div id="otherSameProductsGridLoading" class="smallPadding"></div>
+    </div>
+</div>
+
+
+<script>
+
+    $(function() {
+        var productId = @Model.Product_ID;
+        Mjc.product.runProductItemViewUtilities(productId);
+    });
+
+</script>

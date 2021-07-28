@@ -1,0 +1,25 @@
+a.animated-left-to-right-link {
+    position: relative;
+    text-decoration: none;
+}
+
+// MENU Item underline animation
+// Create a before element, set a with = 0 that will grow when hover it.
+.animated-left-to-right-link:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0.3rem;
+    bottom: 0;
+    left: 0;
+    background-color: palevioletred;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    margin-top: 1rem;
+    top: 1rem;
+}
+
+.animated-left-to-right-link:hover:before {
+    visibility: visible;
+    width: 100%;
+}

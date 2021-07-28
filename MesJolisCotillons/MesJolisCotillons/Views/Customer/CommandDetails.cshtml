@@ -1,0 +1,74 @@
+﻿@model MesJolisCotillons.Models.Command
+@using MesJolisCotillons.Models
+
+
+<table class="commandDetailsTable" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Prix unitaire</th>
+            <th>Qté</th>
+            <th>Sous-total</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model.CommandProduct_Set)
+            {
+
+                var productId = item.Product.Product_ID;
+                var blob = new Product_Repository().FindProduct(productId)?.Blob_Set.FirstOrDefault();
+                byte[] blobBinaryStreamArray = null;
+                var src = "";
+
+                if (blob != null && blob.Stream != null)
+                {
+                    blobBinaryStreamArray = blob.Stream;
+                    string blobBinaryStream = Convert.ToBase64String(blobBinaryStreamArray);
+                    src = "data:image/jpg;base64," + blobBinaryStream;
+                }
+
+
+
+                <tr>
+                    <td>
+                        <a href="/Product/GetProductView/@productId"><img height="50px" width="50px" src="@src" /></a>
+                        <div class="contentTd"><a class="basicUrl" href="/Product/GetProductView/@productId">@item.Product.DisplayName</a></div>
+                    </td>
+                    <td>@item.ProductPrice €</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.TotalCommandProduct €</td>
+                </tr>
+        }
+
+    </tbody>
+
+</table>
+<div class="commandDetailsTotalContainer centuryFont">
+    <div class="commandDetailsTotalColumn">
+        <table cellspacing="0">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sous-Total</td>
+                    <td>@Model.TotalCommand €</td>
+                </tr>
+                <tr>
+                    <td><b>Frais de livraison</b></td>
+                    <td>@Model.DeliveryCharge €</td>
+                </tr>
+                <tr>
+                    <td><b>Total</b></td>
+                    <td>@Model.TotalPrice €</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

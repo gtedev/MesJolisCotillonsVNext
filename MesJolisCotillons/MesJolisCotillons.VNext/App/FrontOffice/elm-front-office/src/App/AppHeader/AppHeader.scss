@@ -1,0 +1,48 @@
+.app-header {
+    // border: 1px purple solid;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    // opacity: 0.9;
+    z-index: 30;
+
+    .logo {
+        padding: 2rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 2rem;
+
+        .img-logo {
+            height: 1.5rem;
+            width: 4.5rem;
+            margin-right: 1.5rem;
+            cursor: pointer;
+        }
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .menu-item {
+            padding-right: 2rem;
+            padding-left: 2rem;
+
+            a.menu-item-link {
+                color: black;
+            }
+        }
+
+        .cart-logo {
+            height: 3rem;
+            cursor: pointer;
+        }
+    }
+}

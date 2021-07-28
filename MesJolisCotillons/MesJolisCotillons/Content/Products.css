@@ -1,0 +1,586 @@
+﻿.productContainer {
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+}
+
+.productItemContainer {
+    padding-top: 0%;
+    width: 100%;
+    margin: auto auto 10%;
+    min-height: 100%;
+}
+
+.producHeaderTitle {
+    width: 60%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.otherInterestedProductHeader {
+    margin-top: 120px;
+    width: 100%;
+    /*margin-left: auto;
+    margin-right: auto;*/
+}
+
+.otherInterestedProductGridTitle {
+    /*border-bottom:dotted;*/
+    font-family: 'Century Gothic', 'Verdana';
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 2%;
+    color: black;
+    display: block;
+    width: 80%;
+    margin-bottom: 1%;
+}
+
+.loadingMask {
+    opacity: 0.4 !important;
+}
+
+    .loadingMask:hover {
+        cursor: default !important;
+    }
+
+.pagingGrid {
+    width: 50%;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .pagingGrid .pageToolbar {
+        float: right;
+    }
+
+.pageToolbar .pageNumber {
+    display: inline-block;
+    width: 20px;
+    height: 25px;
+    padding-top: 1px;
+    margin: 0px;
+    font-size: 0.8em;
+    border-color: #adaaaa;
+    border: 1px solid;
+    cursor: pointer;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+    .pageSelected, .pageToolbar .pageNumber:hover {
+        background-color: black;
+        color: white;
+        width: 20px;
+        cursor: pointer;
+        height: 25px;
+    }
+
+.productItem {
+    margin: 20px;
+}
+
+.productUniqueOutOfStockFlagColor {
+    background-color: #D21962;
+    /*background-color: #cb82af;*/
+}
+
+.productOutOfStockFlagColor {
+    background-color: #F7DC6F;
+    /*background-color: #babcc1;*/
+}
+
+.productUniqueFlagColor {
+    background-color: #1E767C;
+    /*background-color: #6993ea;*/
+}
+
+.productFewFlagColor {
+    background-color: #d7c288;
+}
+
+.productDimension {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dimensionInfo {
+    display: inline-block;
+    /*max-width: 100%;*/
+    width: 40%;
+    /*margin-right: 20px;*/
+}
+
+.dimensionTitle {
+    display: inline-block;
+    width: 6em;
+}
+
+.productItem:hover {
+    cursor: pointer;
+}
+
+.productTitle {
+    font-family: 'CookiesAndMilk', 'Century Gothic', 'Verdana';
+    font-size: 2em;
+    /*margin-left: 15%;*/
+    margin-top: 2%;
+    /*color: pink;*/
+    color: #7ce6bd;
+    display: block;
+    width: 80%;
+    /*border-bottom: 1px dashed;
+    border-color: black;*/
+    margin-bottom: 1%;
+}
+
+.productImage {
+    color: black;
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+
+    .productImage img {
+        -webkit-transition: all 0.2s linear;
+        -moz-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+        /*max-width: 100%;*/
+        width: 100%;
+        height: 100%;
+        /*overflow: hidden;*/
+    }
+
+    .productImage:hover img {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+.productImageNoScale:hover img {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    transition: none;
+}
+
+.productName, .productPrice {
+    font-family: 'Century Gothic', 'CookiesAndMilk', 'Verdana';
+    font-size: 0.8em;
+    /*font-weight: bold;*/
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ProductActionBlock {
+    font-size: 1em;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    display: block;
+    font-family: 'Century Gothic', 'CookiesAndMilk', 'Verdana';
+}
+
+.productInformationBlock {
+    /*width: 300px;*/
+    height: 80%;
+    margin-right: 20px;
+    vertical-align: top;
+    display: inline-block;
+    /*width: 40%;*/
+}
+
+.productInformation {
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 80%;*/
+    height: 100%;
+    /*display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;*/
+    /*align-items: stretch;*/
+    /*flex-grow: 1;*/
+}
+
+.productInformationDescription {
+    margin-top: 30px;
+    line-height: 1.5;
+    font-size: 0.8em;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.productInformationDimensions {
+    line-height: 1.5;
+    font-size: 0.8em;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.productShipping {
+    margin-top: 20px;
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-word;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+    .productShipping .productShippingTitle {
+        display: inline-block;
+        /*border-bottom: 4px black dotted;*/
+        text-decoration: underline;
+    }
+
+    .productShipping .productShippingContent {
+        /*background-color: #fde9ff;*/
+        margin: 5px;
+        color: dimgrey;
+    }
+
+/*.productShipping::before {
+    content: '\02795'; 
+}
+
+    .productShipping .shipmentInfoOpened {
+        margin-top: 100px;
+        line-height: 1.5;
+        text-align: justify;
+        text-justify: inter-word;
+        cursor: pointer;
+    }*/
+
+.productInformationTitle {
+    font-family: 'Century Gothic', 'Verdana';
+    font-size: 1.5em;
+    margin-top: 2%;
+    color: black;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    margin-bottom: 3%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.productInformationPrice {
+    font-family: 'Century Gothic', 'CookiesAndMilk', 'Verdana';
+    font-size: 1.5em;
+    /*margin-top: 2%;*/
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    width: 100%;
+    /*margin-bottom: 5%;*/
+    vertical-align: middle;
+}
+
+.product-add-button {
+    min-width: 200px;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #ffffff;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    margin-top: 30px;
+}
+
+    .product-add-button.active {
+        background-color: #71d5af;
+    }
+
+        .product-add-button.active:hover {
+            background-color: #7ce6bd;
+            cursor: pointer;
+        }
+
+    .product-add-button.disabled {
+        background-color: #daede6;
+        pointer-events: none;
+    }
+
+.productQuantiteInfo {
+    padding: 5px;
+    /*width: 30%;*/
+    font-size: 0.5em;
+    font-weight: normal;
+    margin-left: 10px;
+    /*margin-top: 10px;*/
+    margin-bottom: 4px;
+    margin-right: 20px;
+    color: white;
+    font-family: 'Century Gothic', 'CookiesAndMilk', 'Verdana';
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    /*border-radius: 5px;*/
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.greenButton {
+    background-color: #71d5af;
+    font-weight: normal;
+    font-size: 1.1em;
+    color: #ffffff;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    margin-top: 30px;
+    width: 100%;
+    float: right;
+}
+
+    .greenButton:hover {
+        background-color: #7ce6bd;
+        cursor: pointer;
+    }
+
+.buttonProductGrid {
+    padding: 2px;
+    width: 40%;
+    font-size: 0.8em;
+    margin-left: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: auto;
+    color: white;
+    font-family: 'Century Gothic', 'CookiesAndMilk', 'Verdana';
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+    .buttonProductGrid:hover {
+        background-color: #e2d5b0;
+    }
+
+.socialNetworkSharing {
+    margin-left: 0px;
+    margin-right: 30px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.round {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #dddbdb;
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+    .round:hover {
+        background-color: #bababa;
+        transition-duration: 1s; /* delays for 1 second */
+        -webkit-transition-duration: 1s; /* for Safari & Chrome */
+    }
+
+.facebookLogo {
+    background-image: url(Images/Icons/facebook-logo.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.pinterestLogo {
+    background-image: url(Images/Icons/pinterest-logo.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.emailLogo {
+    background-image: url(Images/Icons/envelope.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.categoryListed {
+    font-size: 0.7em;
+    background-color: #e6e5e5;
+    padding: 3px;
+    color: black;
+    font-family: 'Century Gothic', 'CookiesAndMilk', 'Verdana';
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 3em;
+    max-width: 20%;
+    text-overflow: ellipsis;
+    /*overflow: auto;*/
+    float: right;
+    margin: 5px;
+    cursor: pointer;
+}
+
+    .categoryListed:hover {
+        background-color: #bababa;
+        transition-duration: 1s; /* delays for 1 second */
+        -webkit-transition-duration: 1s; /* for Safari & Chrome */
+    }
+
+.other-products {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0 !important;
+}
+
+.products-frame {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.product-card {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    border: none;
+    min-width: 27%;
+    max-width: 27%;
+    overflow: hidden;
+}
+
+
+
+
+
+@media (min-width: 1000px) {
+
+    .otherInterestedProductGrid .product-card {
+        display: flex;
+        justify-content: center;
+        padding: 8px;
+        border: none;
+        min-width: 25%;
+        max-width: 27%;
+        /*width: 231.58px;
+        height: 317.88px;*/
+        overflow: hidden;
+    }
+
+    .otherInterestedProductGrid.products-frame {
+        width: 90%;
+    }
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+    .product-image:hover {
+        transform: scale(1.2);
+    }
+
+.image-container {
+    overflow: hidden;
+}
+
+.product-info {
+    margin-top: auto;
+    text-align: center;
+    font-family: 'Century Gothic','CookiesAndMilk','Verdana';
+    font-size: .8em;
+    padding-top: 0;
+}
+
+@media (min-width: 1300px) {
+    .product-image {
+        height: 225px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .product-image {
+        height: 250px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .product-image {
+        height: 275px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .product-image {
+        height: 175px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .product-image {
+        height: 165px;
+    }
+}
+
+@media (max-width: 950px) {
+    .product-card {
+        min-width: 50%;
+        max-width: 50%;
+        padding: 2%;
+    }
+
+    .products-frame {
+        padding-left: 12.5%;
+        padding-right: 12.5%;
+    }
+
+    .producHeaderTitle {
+        padding-left: 12.5%;
+        padding-right: 12.5%;
+    }
+
+    .product-image {
+        height: 270px;
+    }
+}
+
+@media (max-width: 580px) {
+    .product-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .product-image {
+        height: 320px;
+    }
+
+    .products-frame {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .producHeaderTitle {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}

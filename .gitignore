@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+*.vs
+*.suo
+*.user
+bin
+obj
+packages
+/MesJolisCotillons/MesJolisCotillons.VNext/App/FrontOffice/elm-front-office/node_modules

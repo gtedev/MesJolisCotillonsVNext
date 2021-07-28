@@ -1,0 +1,51 @@
+﻿@model MesJolisCotillons.ViewModels.InformationLeftMenuViewModel
+
+
+<div class="leftMenuInformation d-none d-md-inline-block">
+    <div class="informationTitle">Besoin d'aide ?</div>
+    @*<div id="AboutView" class="informationMenuItem" url="/Information/AboutView">A propos</div>*@
+    <div id="QuestionsAnswersView" class="informationMenuItem" url="/Information/QuestionsAnswersView">Questions / Réponses</div>
+    <div id="GeneralSalesConditionsView" class="informationMenuItem" url="/Information/GeneralSalesConditionsView">CGV / Mentions légales</div>
+    @*<div class="informationMenuItem" url="/Information/LegalNoticesView">Mentions légales</div>*@
+</div>
+
+@{
+    var questionsAnswersSelected = Model.itemSelectedId == "QuestionsAnswersView" ? "selected" : "";
+    var generalSalesConditionsSelected = Model.itemSelectedId == "GeneralSalesConditionsView" ? "selected" : "";
+}
+<select id="HelpMenuSelect" class="custom-select dropdownMenuHelp d-md-none">
+    <option class="optionHelp" @questionsAnswersSelected id="QuestionsAnswersViewSelect" url="/Information/QuestionsAnswersView">Questions / Réponses</option>
+    <option class="optionHelp" @generalSalesConditionsSelected id="GeneralSalesConditionsViewSelect" url="/Information/GeneralSalesConditionsView">CGV / Mentions légales</option>
+</select>
+
+<script defer>
+    $(function() {
+
+
+        var itemSelectedId = '@Model.itemSelectedId';
+        $('#' + itemSelectedId).addClass("customerMenuItemSelected");
+
+        $(".informationMenuItem").click(function(e) {
+
+            if (!$(this).hasClass("loadingMask")) {
+
+                var url = $(this).attr("url");
+                e.stopPropagation();
+
+                if (url != "") {
+                    Mjc.route.redirectToUrl(url);
+                }
+            }
+        });
+        $("#HelpMenuSelect").change(function(e) {
+            var url = $('#HelpMenuSelect option:selected').attr('url');
+            e.stopPropagation();
+            if (url != "") {
+
+                Mjc.route.redirectToUrl(url);
+            }
+        });
+    });
+
+
+</script>

@@ -1,0 +1,87 @@
+﻿@model MesJolisCotillons.ViewModels.HeaderViewModel
+
+<div id="paintBandeau">
+    <ul class="leftArea d-none d-md-block">
+        <li><a title="Ma page Facebook" target="_blank" href="https://www.facebook.com/mesjoliscotillons/?ref=aymt_homepage_panel"><img src="~/Content/Images/Icons/Facebooknew.png" height="25px" width="25px" alt="Facebook icon"></a></li>
+        <li><a title="Ma page Insta" target="_blank" href="https://www.instagram.com/mesjoliscotillons/"> <img src="~/Content/Images/Icons/instagramnew.png" height="25px" width="25px" alt="Instagram icon"></a></li>
+    </ul>
+    <div id="user-responsive-btn" class="leftArea user-responsive-btn d-block d-md-none">
+        <img src="~/Content/Images/Icons/menu.png" height="25px" width="25px">
+    </div>
+
+    <ul class="rightArea d-none d-md-block">
+        @{
+            var customerCls = "";
+            if (Model.isCustomerUserConnected)
+            {
+                customerCls = "dropdown";
+            }
+        }
+        @if (!Model.isCustomerUserConnected)
+        {
+            <li class="whiteUnderlineHover"><a href="/Login/InscriptionFormView">créér un compte</a></li>
+            <li>&nbsp;</li>
+            <li>|</li>
+            <li>&nbsp;</li>
+        }
+        <li id="myCustomerAccountLi" class="@customerCls whiteUnderlineHover">
+            <a href="/Customer" id="myCustomerAccount">@Model.CustomerUserName</a>
+            <div class="dropdownContent">
+                <div class="itemMenuHeader" onclick="Mjc.route.redirectToUrl('/Customer')">Mon compte</div>
+                <div class="itemMenuHeader" onclick="Mjc.route.redirectToUrl('/Customer/CustomerAccountCommandListView')">Mes dernières commandes</div>
+                <div class="itemMenuHeader" id="SignOutButton">Déconnexion</div>
+            </div>
+        </li>
+        <li>&nbsp;</li>
+        <li>|</li>
+        <li>&nbsp;</li>
+        <li id="monJoliPanier">
+            <a href="/Cart/MyCartView">
+                <img class="socialLink imgAlignOnText" src="~/Content/Images/Icons/panierVert.png" height="30px" width="30px" alt="Facebook icon">
+
+                <span class="itemNbCls"><span id="itemTotalCartPrice">@Model.TotalPriceCart.ToString("0.00") </span> € (<span class="itemNb">@Model.TotalProductCountCart</span>)</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="rightArea d-block d-md-none">
+        <li><a href="/Customer"><img class="imgAlignOnText" src="~/Content/Images/Icons/user.png" height="23px" width="23px"></a></li>
+        <li id="monJoliPanier">
+            <a href="/Cart/MyCartView">
+                <img class="socialLink imgAlignOnText" src="~/Content/Images/Icons/panierVert.png" height="30px" width="30px">
+
+                <span class="itemNbCls">(<span class="itemNb">@Model.TotalProductCountCart</span>)</span>
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+<div class="bandeau">
+    <a href="/"><img src="~/Content/Images/Logo1902_SITE_2.png" /></a>
+</div>
+
+<div>
+    <ul id="menu" class="d-none d-md-block">
+        @foreach (var menuItem in Model.DesignConfigXmlData.Headers)
+        {
+            var dropdownCls = menuItem.EnableClickFilter ? "dropdown itemMenuClickable" : "dropdown";
+
+            <li class="@dropdownCls" menuItemId="@menuItem.MenuItemId">
+                @menuItem.Label
+                <div class="dropdownContent">
+                    @foreach (var subMenuItem in menuItem.SubMenu_List)
+                    {
+                        var itemMenuCls = subMenuItem.EnableClickFilter ? "itemMenu itemMenuClickable" : "itemMenu";
+                        <div class="@itemMenuCls" menuItemId="@subMenuItem.MenuItemId">@subMenuItem.Label</div>
+                    }
+                </div>
+            </li>
+        }
+    </ul>
+
+    <script type="text/javascript" defer>
+        $(function () {
+            Mjc.header.runHeaderUtilities();
+        });
+    </script>
+</div>

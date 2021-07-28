@@ -1,0 +1,183 @@
+.product-item {
+    .product-image-slides,
+    .product-info-panel {
+        height: 70rem;
+        // border: 1px solid green;
+    }
+
+    .product-info-panel {
+        .product-item-title {
+            font-size: 2.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-item-description {
+            font-size: 1.4rem;
+            white-space: normal;
+        }
+
+        .product-item-price {
+            padding: 3rem 0rem 3rem 0rem;
+            font-size: 2rem;
+            white-space: normal;
+            color: #b31e6f;
+        }
+
+        .add-to-cart-quantity {
+            font-size: 1.4rem;
+
+            .add-to-cart-quantity-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height: 5rem;
+
+                .quantity {
+                    background-color: #eee;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 0rem 2rem 0rem 5rem;
+                    border-top-left-radius: 0.5rem;
+                    border-bottom-left-radius: 0.5rem;
+                }
+
+                .plus,
+                .minus {
+                    cursor: pointer;
+                    width: 2rem;
+                    text-align: center;
+                    flex-direction: column;
+                    flex-grow: 1;
+                    transition: all 0.2s ease-in-out;
+                }
+
+                .plus {
+                    &:hover {
+                        background-color: gainsboro;
+                        border-top-right-radius: 0.5rem;
+                    }
+                }
+
+                .minus {
+                    &:hover {
+                        background-color: gainsboro;
+                        border-bottom-right-radius: 0.5rem;
+                    }
+                }
+
+                .arrow {
+                    border: solid #6b5959;
+                    border-width: 0 0.1rem 0.1rem 0;
+                    display: inline-block;
+                    padding: 0.2rem;
+                }
+
+                .up {
+                    transform: rotate(-135deg);
+                    -webkit-transform: rotate(-135deg);
+                }
+
+                .down {
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                }
+
+                .add-minus-buttons {
+                    background-color: #eee;
+                    height: 100%;
+                    border-top-right-radius: 0.5rem;
+                    border-bottom-right-radius: 0.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        }
+        .add-to-cart-button {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background-color: #b31e6f;
+            width: 15rem;
+            color: white;
+            cursor: pointer;
+            margin-top: 2rem;
+
+            &:hover {
+                background-color: #a0105f;
+            }
+        }
+    }
+
+    .product-image-slides {
+        .product-image {
+            width: 100%;
+            height: 80%;
+            cursor: pointer;
+        }
+
+        .product-image-placeholder {
+            width: 11rem;
+            height: 11rem;
+            cursor: pointer;
+            padding: 1rem;
+            opacity: 0.5;
+        }
+    }
+
+    .share-product-item {
+        font-size: 1.4rem;
+        padding: 3rem 0rem 3rem 0rem;
+    }
+
+    .product-item-tabs {
+        display: flex;
+        flex-direction: column;
+        height: 25rem;
+        font-size: 1.4rem;
+        // border: 1px solid green;
+        .tabs {
+            display: flex;
+            flex-direction: row;
+
+            .tab {
+                padding: 1rem 2rem 1rem 2rem;
+                background-color: #eee;
+                border-bottom: 1px solid white;
+                border-right: 1px solid white;
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(228, 226, 226);
+                }
+
+                &:first-child {
+                    border-top-left-radius: 0.3rem;
+                }
+
+                &:last-child {
+                    border-top-right-radius: 0.3rem;
+                    border-right: none;
+                }
+
+                &.selected {
+                    border-bottom: none;
+                    &:hover {
+                        background-color: #eee;
+                    }
+                }
+            }
+        }
+        .tab-content {
+            background-color: #eee;
+            flex-grow: 1;
+        }
+    }
+
+    .related-products {
+        height: 30rem;
+        border: 1px solid green;
+    }
+}

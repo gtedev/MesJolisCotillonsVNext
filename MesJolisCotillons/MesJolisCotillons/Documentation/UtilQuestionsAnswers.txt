@@ -1,0 +1,19 @@
+﻿===========================================================
+Util Questions / Answers
+===========================================================
+
+
+1)  Why Bundling minifying code is not working in MVC5 when I turn on release mode
+	Response: Bundling and minification is enabled or disabled by setting the value of the debug attribute in the compilation Element in the Web.config file.
+	http://stackoverflow.com/questions/29254181/bundling-not-working-in-mvc5-when-i-turn-on-release-mode
+
+2) Bundling minification can failed, if you open browser, and checking JS sources files, some file can display like this (it is the case for the Extjs Admin part).
+   That is why for certain JS framework, JS library,  this is useful to use the "official" minification
+		/* Minification failed. Returning unminified contents.
+		(1323,15-16): run-time error JS1003: Expected ':': (
+		(1323,24-25): run-time error JS1100: Expected ',': {
+		(1341,5-6): run-time error JS1002: Syntax error: }
+		(1342,39-40): run-time error JS1004: Expected ';': {
+		(1393,1-2): run-time error JS1002: Syntax error: }
+		(1399,13-14): run-time error JS1004: Expected ';': :
+		(1409,21-22): run-time error JS1004: Expected ';': :

@@ -1,0 +1,14 @@
+.product-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  .product-grid {
+    height: 100%;
+    width: 75%;
+    align-self: center;
+    justify-self: center;
+  }
+}

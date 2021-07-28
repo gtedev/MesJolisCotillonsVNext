@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Dosis";
+  src: url(assets/fonts/Dosis/Dosis-VariableFont_wght.ttf);
+}
+
+// override bootstrap variable to use the new font.
+$font-family-base: "Dosis" !default;
+
+//https://getbootstrap.com/docs/4.0/getting-started/theming/
+// https://getbootstrap.com/docs/4.0/getting-started/webpack/

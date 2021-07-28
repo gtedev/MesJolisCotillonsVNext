@@ -1,0 +1,87 @@
+﻿@model MesJolisCotillons.ViewModels.CustomerAccountViewModel
+
+<div class="customerAccountContent p-3">
+    <div class="customerAccountForm">
+        <div class="customerAccountTitle">Mes commandes récentes</div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">Date de commande</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Date d'expédition</th>
+                    <th scope="col">Total commande</th>
+                    <th scope="col">Détails</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                @foreach (var item in Model.Command_Set)
+                {
+                    string dateString = "";
+                    string dateShipmentString = "";
+                    if (item.CreationDateTime != null)
+                    {
+                        dateString = ((DateTime) item.CreationDateTime).ToString("dd/MM/yyyy");
+                    }
+
+                    var shipMentDate = item?.Command_XmlData?.ShipmentDate;
+
+                    if (shipMentDate != null)
+                    {
+                        dateShipmentString = ((DateTime) shipMentDate).ToString("dd/MM/yyyy");
+                    }
+
+                    <tr class="expandable">
+                        <th scope="row">@item.Command_ID</th>
+                        <td>@Html.Raw(dateString)</td>
+                        <td>@item.Command_Status.ToStringFrench()</td>
+                        <td>@dateShipmentString</td>
+                        <td>@item.TotalPrice €</td>
+                        <td>
+                            <div class="borderRound fontColorWhite blueBackColor hoverSlower detailsButton toggle" commandId="@item.Command_ID" @*data-popup-open="popup-1"*@>Détails <img class="imgAlignOnText" height="8px" width="8px" src="~/Content/Images/Icons/down-arrow.png"/></div>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <input name="Save" class="signOutButton" type="submit" value="Déconnexion"/>
+    </div>
+</div>
+
+<script defer>
+
+    $('.detailsButton').bind('click',
+        function() {
+
+            var me = this;
+
+            if ($(this).hasClass("detailsOpened")) {
+                $(this).closest('tr').next().hide();
+                $(this).removeClass("detailsOpened")
+            } else {
+                if ($(this).hasClass("detailsLoaded")) {
+                    $(me).closest('tr').next().hide().show('slow');
+                    $(me).addClass("detailsOpened");
+                } else {
+
+                    var commandId = $(this).attr("commandId");
+                    $.get('/Customer/CommandDetails/' + commandId,
+                        function(htmlResult) {
+                            $('<tr class="rowExpander"><td colspan=6>' + htmlResult + '</td></tr>')
+                                .insertAfter($(me).closest('tr')).hide().show('slow');
+                            $(me).addClass("detailsOpened");
+                            $(me).addClass("detailsLoaded");
+                        });
+                }
+            }
+        });
+
+    $('.signOutButton').click(function () {
+        Mjc.user.signOut();
+    });
+
+</script>

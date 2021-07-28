@@ -1,0 +1,51 @@
+@import "../../variables.scss";
+
+.grid {
+  font-family: "ProximaNova" !important;
+  width: 100%;
+
+  .grid-header-toolbar {
+    background-color: white;
+    th {
+      padding: 4rem;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      height: 3rem;
+    }
+  }
+
+  .grid-header {
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(161, 187, 186);
+    background-color: #eff5ef;
+
+    th {
+      position: sticky;
+      top:0;
+      padding: 1rem 3rem 1rem 3rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: rgb(161, 187, 186);
+      background-color: #eff5ef;
+    }
+  }
+
+  .grid-row {
+    background-color: white;
+
+    &:hover {
+      background-color: #e6f2ff;
+      cursor: pointer;
+    }
+
+    &.selected {
+      border-left: 0.4rem solid #6589dc;
+    }
+
+    td {
+      border-bottom: 1px solid #f0f0f5;
+      padding: 3rem 3rem 3rem 3rem;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+﻿@model MesJolisCotillons.ViewModels.CheckoutViewModel
+
+<div class="radioGroupCheckoutMode">
+    <div class="custom-control custom-radio">
+        <input id="radioCheckoutPaypal" class="custom-control-input" type="radio" name="radioCheckoutPaypal" value="1" checked>
+        <label class="custom-control-label" for="radioCustomerLoginMode"><span class="labelPaypal">Paypal - l'inscription n'est pas obligatoire <img height="65px" width="68px" src="~/Content/Images/small_paypal.png"></span></label>
+    </div>
+    <br>
+    <br>
+    <div class="beigeBackColor smallPadding">
+        En continuant votre commande, vous consentez à accepter nos <a href="/Information/GeneralSalesConditionsView" target="_blank">Conditions Générales de Vente</a>.
+    </div>
+    <br>
+    <br>
+</div>
+
+<button id="checkoutStepButton" class="commandGreenButton">Payer</button>
+<div id="checkoutHiddenForm" class="hiddenForm"></div>
+
+<script defer>
+
+    $(function () {
+        Mjc.command.runCheckoutProcessing();
+    });
+</script>

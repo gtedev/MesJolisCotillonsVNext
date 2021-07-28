@@ -1,0 +1,78 @@
+﻿.inscriptionContainer {
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%;
+    width: 70%;
+    background-color: white;
+    font-family: 'Century Gothic','Verdana';
+    font-size: 0.8rem;
+}
+
+.inscriptionForm {
+    background-color: white;
+    height: 80%;
+    width: 50%;
+    padding: 30px;
+    display: block;
+    background-color: white;
+    margin: auto;
+    min-width: 382px;
+}
+
+    .inscriptionForm .inscriptionTitle {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .inscriptionForm .inscriptionTexfield {
+        margin-right: auto;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+.inscriptionContainer .inscriptionArea {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    background-color: white;
+}
+
+.inscriptionTexfield input, .inscriptionTexfield select {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    text-indent: 10px;
+    box-sizing: border-box;
+}
+
+.inscriptionSubmitButton {
+    background-color: #71d5af;
+    margin-top: 70px;
+    font-weight: normal;
+    font-size: 1.1em;
+    color: #ffffff;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    width: 50%;
+}
+
+    .inscriptionSubmitButton:hover {
+        background-color: #7ce6bd;
+        cursor: pointer;
+    }
+
+
+@media only screen and (max-width: 500px) {
+    .inscriptionContainer {
+        width: 100%;
+    }
+}

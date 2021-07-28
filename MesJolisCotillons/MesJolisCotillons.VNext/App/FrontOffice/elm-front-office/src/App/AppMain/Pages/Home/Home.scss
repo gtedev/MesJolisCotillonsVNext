@@ -1,0 +1,43 @@
+.product-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+
+    .product-grid-item {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0rem 1rem 0rem;
+        cursor: pointer;
+
+        .product-image {
+            // position: absolute;
+            height: 28rem;
+            width: 25rem;
+        }
+
+        .product-info-overlay {
+            position: absolute;
+            height: 28rem;
+            width: 25rem;
+            color: white;
+            // opacity: 0;
+            // background-color: gainsboro;
+            transition: opacity 0.25s ease-in-out;
+
+            .product-display-name {
+                padding: 1rem;
+            }
+
+            // &:hover {
+            //     // opacity: 0.5;
+            // }
+        }
+    }
+}
+
+.home-carousel {
+    height: 60rem;
+    background-color: #f7f7f7;
+    margin: 0rem 3.8rem 0rem 3.8rem;
+}

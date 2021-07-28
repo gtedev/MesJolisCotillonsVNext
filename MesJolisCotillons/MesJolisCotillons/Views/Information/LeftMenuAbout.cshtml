@@ -1,0 +1,48 @@
+﻿@model MesJolisCotillons.ViewModels.InformationLeftMenuViewModel
+
+
+<div class="leftMenuInformation d-none d-md-inline-block">
+    <div class="informationTitle">La boutique</div>
+    <div id="AboutView" class="informationMenuItem" url="/Information/AboutView">A propos</div>
+    <div id="ContactView" class="informationMenuItem" url="/Information/Contact">Contact</div>
+</div>
+
+@{
+    var aboutViewSelected = Model.itemSelectedId == "AboutView" ? "selected" : "";
+    var contactViewSelected = Model.itemSelectedId == "ContactView" ? "selected" : "";
+}
+<select id="AboutMenuSelect" class="custom-select dropdownAboutMenu d-md-none">
+    <option @aboutViewSelected id="AboutViewSelect" url="/Information/AboutView">A propos</option>
+    <option @contactViewSelected id="ContactViewSelect" url="/Information/Contact">Contact</option>
+</select>
+
+<script defer>
+    $(function () {
+
+        var itemSelectedId = '@Model.itemSelectedId';
+        $('#' + itemSelectedId).addClass("customerMenuItemSelected");
+
+        $(".informationMenuItem").click(function (e) {
+
+            if (!$(this).hasClass("loadingMask")) {
+
+                var url = $(this).attr("url");
+                e.stopPropagation();
+
+                if (url != "") {
+                    Mjc.route.redirectToUrl(url);
+                }
+            }
+        });
+        $("#AboutMenuSelect").change(function(e) {
+            var url = $('#AboutMenuSelect option:selected').attr('url');
+            e.stopPropagation();
+            if (url != "") {
+                
+                Mjc.route.redirectToUrl(url);
+
+            }
+        });
+    });
+
+</script>

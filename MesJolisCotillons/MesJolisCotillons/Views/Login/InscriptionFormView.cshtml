@@ -1,0 +1,41 @@
+﻿
+<div class="inscriptionContainer">
+    <div class="inscriptionArea">
+        <div class="inscriptionForm">
+            <div class="inscriptionTitle">Inscription client:</div>
+
+            @{
+                var returnUrl = Request.QueryString["ReturnUrl"];
+            }
+
+            <form id="inscriptionCustomerForm">
+                <div>Email <span class="redFont">*</span></div>
+                <div class="inscriptionTexfield"><input type="text" name="eMail" placeholder="Un mail de confirmation vous sera envoyé" /></div>
+                <div>Mot de passe<span class="redFont">*</span></div>
+                <div class="inscriptionTexfield"><input type="password" name="Password" onCopy="return false;" onPaste="return false;" placeholder="6 caractères minimum" /></div>
+                <div>Confirmer mot de passe<span class="redFont">*</span></div>
+                <div class="inscriptionTexfield"><input type="password" name="ConfirmedPassword" onCopy="return false;" onPaste="return false;" placeholder="" /></div>
+                <div>Nom<span class="redFont">*</span></div>
+                <div class="inscriptionTexfield"><input type="text" name="LastName" placeholder="" /></div>
+                <div>Prénom<span class="redFont">*</span></div>
+                <div class="inscriptionTexfield"><input type="text" name="FirstName" placeholder="" /></div>
+                <div>Adresse</div>
+                <div class="inscriptionTexfield"><input type="text" name="address" placeholder="Numéro et nom avenue / rue" /></div>
+                <div class="inscriptionTexfield"><input type="text" name="zipCode" placeholder="Code Postal" /></div>
+                <div class="inscriptionTexfield"><input type="text" name="city" placeholder="Ville" /></div>
+                @*<div class="inscriptionTexfield"><input type="text" name="country" placeholder="Pays: France (par défaut)" /></div>*@
+                <div class="inscriptionTexfield">@Html.CountryDropdownList(fieldName: "Country")</div>
+                <div class="smallFontSize">En créant votre compte, vous acceptez nos <a href="/Information/GeneralSalesConditionsView" target="_blank">Conditions Générales de Vente</a></div>
+                <input name="Save" class="inscriptionSubmitButton" type="submit" value="Créer le compte" />
+            </form>
+        </div>
+    </div>
+</div>
+
+<script defer>
+
+    $(function () {
+        Mjc.inscription.runInscriptionProcessing();
+    });
+
+</script>

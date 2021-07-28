@@ -1,0 +1,185 @@
+﻿@model MesJolisCotillons.ViewModels.CartViewModel
+@using MesJolisCotillons.Models
+
+
+<div id="myCartContainer" class="col-sm-12 col-md-12 col-lg-12">
+    @if (Model.SessionCartModel.commandProducts.Count() > 0)
+    {
+
+
+        <table class="myCartHeaderTable d-none d-md-none d-lg-table" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Prix unitaire</th>
+                    <th>Qté</th>
+                    <th>Sous-total</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model.SessionCartModel.commandProducts)
+                {
+                    var productId = item.product.Product_ID;
+                    byte[] blobBinaryStreamArray = Model.ProductIdBlobs[productId];
+                    var src = "";
+
+                    if (blobBinaryStreamArray != null)
+                    {
+                        string blobBinaryStream = Convert.ToBase64String(blobBinaryStreamArray);
+                        src = "data:image/jpg;base64," + blobBinaryStream;
+                    }
+
+                    <tr>
+                        <td class="description-td">
+                            <a href="/Product/GetProductView/@productId"><img height="80px" width="80px" src="@src" /></a>
+                            <div class="contentTd"><a class="basicUrl" href="/Product/GetProductView/@productId">@item.product.DisplayName</a></div>
+                        </td>
+                        <td>@item.product.Price €</td>
+
+                        @if (item.product.ProductType == ProductType.SERIE && item.product.MaxQuantity > 0)
+                        {
+                            <td>
+                                <select class="productQuantityDropdown" productId="@item.product.Product_ID">
+                                    @for (int i = 1; i <= item.product.MaxQuantity; i++)
+                                    {
+                                        if (i == item.quantity)
+                                        {
+                                            <option selected>@item.quantity</option>
+
+                                        }
+                                        else
+                                        {
+                                            <option>@i</option>
+                                        }
+                                    }
+                                </select>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@item.quantity</td>
+                        }
+
+                        <td>@item.TotalCommandProduct €</td>
+                        <td><div class="removeProductCart" onclick="Mjc.cart.removeFromMyCart(@productId);"><img title="Retirer du panier" src="~/Content/Images/Icons/general/delete-cross.png" /></div></td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+
+
+        //// responsive panier
+        <div class="d-block d-md-block d-lg-none">
+            <div class="container-fluid">
+
+                @foreach (var item in Model.SessionCartModel.commandProducts)
+                {
+                    var productId = item.product.Product_ID;
+                    byte[] blobBinaryStreamArray = Model.ProductIdBlobs[productId];
+                    var src = "";
+
+                    if (blobBinaryStreamArray != null)
+                    {
+                        string blobBinaryStream = Convert.ToBase64String(blobBinaryStreamArray);
+                        src = "data:image/jpg;base64," + blobBinaryStream;
+                    }
+                    <div class="cart-responsive-row">
+                        <div class="row font-text sm-text">
+                            <div class="col-6"><a href="/Product/GetProductView/@productId"><img height="150px" style="max-width:100%" src="@src" /></a></div>
+                            <div class="col-6">
+                                <div><a class="basicUrl" href="/Product/GetProductView/@productId">@item.product.DisplayName</a></div>
+                                <br />
+                                <div>@item.product.Price € </div>
+                                <div>Quantité:</div>
+                                @if (item.product.ProductType == ProductType.SERIE && item.product.MaxQuantity > 0)
+                                {
+                                    <td>
+                                        <select class="productQuantityDropdown" productId="@item.product.Product_ID">
+                                            @for (int i = 1; i <= item.product.MaxQuantity; i++)
+                                            {
+                                                if (i == item.quantity)
+                                                {
+                                                    <option selected>@item.quantity</option>
+
+                                                }
+                                                else
+                                                {
+                                                    <option>@i</option>
+                                                }
+                                            }
+                                        </select>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>@item.quantity</td>
+                                }
+                                <br />
+                                <br />
+                                <div>Sous-total:</div>
+                                <div>@item.TotalCommandProduct €</div>
+                                <br />
+                                <br />
+                                <div class="font-text remove-responsive d-none d-sm-block" onclick="Mjc.cart.removeFromMyCart(@productId);">
+                                    <img title="Retirer du panier" src="~/Content/Images/Icons/general/rubbish-bin-delete-black.png" />
+                                    <span class="underline-hover">Retirer du panier</span>
+                                </div>
+                            </div>
+                        </div>
+                        @*d-sm-none se lit ==>  il va rester display none jusqua sm*@
+                        <div class="row d-block d-sm-none text-center font-text remove-responsive" onclick="Mjc.cart.removeFromMyCart(@productId);">
+                            <img src="~/Content/Images/Icons/general/rubbish-bin-delete-black.png" /> 
+                            <span class="underline-hover">Retirer du panier</span>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+
+
+        <div class="myCartTotalContainer centuryFont">
+            <div class="myCartTotalColumn">
+                <table class="myCartTotalTable ">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Sous-Total</b></td>
+                            <td>@Model.SessionCartModel.TotalCommand €</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <button id="processCommandButton" class="greenButton">Commander</button>
+            </div>
+
+        </div>
+
+    }
+    else
+    {
+        <div class="myCartHeaderTable centuryFont">
+            <div class="emptyMessageCart">
+                <img src="~/Content/Images/Icons/empty-cart-green.png" /> &nbsp;&nbsp;&nbsp; <span>Mon panier est vide...</span>
+            </div>
+        </div>
+    }
+
+</div>
+
+<script defer>
+    $(function () {
+        Mjc.cart.runCartGridUtilities();
+    });
+</script>

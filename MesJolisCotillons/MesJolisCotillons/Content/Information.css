@@ -1,0 +1,221 @@
+﻿
+.informationContainer {
+   /* margin-left: auto;
+    margin-right: auto;*/
+    padding-left:12.5%;
+    padding-right: 12.5%;
+    min-height: 100%;
+    width: 100%;
+    min-width: 80%;
+    background-color: white;
+    font-family: 'Century Gothic', 'Verdana';
+}
+
+.leftMenuInformation {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+   /* min-width: 200px;*/
+    height: 50%;
+    padding: 0;
+    margin: 0 10px 0 0;
+    background-color: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+}
+
+.informationContent {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    max-width: 65%;
+    height: 60%;
+    padding: 0;
+    background-color: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.informationTitle {
+    padding-left: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 1.2em;
+    color: #000000;
+    font-weight: bold;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+@media only screen and (max-width: 767.5px) {
+
+    .informationContent {
+        display: inline-block;
+        max-width: none;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .informationContainer {
+        width: 100%;
+        padding: 20px;
+    }
+    .informationAvatar{
+        display : block!important;
+        margin: auto;
+        min-width: 300px!important;
+    }
+    
+    .informationAboutContent {
+        width: 100%!important;
+        padding : 20px;
+    }
+}
+
+.informationMenuItem {
+    padding: 15px;
+    font-size: 0.9em;
+}
+
+.informationMenuItem:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.informationAvatar {
+    display: inline-block;
+    height: 100%;
+    width: 40%;
+    vertical-align: top;
+    padding: 20px;
+}
+
+
+
+.informationAvatar img {
+    height: 100%;
+    width: 100%;
+}
+
+.informationAboutContent {
+    text-align: justify;
+    width: 50%;
+    display: inline-block;
+    /*font-family: 'Courier New', 'Verdana';*/
+    font-size: 0.8em;
+    padding-top: 20px;
+}
+
+.informationSimpleText {
+    padding: 20px;
+    text-align: justify;
+    font-size: 0.9em;
+}
+
+.questionAnswersContainer h5 {
+    cursor: pointer;
+    /*border-bottom: solid thin;
+    border-color: gainsboro;*/
+    padding: 10px;
+    margin: 0;
+    /*color: #335fed;*/
+    /*color: #000000;*/
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.questionAnswersContainer h5:hover {
+    text-decoration: underline;
+    /*background-color: #e3e6ff;
+    transition-duration: 1s;*/
+}
+
+.questionAnswersContainer h5:before {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 10px;
+    color: #000000;
+    float: right;
+    margin-left: 5px;
+}
+
+.questionAnswersContainer h5.opened:before {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    font-size: 10px;
+    color: #000000;
+    float: right;
+    margin-left: 5px;
+}
+
+.questionAnswersContainer .answerContent {
+    background-color: #ecf7ee;
+    padding: 20px 40px 20px 20px;
+    font-size: 0.8em;
+    line-height: 1.5em;
+}
+
+.contactForm {
+    width: 80%;
+}
+
+.contactFormBaseRow {
+    display: flex;
+    align-content: stretch;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.contactFormTexfield {
+    width: 100%;
+    margin-right: 20px;
+}
+
+.contactFormTexfield input {
+    width: 100%;
+    height: 30px;
+    text-indent: 10px;
+    box-sizing: border-box;
+}
+
+.contactFormTexfield textarea {
+    height: 200px;
+    display: flex;
+    align-content: stretch;
+    width: 100%;
+    text-indent: 10px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.contactFormSubmitButton {
+    background-color: #71d5af;
+    font-weight: normal;
+    font-size: 1.1em;
+    color: #ffffff;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    width: 15em;
+    margin: 0 0 30px;
+}
+
+.contactFormSubmitButton:hover {
+    background-color: #7ce6bd;
+    cursor: pointer;
+}
+
+.dropdownAboutMenu {
+    width: 100%;
+    display: block;
+    margin-top: 40px;
+}
+
+.dropdownMenuHelp {
+    width: 100%;
+    display: block;
+    margin-top: 40px;
+}
+
+.generalSalesConditionsHeaders > h4, h6 {
+    font-weight: bold !important;
+}

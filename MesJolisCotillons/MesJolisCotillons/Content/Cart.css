@@ -1,0 +1,132 @@
+﻿#myCartContainer {
+    /*width: 80%;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.myCartHeaderTable {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /*min-width: 530px;*/
+}
+
+    .myCartHeaderTable th {
+        padding: 10px;
+        border: none;
+        background-color: #71d5af;
+        color: #ffffff;
+        font-weight: bold;
+        font-family: 'Century Gothic','Verdana';
+        font-size: 0.8em;
+        border-right: 0.5px solid;
+        border-color: white;
+    }
+
+    .myCartHeaderTable td {
+        font-family: 'Century Gothic','Verdana';
+        padding: 10px;
+        vertical-align: top;
+        margin: -1px;
+        border-bottom: solid 0.5px;
+        border-color: gainsboro;
+        font-size: 0.8em;
+        text-overflow: ellipsis;
+    }
+
+    .myCartHeaderTable .contentTd {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 5%;
+        width: 60%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+.myCartTitle {
+    font-size: 2em;
+    font-family: 'Century Gothic','Verdana';
+    /*width: 80%;*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    border-bottom: dotted;
+}
+
+.myCartTotalColumn {
+    float: right;
+}
+
+.myCartTotalContainer {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+}
+
+.myCartTotalColumn td {
+    text-align: right;
+    padding-right: 10px;
+    font-size: 0.8em;
+}
+
+.removeProductCart {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.emptyMessageCart img {
+    vertical-align: middle;
+}
+
+.emptyMessageCart {
+    width: 20em;
+    background-color: #f1f2f0;
+    padding: 10px;
+}
+
+.cart-responsive-row {
+    padding: 20px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.font-text {
+    font-family: 'Century Gothic','Verdana';
+}
+
+.sm-text {
+    font-size: 12px;
+}
+
+.remove-responsive {
+    cursor: pointer;
+    color: darkcyan;
+    font-size: 0.8em;
+}
+
+.underline-hover:hover {
+    text-decoration: underline;
+}
+
+.description-td {
+    min-width: 300px;
+}
+
+@media screen and (min-width: 765px) {
+    #myCartContainer {
+        min-height: 145px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #myCartContainer {
+        min-height: 200px;
+    }
+}
+
+@media screen and (min-width:1004px) {
+    #myCartContainer {
+        min-height: 244px;
+    }
+}

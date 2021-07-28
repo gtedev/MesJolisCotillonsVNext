@@ -1,0 +1,1535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MesJolisCotillons.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Address_ID" />
+          </Key>
+          <Property Name="Address_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip_Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country_FK" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin_User">
+          <Key>
+            <PropertyRef Name="User_FK" />
+          </Key>
+          <Property Name="User_FK" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Blob">
+          <Key>
+            <PropertyRef Name="Blob_ID" />
+          </Key>
+          <Property Name="Blob_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Stream" Type="varbinary(max)" />
+          <Property Name="MimeType" Type="nvarchar" MaxLength="50" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreationDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CarouselImage">
+          <Key>
+            <PropertyRef Name="CarouselImage_ID" />
+          </Key>
+          <Property Name="CarouselImage_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Blob_FK" Type="int" Nullable="false" />
+          <Property Name="CarouselImage_Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Etiquette_FK" Type="int" />
+        </EntityType>
+        <EntityType Name="Command">
+          <Key>
+            <PropertyRef Name="Command_ID" />
+          </Key>
+          <Property Name="Command_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreationDateTime" Type="datetime" />
+          <Property Name="Command_Status" Type="int" Nullable="false" />
+          <Property Name="Customer_User_FK" Type="int" Nullable="false" />
+          <Property Name="DeliveryCharge" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OptionShipmentCharge" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OptionShipmentSecureType" Type="int" />
+          <Property Name="ShipmentType" Type="int" />
+          <Property Name="xmlData" Type="xml" />
+        </EntityType>
+        <EntityType Name="Command_Document">
+          <Key>
+            <PropertyRef Name="Document_FK" />
+          </Key>
+          <Property Name="Document_FK" Type="int" Nullable="false" />
+          <Property Name="Command_FK" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Command_History">
+          <Key>
+            <PropertyRef Name="Command_History_ID" />
+          </Key>
+          <Property Name="Command_History_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Command_FK" Type="int" Nullable="false" />
+          <Property Name="Command_History_Action" Type="int" Nullable="false" />
+          <Property Name="xmlData" Type="xml" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommandAddress">
+          <Key>
+            <PropertyRef Name="Address_FK" />
+          </Key>
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address_FK" Type="int" Nullable="false" />
+          <Property Name="Command_FK" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommandProduct">
+          <Key>
+            <PropertyRef Name="CommandProduct_ID" />
+          </Key>
+          <Property Name="CommandProduct_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Command_FK" Type="int" Nullable="false" />
+          <Property Name="Product_FK" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="xmlData" Type="xml" />
+          <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Country_ID" />
+          </Key>
+          <Property Name="Country_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ISO_Code" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Customer_User">
+          <Key>
+            <PropertyRef Name="User_FK" />
+          </Key>
+          <Property Name="User_FK" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="xmlData" Type="xml" />
+        </EntityType>
+        <EntityType Name="CustomerAddress">
+          <Key>
+            <PropertyRef Name="Customer_User_FK" />
+            <PropertyRef Name="Address_FK" />
+          </Key>
+          <Property Name="Customer_User_FK" Type="int" Nullable="false" />
+          <Property Name="Address_FK" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" />
+        </EntityType>
+        <EntityType Name="Design_Config">
+          <Key>
+            <PropertyRef Name="Design_Config_ID" />
+          </Key>
+          <Property Name="Design_Config_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="xmlData" Type="xml" />
+          <Property Name="CreationDatetime" Type="datetime" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="Document_ID" />
+          </Key>
+          <Property Name="Document_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Blob_FK" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Etiquette">
+          <Key>
+            <PropertyRef Name="Etiquette_ID" />
+          </Key>
+          <Property Name="Etiquette_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Blob_FK" Type="int" Nullable="false" />
+          <Property Name="Etiquette_Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="KeyWord">
+          <Key>
+            <PropertyRef Name="KeyWord_ID" />
+          </Key>
+          <Property Name="KeyWord_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LaPosteColissimo">
+          <Key>
+            <PropertyRef Name="Weight_ID" />
+          </Key>
+          <Property Name="Weight_ID" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="StockQuantity" Type="int" />
+          <Property Name="DisplayName" Type="nchar" MaxLength="200" />
+          <Property Name="Main_Blob_FK" Type="int" />
+          <Property Name="Product_Flags" Type="int" />
+          <Property Name="xmlData" Type="xml" />
+        </EntityType>
+        <EntityType Name="Product_Category">
+          <Key>
+            <PropertyRef Name="Product_FK" />
+            <PropertyRef Name="Category_FK" />
+          </Key>
+          <Property Name="Product_FK" Type="int" Nullable="false" />
+          <Property Name="Category_FK" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product_KeyWord">
+          <Key>
+            <PropertyRef Name="Product_FK" />
+            <PropertyRef Name="KeyWord_FK" />
+          </Key>
+          <Property Name="Product_FK" Type="int" Nullable="false" />
+          <Property Name="KeyWord_FK" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductBlob">
+          <Key>
+            <PropertyRef Name="Product_FK" />
+            <PropertyRef Name="Blob_FK" />
+          </Key>
+          <Property Name="Product_FK" Type="int" Nullable="false" />
+          <Property Name="Blob_FK" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="eMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="500" />
+          <Property Name="Salt" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_Address_Country_FK">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Country_ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Country_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Admin_User_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Admin_User" Type="Self.Admin_User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Admin_User">
+              <PropertyRef Name="User_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarrouselImage_ToBlob">
+          <End Role="Blob" Type="Self.Blob" Multiplicity="1" />
+          <End Role="CarouselImage" Type="Self.CarouselImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blob">
+              <PropertyRef Name="Blob_ID" />
+            </Principal>
+            <Dependent Role="CarouselImage">
+              <PropertyRef Name="Blob_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_ToEtiquette">
+          <End Role="Etiquette" Type="Self.Etiquette" Multiplicity="0..1" />
+          <End Role="Category" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etiquette">
+              <PropertyRef Name="Etiquette_ID" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="Etiquette_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Command_Customer_User">
+          <End Role="Customer_User" Type="Self.Customer_User" Multiplicity="1" />
+          <End Role="Command" Type="Self.Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer_User">
+              <PropertyRef Name="User_FK" />
+            </Principal>
+            <Dependent Role="Command">
+              <PropertyRef Name="Customer_User_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Command_Document_ToCommand">
+          <End Role="Command" Type="Self.Command" Multiplicity="1" />
+          <End Role="Command_Document" Type="Self.Command_Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="Command_ID" />
+            </Principal>
+            <Dependent Role="Command_Document">
+              <PropertyRef Name="Command_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Command_Document_ToDocument">
+          <End Role="Document" Type="Self.Document" Multiplicity="1" />
+          <End Role="Command_Document" Type="Self.Command_Document" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Document">
+              <PropertyRef Name="Document_ID" />
+            </Principal>
+            <Dependent Role="Command_Document">
+              <PropertyRef Name="Document_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Command_History_ToCommand">
+          <End Role="Command" Type="Self.Command" Multiplicity="1" />
+          <End Role="Command_History" Type="Self.Command_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="Command_ID" />
+            </Principal>
+            <Dependent Role="Command_History">
+              <PropertyRef Name="Command_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandAddress_ToAddress">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="CommandAddress" Type="Self.CommandAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="CommandAddress">
+              <PropertyRef Name="Address_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandAddress_ToCommand">
+          <End Role="Command" Type="Self.Command" Multiplicity="1" />
+          <End Role="CommandAddress" Type="Self.CommandAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="Command_ID" />
+            </Principal>
+            <Dependent Role="CommandAddress">
+              <PropertyRef Name="Command_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandProduct_Command_FK">
+          <End Role="Command" Type="Self.Command" Multiplicity="1" />
+          <End Role="CommandProduct" Type="Self.CommandProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="Command_ID" />
+            </Principal>
+            <Dependent Role="CommandProduct">
+              <PropertyRef Name="Command_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandProduct_Product_FK">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="CommandProduct" Type="Self.CommandProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="CommandProduct">
+              <PropertyRef Name="Product_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_User_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Customer_User" Type="Self.Customer_User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Customer_User">
+              <PropertyRef Name="User_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAddress_Address_FK">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="Address_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAddress_Customer_User">
+          <End Role="Customer_User" Type="Self.Customer_User" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer_User">
+              <PropertyRef Name="User_FK" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="Customer_User_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_Blob">
+          <End Role="Blob" Type="Self.Blob" Multiplicity="1" />
+          <End Role="Document" Type="Self.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blob">
+              <PropertyRef Name="Blob_ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="Blob_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etiquette_ToBlob">
+          <End Role="Blob" Type="Self.Blob" Multiplicity="1" />
+          <End Role="Etiquette" Type="Self.Etiquette" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blob">
+              <PropertyRef Name="Blob_ID" />
+            </Principal>
+            <Dependent Role="Etiquette">
+              <PropertyRef Name="Blob_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category_Category_FK">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Product_Category" Type="Self.Product_Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="Product_Category">
+              <PropertyRef Name="Category_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category_Product_FK">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Product_Category" Type="Self.Product_Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Product_Category">
+              <PropertyRef Name="Product_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_KeyWord_Blob_FK">
+          <End Role="KeyWord" Type="Self.KeyWord" Multiplicity="1" />
+          <End Role="Product_KeyWord" Type="Self.Product_KeyWord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KeyWord">
+              <PropertyRef Name="KeyWord_ID" />
+            </Principal>
+            <Dependent Role="Product_KeyWord">
+              <PropertyRef Name="KeyWord_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_KeyWord_KeyWord_FK">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Product_KeyWord" Type="Self.Product_KeyWord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Product_KeyWord">
+              <PropertyRef Name="Product_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductBlob_Blob_FK">
+          <End Role="Blob" Type="Self.Blob" Multiplicity="1" />
+          <End Role="ProductBlob" Type="Self.ProductBlob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blob">
+              <PropertyRef Name="Blob_ID" />
+            </Principal>
+            <Dependent Role="ProductBlob">
+              <PropertyRef Name="Blob_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductBlob_Product_FK">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductBlob" Type="Self.ProductBlob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="ProductBlob">
+              <PropertyRef Name="Product_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Blob_FK">
+          <End Role="Blob" Type="Self.Blob" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blob">
+              <PropertyRef Name="Blob_ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="Main_Blob_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MesJolisCotillonsModelsStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin_User" EntityType="Self.Admin_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blob" EntityType="Self.Blob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarouselImage" EntityType="Self.CarouselImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Command" EntityType="Self.Command" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Command_Document" EntityType="Self.Command_Document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Command_History" EntityType="Self.Command_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommandAddress" EntityType="Self.CommandAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommandProduct" EntityType="Self.CommandProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer_User" EntityType="Self.Customer_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Design_Config" EntityType="Self.Design_Config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Etiquette" EntityType="Self.Etiquette" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KeyWord" EntityType="Self.KeyWord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LaPosteColissimo" EntityType="Self.LaPosteColissimo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Category" EntityType="Self.Product_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_KeyWord" EntityType="Self.Product_KeyWord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductBlob" EntityType="Self.ProductBlob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Address_Country_FK" Association="Self.FK_Address_Country_FK">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Admin_User_User" Association="Self.FK_Admin_User_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Admin_User" EntitySet="Admin_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarrouselImage_ToBlob" Association="Self.FK_CarrouselImage_ToBlob">
+            <End Role="Blob" EntitySet="Blob" />
+            <End Role="CarouselImage" EntitySet="CarouselImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_ToEtiquette" Association="Self.FK_Category_ToEtiquette">
+            <End Role="Etiquette" EntitySet="Etiquette" />
+            <End Role="Category" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Command_Customer_User" Association="Self.FK_Command_Customer_User">
+            <End Role="Customer_User" EntitySet="Customer_User" />
+            <End Role="Command" EntitySet="Command" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Command_Document_ToCommand" Association="Self.FK_Command_Document_ToCommand">
+            <End Role="Command" EntitySet="Command" />
+            <End Role="Command_Document" EntitySet="Command_Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Command_Document_ToDocument" Association="Self.FK_Command_Document_ToDocument">
+            <End Role="Document" EntitySet="Document" />
+            <End Role="Command_Document" EntitySet="Command_Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Command_History_ToCommand" Association="Self.FK_Command_History_ToCommand">
+            <End Role="Command" EntitySet="Command" />
+            <End Role="Command_History" EntitySet="Command_History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandAddress_ToAddress" Association="Self.FK_CommandAddress_ToAddress">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="CommandAddress" EntitySet="CommandAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandAddress_ToCommand" Association="Self.FK_CommandAddress_ToCommand">
+            <End Role="Command" EntitySet="Command" />
+            <End Role="CommandAddress" EntitySet="CommandAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandProduct_Command_FK" Association="Self.FK_CommandProduct_Command_FK">
+            <End Role="Command" EntitySet="Command" />
+            <End Role="CommandProduct" EntitySet="CommandProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandProduct_Product_FK" Association="Self.FK_CommandProduct_Product_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="CommandProduct" EntitySet="CommandProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_User_User" Association="Self.FK_Customer_User_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Customer_User" EntitySet="Customer_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAddress_Address_FK" Association="Self.FK_CustomerAddress_Address_FK">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAddress_Customer_User" Association="Self.FK_CustomerAddress_Customer_User">
+            <End Role="Customer_User" EntitySet="Customer_User" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Blob" Association="Self.FK_Document_Blob">
+            <End Role="Blob" EntitySet="Blob" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etiquette_ToBlob" Association="Self.FK_Etiquette_ToBlob">
+            <End Role="Blob" EntitySet="Blob" />
+            <End Role="Etiquette" EntitySet="Etiquette" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category_Category_FK" Association="Self.FK_Product_Category_Category_FK">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product_Category" EntitySet="Product_Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category_Product_FK" Association="Self.FK_Product_Category_Product_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Product_Category" EntitySet="Product_Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_KeyWord_Blob_FK" Association="Self.FK_Product_KeyWord_Blob_FK">
+            <End Role="KeyWord" EntitySet="KeyWord" />
+            <End Role="Product_KeyWord" EntitySet="Product_KeyWord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_KeyWord_KeyWord_FK" Association="Self.FK_Product_KeyWord_KeyWord_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Product_KeyWord" EntitySet="Product_KeyWord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductBlob_Blob_FK" Association="Self.FK_ProductBlob_Blob_FK">
+            <End Role="Blob" EntitySet="Blob" />
+            <End Role="ProductBlob" EntitySet="ProductBlob" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductBlob_Product_FK" Association="Self.FK_ProductBlob_Product_FK">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductBlob" EntitySet="ProductBlob" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Blob_FK" Association="Self.Product_Blob_FK">
+            <End Role="Blob" EntitySet="Blob" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MesJolisCotillons.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Address_ID" />
+          </Key>
+          <Property Name="Address_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zip_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country_FK" Type="Int32" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Address_Country_FK" FromRole="Address" ToRole="Country" />
+          <NavigationProperty Name="CommandAddress" Relationship="MesJolisCotillons.Models.FK_CommandAddress_ToAddress" FromRole="Address" ToRole="CommandAddress" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="MesJolisCotillons.Models.FK_CustomerAddress_Address_FK" FromRole="Address" ToRole="CustomerAddress" />
+        </EntityType>
+        <EntityType Name="Admin_User">
+          <Key>
+            <PropertyRef Name="User_FK" />
+          </Key>
+          <Property Name="User_FK" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Admin_User_User" FromRole="Admin_User" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Blob">
+          <Key>
+            <PropertyRef Name="Blob_ID" />
+          </Key>
+          <Property Name="Blob_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Stream" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MimeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Etiquette_Set" Relationship="Self.FK_Etiquette_ToBlob" FromRole="Blob" ToRole="Etiquette" />
+          <NavigationProperty Name="Product_Set" Relationship="Self.Product_Blob_FK" FromRole="Blob" ToRole="Product" />
+          <NavigationProperty Name="Products1" Relationship="Self.ProductBlob" FromRole="Blob" ToRole="Product" />
+          <NavigationProperty Name="Document_Set" Relationship="MesJolisCotillons.Models.FK_Document_Blob" FromRole="Blob" ToRole="Document" />
+          <NavigationProperty Name="CarouselImage_Set" Relationship="MesJolisCotillons.Models.FK_CarrouselImage_ToBlob" FromRole="Blob" ToRole="CarouselImage" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product_Set" Relationship="Self.Product_Category" FromRole="Category" ToRole="Product" />
+          <Property Name="Etiquette_FK" Type="Int32" />
+          <NavigationProperty Name="Etiquette" Relationship="MesJolisCotillons.Models.FK_Category_ToEtiquette" FromRole="Category" ToRole="Etiquette" />
+        </EntityType>
+        <EntityType Name="Command">
+          <Key>
+            <PropertyRef Name="Command_ID" />
+          </Key>
+          <Property Name="Command_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreationDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Command_Status" Type="MesJolisCotillons.Models.Command_Status" Nullable="false" />
+          <Property Name="Customer_User_FK" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer_User" Relationship="Self.FK_Command_Customer_User" FromRole="Command" ToRole="Customer_User" />
+          <NavigationProperty Name="CommandProduct_Set" Relationship="Self.FK_CommandProduct_Command_FK" FromRole="Command" ToRole="CommandProduct" />
+          <Property Name="DeliveryCharge" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Command_History_Set" Relationship="MesJolisCotillons.Models.FK_Command_History_ToCommand" FromRole="Command" ToRole="Command_History" />
+          <NavigationProperty Name="Command_Document_Set" Relationship="MesJolisCotillons.Models.FK_Command_Document_ToCommand" FromRole="Command" ToRole="Command_Document" />
+          <NavigationProperty Name="CommandAddress_Set" Relationship="MesJolisCotillons.Models.FK_CommandAddress_ToCommand" FromRole="Command" ToRole="CommandAddress" />
+          <Property Name="OptionShipmentCharge" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OptionShipmentSecureType" Type="MesJolisCotillons.Models.OptionShipmentType" />
+          <Property Name="ShipmentType" Type="MesJolisCotillons.Models.ShipmentType" />
+          <Property Name="xmlData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CommandProduct">
+          <Key>
+            <PropertyRef Name="CommandProduct_ID" />
+          </Key>
+          <Property Name="CommandProduct_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Command_FK" Type="Int32" Nullable="false" />
+          <Property Name="Product_FK" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Command" Relationship="Self.FK_CommandProduct_Command_FK" FromRole="CommandProduct" ToRole="Command" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_CommandProduct_Product_FK" FromRole="CommandProduct" ToRole="Product" />
+          <Property Name="xmlData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Country_ID" />
+          </Key>
+          <Property Name="Country_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ISO_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Address_Set" Relationship="Self.FK_Address_Country_FK" FromRole="Country" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="Customer_User">
+          <Key>
+            <PropertyRef Name="User_FK" />
+          </Key>
+          <Property Name="User_FK" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="MesJolisCotillons.Models.Customer_User_Status" Nullable="false" />
+          <Property Name="xmlData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Command_Set" Relationship="Self.FK_Command_Customer_User" FromRole="Customer_User" ToRole="Command" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Customer_User_User" FromRole="Customer_User" ToRole="User" />
+          <NavigationProperty Name="CustomerAddress_Set" Relationship="MesJolisCotillons.Models.FK_CustomerAddress_Customer_User" FromRole="Customer_User" ToRole="CustomerAddress" />
+        </EntityType>
+        <EntityType Name="Design_Config">
+          <Key>
+            <PropertyRef Name="Design_Config_ID" />
+          </Key>
+          <Property Name="Design_Config_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="MesJolisCotillons.Models.Design_Config_Status" Nullable="false" />
+          <Property Name="xmlData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDatetime" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Etiquette">
+          <Key>
+            <PropertyRef Name="Etiquette_ID" />
+          </Key>
+          <Property Name="Etiquette_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Blob_FK" Type="Int32" Nullable="false" />
+          <Property Name="Etiquette_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Blob" Relationship="Self.FK_Etiquette_ToBlob" FromRole="Etiquette" ToRole="Blob" />
+          <NavigationProperty Name="Category_Set" Relationship="MesJolisCotillons.Models.FK_Category_ToEtiquette" FromRole="Etiquette" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="KeyWord">
+          <Key>
+            <PropertyRef Name="KeyWord_ID" />
+          </Key>
+          <Property Name="KeyWord_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product_Set" Relationship="Self.Product_KeyWord" FromRole="KeyWord" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Status" Type="MesJolisCotillons.Models.Product_Status" Nullable="false" />
+          <Property Name="StockQuantity" Type="Int32" />
+          <Property Name="DisplayName" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="Main_Blob_FK" Type="Int32" />
+          <Property Name="Product_Flags" Type="Int32" />
+          <NavigationProperty Name="Blob" Relationship="Self.Product_Blob_FK" FromRole="Product" ToRole="Blob" />
+          <NavigationProperty Name="CommandProduct_Set" Relationship="Self.FK_CommandProduct_Product_FK" FromRole="Product" ToRole="CommandProduct" />
+          <NavigationProperty Name="Category_Set" Relationship="Self.Product_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="KeyWord_Set" Relationship="Self.Product_KeyWord" FromRole="Product" ToRole="KeyWord" />
+          <NavigationProperty Name="Blob_Set" Relationship="Self.ProductBlob" FromRole="Product" ToRole="Blob" />
+          <Property Name="xmlData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Salt" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Admin_User" Relationship="Self.FK_Admin_User_User" FromRole="User" ToRole="Admin_User" />
+          <NavigationProperty Name="Customer_User" Relationship="Self.FK_Customer_User_User" FromRole="User" ToRole="Customer_User" />
+        </EntityType>
+        <Association Name="FK_Address_Country_FK">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Country_ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Country_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Admin_User_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Admin_User" Type="Self.Admin_User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Admin_User">
+              <PropertyRef Name="User_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etiquette_ToBlob">
+          <End Role="Blob" Type="Self.Blob" Multiplicity="1" />
+          <End Role="Etiquette" Type="Self.Etiquette" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blob">
+              <PropertyRef Name="Blob_ID" />
+            </Principal>
+            <Dependent Role="Etiquette">
+              <PropertyRef Name="Blob_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Blob_FK">
+          <End Role="Blob" Type="Self.Blob" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blob">
+              <PropertyRef Name="Blob_ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="Main_Blob_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Command_Customer_User">
+          <End Role="Customer_User" Type="Self.Customer_User" Multiplicity="1" />
+          <End Role="Command" Type="Self.Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer_User">
+              <PropertyRef Name="User_FK" />
+            </Principal>
+            <Dependent Role="Command">
+              <PropertyRef Name="Customer_User_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandProduct_Command_FK">
+          <End Role="Command" Type="Self.Command" Multiplicity="1" />
+          <End Role="CommandProduct" Type="Self.CommandProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="Command_ID" />
+            </Principal>
+            <Dependent Role="CommandProduct">
+              <PropertyRef Name="Command_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandProduct_Product_FK">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="CommandProduct" Type="Self.CommandProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="CommandProduct">
+              <PropertyRef Name="Product_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_User_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Customer_User" Type="Self.Customer_User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Customer_User">
+              <PropertyRef Name="User_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        </Association>
+        <Association Name="Product_KeyWord">
+          <End Role="KeyWord" Type="Self.KeyWord" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        </Association>
+        <Association Name="ProductBlob">
+          <End Role="Blob" Type="Self.Blob" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MesJolisCotillonsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Admin_User" EntityType="Self.Admin_User" />
+          <EntitySet Name="Blobs" EntityType="Self.Blob" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Commands" EntityType="Self.Command" />
+          <EntitySet Name="CommandProducts" EntityType="Self.CommandProduct" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Customer_User" EntityType="Self.Customer_User" />
+          <EntitySet Name="Design_Config" EntityType="Self.Design_Config" />
+          <EntitySet Name="Etiquettes" EntityType="Self.Etiquette" />
+          <EntitySet Name="KeyWords" EntityType="Self.KeyWord" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Address_Country_FK" Association="Self.FK_Address_Country_FK">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Admin_User_User" Association="Self.FK_Admin_User_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Admin_User" EntitySet="Admin_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etiquette_ToBlob" Association="Self.FK_Etiquette_ToBlob">
+            <End Role="Blob" EntitySet="Blobs" />
+            <End Role="Etiquette" EntitySet="Etiquettes" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Blob_FK" Association="Self.Product_Blob_FK">
+            <End Role="Blob" EntitySet="Blobs" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Command_Customer_User" Association="Self.FK_Command_Customer_User">
+            <End Role="Customer_User" EntitySet="Customer_User" />
+            <End Role="Command" EntitySet="Commands" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandProduct_Command_FK" Association="Self.FK_CommandProduct_Command_FK">
+            <End Role="Command" EntitySet="Commands" />
+            <End Role="CommandProduct" EntitySet="CommandProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandProduct_Product_FK" Association="Self.FK_CommandProduct_Product_FK">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="CommandProduct" EntitySet="CommandProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_User_User" Association="Self.FK_Customer_User_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Customer_User" EntitySet="Customer_User" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Category" Association="Self.Product_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="Product_KeyWord" Association="Self.Product_KeyWord">
+            <End Role="KeyWord" EntitySet="KeyWords" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="ProductBlob" Association="Self.ProductBlob">
+            <End Role="Blob" EntitySet="Blobs" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Command_History" EntityType="MesJolisCotillons.Models.Command_History" />
+          <AssociationSet Name="FK_Command_History_ToCommand" Association="MesJolisCotillons.Models.FK_Command_History_ToCommand">
+            <End Role="Command" EntitySet="Commands" />
+            <End Role="Command_History" EntitySet="Command_History" />
+          </AssociationSet>
+          <EntitySet Name="Documents" EntityType="MesJolisCotillons.Models.Document" />
+          <AssociationSet Name="FK_Document_Blob" Association="MesJolisCotillons.Models.FK_Document_Blob">
+            <End Role="Blob" EntitySet="Blobs" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <EntitySet Name="Command_Document" EntityType="MesJolisCotillons.Models.Command_Document" />
+          <AssociationSet Name="FK_Command_Document_ToCommand" Association="MesJolisCotillons.Models.FK_Command_Document_ToCommand">
+            <End Role="Command" EntitySet="Commands" />
+            <End Role="Command_Document" EntitySet="Command_Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Command_Document_ToDocument" Association="MesJolisCotillons.Models.FK_Command_Document_ToDocument">
+            <End Role="Document" EntitySet="Documents" />
+            <End Role="Command_Document" EntitySet="Command_Document" />
+          </AssociationSet>
+          <EntitySet Name="CommandAddresses" EntityType="MesJolisCotillons.Models.CommandAddress" />
+          <AssociationSet Name="FK_CommandAddress_ToCommand" Association="MesJolisCotillons.Models.FK_CommandAddress_ToCommand">
+            <End Role="Command" EntitySet="Commands" />
+            <End Role="CommandAddress" EntitySet="CommandAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommandAddress_ToAddress" Association="MesJolisCotillons.Models.FK_CommandAddress_ToAddress">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="CommandAddress" EntitySet="CommandAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_ToEtiquette" Association="MesJolisCotillons.Models.FK_Category_ToEtiquette">
+            <End Role="Etiquette" EntitySet="Etiquettes" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <EntitySet Name="CarouselImages" EntityType="MesJolisCotillons.Models.CarouselImage" />
+          <AssociationSet Name="FK_CarrouselImage_ToBlob" Association="MesJolisCotillons.Models.FK_CarrouselImage_ToBlob">
+            <End Role="Blob" EntitySet="Blobs" />
+            <End Role="CarouselImage" EntitySet="CarouselImages" />
+          </AssociationSet>
+          <EntitySet Name="CustomerAddresses" EntityType="MesJolisCotillons.Models.CustomerAddress" />
+          <AssociationSet Name="FK_CustomerAddress_Address_FK" Association="MesJolisCotillons.Models.FK_CustomerAddress_Address_FK">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAddress_Customer_User" Association="MesJolisCotillons.Models.FK_CustomerAddress_Customer_User">
+            <End Role="Customer_User" EntitySet="Customer_User" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <EntitySet Name="LaPosteColissimoes" EntityType="MesJolisCotillons.Models.LaPosteColissimo" />
+        </EntityContainer>
+        <EnumType Name="Customer_User_Status">
+          <Member Name="Disabled" Value="-200" />
+          <Member Name="Creation" Value="0" />
+          <Member Name="Awaiting_MailConfirmation" Value="100" />
+          <Member Name="Active" Value="200" />
+          <Member Name="CommandWithoutSubscription" Value="-180" />
+        </EnumType>
+        <EnumType Name="Product_Status">
+          <Member Name="Disabled" Value="-100" />
+          <Member Name="Creation" Value="0" />
+          <Member Name="Enabled" Value="100" />
+        </EnumType>
+        <EnumType Name="Design_Config_Status">
+          <Member Name="Disabled" Value="-100" />
+          <Member Name="Creation" Value="0" />
+          <Member Name="Active" Value="100" />
+        </EnumType>
+        <EnumType Name="Product_Flags">
+          <Member Name="Nouveautes" Value="1" />
+          <Member Name="Saison" Value="2" />
+        </EnumType>
+        <EnumType Name="Command_Status">
+          <Member Name="Command_Disabled" Value="-100" />
+          <Member Name="Command_Created" Value="0" />
+          <Member Name="Command_AwaitingPayment" Value="100" />
+          <Member Name="Command_Paid" Value="200" />
+          <Member Name="Command_Delivered" Value="300" />
+          <Member Name="Command_ReceptionConfirmed" Value="400" />
+          <Member Name="Command_Expired" Value="-200" />
+          <Member Name="Command_Declined" Value="-300" />
+        </EnumType>
+        <EnumType Name="CommanAddress_Type" IsFlags="true" >
+          <Member Name="Invoice" Value="1" />
+          <Member Name="Shipment" Value="2" />
+        </EnumType>
+        <EntityType Name="Command_History">
+          <Key>
+            <PropertyRef Name="Command_History_ID" />
+          </Key>
+          <Property Name="Command_History_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Command_FK" Type="Int32" Nullable="false" />
+          <Property Name="Command_History_Action" Type="MesJolisCotillons.Models.Command_History_Action" Nullable="false" />
+          <NavigationProperty Name="Command" Relationship="MesJolisCotillons.Models.FK_Command_History_ToCommand" FromRole="Command_History" ToRole="Command" />
+          <Property Name="xmlData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Command_History_ToCommand">
+          <End Type="MesJolisCotillons.Models.Command" Role="Command" Multiplicity="1" />
+          <End Type="MesJolisCotillons.Models.Command_History" Role="Command_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="Command_ID" />
+            </Principal>
+            <Dependent Role="Command_History">
+              <PropertyRef Name="Command_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="Command_History_Action" >
+          <Member Name="Command_Created" Value="100" />
+          <Member Name="Command_AwaitingPayment" Value="200" />
+          <Member Name="Paypal_IPN_Notification_PaymentSuccess" Value="300" />
+          <Member Name="Paypal_IPN_Notification_PaymentFailed" Value="-100" />
+          <Member Name="Command_Delivered" Value="400" />
+          <Member Name="Command_Paid" Value="500" />
+          <Member Name="CommandForceToStatusPaid" Value="600" />
+          <Member Name="Command_Disabled" Value="-200" />
+          <Member Name="Command_ReEnabled" Value="700" />
+          <Member Name="Paypal_IPN_Notification_PaymentDeclined" Value="-300" />
+          <Member Name="Paypal_IPN_Notification_PaymentExpired" Value="-400" />
+          <Member Name="Command_Expired" Value="-500" />
+          <Member Name="Command_Declined" Value="-600" />
+          <Member Name="Paypal_CreationPaymentButton" Value="120" />
+          <Member Name="CommandDeliveredPersonally" Value="800" />
+        </EnumType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="Document_ID" />
+          </Key>
+          <Property Name="Document_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Blob_FK" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Blob" Relationship="MesJolisCotillons.Models.FK_Document_Blob" FromRole="Document" ToRole="Blob" />
+          <NavigationProperty Name="Command_Document" Relationship="MesJolisCotillons.Models.FK_Command_Document_ToDocument" FromRole="Document" ToRole="Command_Document" />
+        </EntityType>
+        <Association Name="FK_Document_Blob">
+          <End Type="MesJolisCotillons.Models.Blob" Role="Blob" Multiplicity="1" />
+          <End Type="MesJolisCotillons.Models.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blob">
+              <PropertyRef Name="Blob_ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="Blob_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Command_Document">
+          <Key>
+            <PropertyRef Name="Document_FK" />
+          </Key>
+          <Property Name="Document_FK" Type="Int32" Nullable="false" />
+          <Property Name="Command_FK" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Command" Relationship="MesJolisCotillons.Models.FK_Command_Document_ToCommand" FromRole="Command_Document" ToRole="Command" />
+          <NavigationProperty Name="Document" Relationship="MesJolisCotillons.Models.FK_Command_Document_ToDocument" FromRole="Command_Document" ToRole="Document" />
+        </EntityType>
+        <Association Name="FK_Command_Document_ToCommand">
+          <End Type="MesJolisCotillons.Models.Command" Role="Command" Multiplicity="1" />
+          <End Type="MesJolisCotillons.Models.Command_Document" Role="Command_Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="Command_ID" />
+            </Principal>
+            <Dependent Role="Command_Document">
+              <PropertyRef Name="Command_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Command_Document_ToDocument">
+          <End Type="MesJolisCotillons.Models.Document" Role="Document" Multiplicity="1" />
+          <End Type="MesJolisCotillons.Models.Command_Document" Role="Command_Document" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Document">
+              <PropertyRef Name="Document_ID" />
+            </Principal>
+            <Dependent Role="Command_Document">
+              <PropertyRef Name="Document_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CommandAddress">
+          <Key>
+            <PropertyRef Name="Address_FK" />
+          </Key>
+          <Property Name="Type" Type="MesJolisCotillons.Models.CommanAddress_Type" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address_FK" Type="Int32" Nullable="false" />
+          <Property Name="Command_FK" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Command" Relationship="MesJolisCotillons.Models.FK_CommandAddress_ToCommand" FromRole="CommandAddress" ToRole="Command" />
+          <NavigationProperty Name="Address" Relationship="MesJolisCotillons.Models.FK_CommandAddress_ToAddress" FromRole="CommandAddress" ToRole="Address" />
+        </EntityType>
+        <Association Name="FK_CommandAddress_ToCommand">
+          <End Type="MesJolisCotillons.Models.Command" Role="Command" Multiplicity="1" />
+          <End Type="MesJolisCotillons.Models.CommandAddress" Role="CommandAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Command">
+              <PropertyRef Name="Command_ID" />
+            </Principal>
+            <Dependent Role="CommandAddress">
+              <PropertyRef Name="Command_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommandAddress_ToAddress">
+          <End Type="MesJolisCotillons.Models.Address" Role="Address" Multiplicity="1" />
+          <End Type="MesJolisCotillons.Models.CommandAddress" Role="CommandAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="CommandAddress">
+              <PropertyRef Name="Address_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_ToEtiquette">
+          <End Type="MesJolisCotillons.Models.Etiquette" Role="Etiquette" Multiplicity="0..1" />
+          <End Type="MesJolisCotillons.Models.Category" Role="Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etiquette">
+              <PropertyRef Name="Etiquette_ID" />
+            </Principal>
+            <Dependent Role="Category">
+              <PropertyRef Name="Etiquette_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="OptionShipmentType">
+          <Member Name="Option1" Value="0" />
+          <Member Name="Option2" Value="1" />
+          <Member Name="Option3" Value="2" />
+        </EnumType>
+        <EntityType Name="CarouselImage">
+          <Key>
+            <PropertyRef Name="CarouselImage_ID" />
+          </Key>
+          <Property Name="CarouselImage_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Blob_FK" Type="Int32" Nullable="false" />
+          <Property Name="CarouselImage_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Blob" Relationship="MesJolisCotillons.Models.FK_CarrouselImage_ToBlob" FromRole="CarouselImage" ToRole="Blob" />
+        </EntityType>
+        <Association Name="FK_CarrouselImage_ToBlob">
+          <End Type="MesJolisCotillons.Models.Blob" Role="Blob" Multiplicity="1" />
+          <End Type="MesJolisCotillons.Models.CarouselImage" Role="CarouselImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blob">
+              <PropertyRef Name="Blob_ID" />
+            </Principal>
+            <Dependent Role="CarouselImage">
+              <PropertyRef Name="Blob_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="ShipmentType">
+          <Member Name="NormalShipment" Value="0" />
+          <Member Name="OptionSecureShipment" Value="1" />
+          <Member Name="NoShipment" Value="2" />
+        </EnumType>
+        <EntityType Name="CustomerAddress">
+          <Key>
+            <PropertyRef Name="Customer_User_FK" />
+            <PropertyRef Name="Address_FK" />
+          </Key>
+          <Property Name="Customer_User_FK" Type="Int32" Nullable="false" />
+          <Property Name="Address_FK" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="MesJolisCotillons.Models.CustomerAddress_Type" />
+          <NavigationProperty Name="Address" Relationship="MesJolisCotillons.Models.FK_CustomerAddress_Address_FK" FromRole="CustomerAddress" ToRole="Address" />
+          <NavigationProperty Name="Customer_User" Relationship="MesJolisCotillons.Models.FK_CustomerAddress_Customer_User" FromRole="CustomerAddress" ToRole="Customer_User" />
+        </EntityType>
+        <Association Name="FK_CustomerAddress_Address_FK">
+          <End Type="MesJolisCotillons.Models.Address" Role="Address" Multiplicity="1" />
+          <End Type="MesJolisCotillons.Models.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="Address_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAddress_Customer_User">
+          <End Type="MesJolisCotillons.Models.Customer_User" Role="Customer_User" Multiplicity="1" />
+          <End Type="MesJolisCotillons.Models.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer_User">
+              <PropertyRef Name="User_FK" />
+            </Principal>
+            <Dependent Role="CustomerAddress">
+              <PropertyRef Name="Customer_User_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="CustomerAddress_Type" IsFlags="true">
+          <Member Name="Invoice" Value="1" />
+          <Member Name="Shipment" Value="2" />
+        </EnumType>
+        <EntityType Name="LaPosteColissimo">
+          <Key>
+            <PropertyRef Name="Weight_ID" />
+          </Key>
+          <Property Name="Weight_ID" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MesJolisCotillonsModelsStoreContainer" CdmEntityContainer="MesJolisCotillonsEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+                <ScalarProperty Name="Address1" ColumnName="Address" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip_Code" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country_FK" ColumnName="Country_FK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_User">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Admin_User">
+              <MappingFragment StoreEntitySet="Admin_User">
+                <ScalarProperty Name="User_FK" ColumnName="User_FK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blobs">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Blob">
+              <MappingFragment StoreEntitySet="Blob">
+                <ScalarProperty Name="Blob_ID" ColumnName="Blob_ID" />
+                <ScalarProperty Name="Stream" ColumnName="Stream" />
+                <ScalarProperty Name="MimeType" ColumnName="MimeType" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Etiquette_FK" ColumnName="Etiquette_FK" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commands">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Command">
+              <MappingFragment StoreEntitySet="Command">
+                <ScalarProperty Name="xmlData" ColumnName="xmlData" />
+                <ScalarProperty Name="ShipmentType" ColumnName="ShipmentType" />
+                <ScalarProperty Name="OptionShipmentSecureType" ColumnName="OptionShipmentSecureType" />
+                <ScalarProperty Name="OptionShipmentCharge" ColumnName="OptionShipmentCharge" />
+                <ScalarProperty Name="DeliveryCharge" ColumnName="DeliveryCharge" />
+                <ScalarProperty Name="Command_ID" ColumnName="Command_ID" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+                <ScalarProperty Name="Command_Status" ColumnName="Command_Status" />
+                <ScalarProperty Name="Customer_User_FK" ColumnName="Customer_User_FK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommandProducts">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.CommandProduct">
+              <MappingFragment StoreEntitySet="CommandProduct">
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="xmlData" ColumnName="xmlData" />
+                <ScalarProperty Name="CommandProduct_ID" ColumnName="CommandProduct_ID" />
+                <ScalarProperty Name="Command_FK" ColumnName="Command_FK" />
+                <ScalarProperty Name="Product_FK" ColumnName="Product_FK" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ISO_Code" ColumnName="ISO_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer_User">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Customer_User">
+              <MappingFragment StoreEntitySet="Customer_User">
+                <ScalarProperty Name="User_FK" ColumnName="User_FK" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="xmlData" ColumnName="xmlData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Design_Config">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Design_Config">
+              <MappingFragment StoreEntitySet="Design_Config">
+                <ScalarProperty Name="Design_Config_ID" ColumnName="Design_Config_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="xmlData" ColumnName="xmlData" />
+                <ScalarProperty Name="CreationDatetime" ColumnName="CreationDatetime" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Etiquettes">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Etiquette">
+              <MappingFragment StoreEntitySet="Etiquette">
+                <ScalarProperty Name="Etiquette_ID" ColumnName="Etiquette_ID" />
+                <ScalarProperty Name="Blob_FK" ColumnName="Blob_FK" />
+                <ScalarProperty Name="Etiquette_Name" ColumnName="Etiquette_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KeyWords">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.KeyWord">
+              <MappingFragment StoreEntitySet="KeyWord">
+                <ScalarProperty Name="KeyWord_ID" ColumnName="KeyWord_ID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="xmlData" ColumnName="xmlData" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StockQuantity" ColumnName="StockQuantity" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Main_Blob_FK" ColumnName="Main_Blob_FK" />
+                <ScalarProperty Name="Product_Flags" ColumnName="Product_Flags" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="eMail" ColumnName="eMail" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Product_Category" TypeName="MesJolisCotillons.Models.Product_Category" StoreEntitySet="Product_Category">
+            <EndProperty Name="Category">
+              <ScalarProperty Name="Category_ID" ColumnName="Category_FK" />
+            </EndProperty>
+            <EndProperty Name="Product">
+              <ScalarProperty Name="Product_ID" ColumnName="Product_FK" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Product_KeyWord" TypeName="MesJolisCotillons.Models.Product_KeyWord" StoreEntitySet="Product_KeyWord">
+            <EndProperty Name="KeyWord">
+              <ScalarProperty Name="KeyWord_ID" ColumnName="KeyWord_FK" />
+            </EndProperty>
+            <EndProperty Name="Product">
+              <ScalarProperty Name="Product_ID" ColumnName="Product_FK" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ProductBlob" TypeName="MesJolisCotillons.Models.ProductBlob" StoreEntitySet="ProductBlob">
+            <EndProperty Name="Blob">
+              <ScalarProperty Name="Blob_ID" ColumnName="Blob_FK" />
+            </EndProperty>
+            <EndProperty Name="Product">
+              <ScalarProperty Name="Product_ID" ColumnName="Product_FK" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Command_History">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Command_History">
+              <MappingFragment StoreEntitySet="Command_History">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="xmlData" ColumnName="xmlData" />
+                <ScalarProperty Name="Command_History_Action" ColumnName="Command_History_Action" />
+                <ScalarProperty Name="Command_FK" ColumnName="Command_FK" />
+                <ScalarProperty Name="Command_History_ID" ColumnName="Command_History_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="Blob_FK" ColumnName="Blob_FK" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Document_ID" ColumnName="Document_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Command_Document">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.Command_Document">
+              <MappingFragment StoreEntitySet="Command_Document">
+                <ScalarProperty Name="Command_FK" ColumnName="Command_FK" />
+                <ScalarProperty Name="Document_FK" ColumnName="Document_FK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommandAddresses">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.CommandAddress">
+              <MappingFragment StoreEntitySet="CommandAddress">
+                <ScalarProperty Name="Command_FK" ColumnName="Command_FK" />
+                <ScalarProperty Name="Address_FK" ColumnName="Address_FK" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarouselImages">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.CarouselImage">
+              <MappingFragment StoreEntitySet="CarouselImage">
+                <ScalarProperty Name="CarouselImage_Name" ColumnName="CarouselImage_Name" />
+                <ScalarProperty Name="Blob_FK" ColumnName="Blob_FK" />
+                <ScalarProperty Name="CarouselImage_ID" ColumnName="CarouselImage_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerAddresses">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.CustomerAddress">
+              <MappingFragment StoreEntitySet="CustomerAddress">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Address_FK" ColumnName="Address_FK" />
+                <ScalarProperty Name="Customer_User_FK" ColumnName="Customer_User_FK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LaPosteColissimoes">
+            <EntityTypeMapping TypeName="MesJolisCotillons.Models.LaPosteColissimo">
+              <MappingFragment StoreEntitySet="LaPosteColissimo">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Weight_ID" ColumnName="Weight_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

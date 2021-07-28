@@ -1,0 +1,15 @@
+<table class="grid">
+    <tr class="grid-header-toolbar">
+        <th [attr.colspan]="columns.length">
+    </tr>
+    <tr class="grid-header">
+        <th *ngFor="let column of columns" class="">{{column.displayName}}</th>
+    </tr>
+    <tr class="grid-row" *ngFor="let row of rows; let i = index" [ngClass]="{'selected': selectedItemIndex === i}">
+        <td *ngFor="let rowCell of getRowCells(row)">
+            <div *ngIf="rowCell.cellType === 'text'">{{rowCell.cellText}}</div>
+            <input (change)="onCheckboxClick(i);" type="checkbox" *ngIf="rowCell.cellType === 'check'"
+                [checked]="selectedItemIndex === i">
+        </td>
+    </tr>
+</table>

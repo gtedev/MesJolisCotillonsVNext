@@ -1,0 +1,42 @@
+﻿
+
+- 1)  Check that SqlPackage.exe is set on your machine.
+- 2)  Check in C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\130
+- 3) If this is not the case:  Download SQL Server Data Tools 2015
+- 4) Then apply following command and check connection string in Web.config
+
+
+
+To create a new database:
+.\SqlPackage.exe /Action:Import /SourceFile:"mesjoliscotillons-dev-2017-1-1-15-8.bacpac" /tdn:MesJolisCotillons /TargetServerName:"(localdb)\MSSQLLocalDB"
+
+
+
+
+
+Or for applying to a mdf:
+
+.\SqlPackage.exe /Action:Import /SourceFile:"mesjoliscotillons-dev-2017-1-1-15-8.bacpac" /tdn:C:\USERS\JÉRÔME\SOURCE\REPOS\MESJOLISCOTILLONS\MESJOLISCOTILLONS\APP_DATA\MESJOLISCOTILLONS.MDF /TargetServerName:"(localdb)\MSSQLLocalDB"
+
+.\SqlPackage.exe /Action:Import /SourceFile:"MesJolisCotillons_ExtractionDatabase_05032017.bacpac" /tdn:C:\Users\DELL\Projets\MesJolisCotillons_TFS\MesJolisCotillons\MesJolisCotillons\App_Data\MesJolisCotillons_05032017Azure.mdf /TargetServerName:"(localdb)\MSSQLLocalDB"
+
+=> Le faire sur une base de données vide
+=> Pensez à se connecter une fois à la base de données pour que cela marche. Volet de gauche, Server Explorer
+
+Sinon erreur suivante:
+
+*** Error importing database:Could not import package.
+Error SQL72014: .Net SqlClient Data Provider: Msg 5133, Level 16, State 1, Line 1 Directory lookup for the file "C:\Users\DELL\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB\C_\Users\DELL\Projets\MesJolisCotillons_TFS\MesJolisCotillons\MesJolisCotillons\App_Data\MesJolisCotillons_05032017Azure.mdf__Primary.mdf" failed with the operating system error 3(Le chemin d'accès spécifié est introuvable.).
+Error SQL72045: Script execution error.  The executed script:
+CREATE DATABASE [$(DatabaseName)]
+    ON
+    PRIMARY(NAME = [$(DatabaseName)], FILENAME = N'$(DefaultDataPath)$(DefaultFilePrefix)_Primary.mdf')
+    LOG ON (NAME = [$(DatabaseName)_log], FILENAME = N'$(DefaultLogPath)$(DefaultFilePrefix)_Primary.ldf') COLLATE SQL_Latin1_General_CP1_CI_AS;
+
+
+Error SQL72014: .Net SqlClient Data Provider: Msg 1802, Level 16, State 1, Line 1 CREATE DATABASE failed. Some file names listed could not be created. Check related errors.
+Error SQL72045: Script execution error.  The executed script:
+CREATE DATABASE [$(DatabaseName)]
+    ON
+    PRIMARY(NAME = [$(DatabaseName)], FILENAME = N'$(DefaultDataPath)$(DefaultFilePrefix)_Primary.mdf')
+    LOG ON (NAME = [$(DatabaseName)_log], FILENAME = N'$(DefaultLogPath)$(DefaultFilePrefix)_Primary.ldf') COLLATE SQL_Latin1_General_CP1_CI_AS;

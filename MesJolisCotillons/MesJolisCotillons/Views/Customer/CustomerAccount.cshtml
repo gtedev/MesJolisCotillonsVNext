@@ -1,0 +1,39 @@
+﻿@model MesJolisCotillons.ViewModels.CustomerAccountViewModel
+
+<div class="customerAccountTitleMain d-md-none">Mon espace client</div>
+<div class="customerAccountContainer">
+    <div class="leftMenuAccountCustomer d-none d-md-inline-block">
+        <div class="customerAccountTitle">Mon espace client</div>
+        <div id="CustomerAccountEmailPassword" class="customerAccountMenuItem" url="/Customer/CustomerAccountEmailPassword">Paramètres du compte</div>
+        <div id="CustomerAccountAddressShipmentForm" class="customerAccountMenuItem" url="/Customer/CustomerAccountAddressShipmentForm">Adresse de livraison</div>
+        <div id="CustomerAccountAddressInvoiceForm" class="customerAccountMenuItem" url="/Customer/CustomerAccountAddressInvoiceForm">Adresse de facturation</div>
+        <div id="CustomerAccountCommandList" class="customerAccountMenuItem" url="/Customer/CustomerAccountCommandList">Dernières commandes</div>
+    </div>
+
+    <select id="CustomerAccountSelect" class="custom-select dropdownMenuAccountCustomer d-md-none" onchange="Mjc.customer.handleClickCustomerAccountView(this);">
+        <option class="option" id="CustomerAccountEmailPassword" url="/Customer/CustomerAccountEmailPassword">Paramètres du compte</option>
+        <option class="option" id="CustomerAccountAddressShipmentForm" url="/Customer/CustomerAccountAddressShipmentForm">Adresse de livraison</option>
+        <option class="option" id="CustomerAccountAddressInvoiceForm" url="/Customer/CustomerAccountAddressInvoiceForm">Adresse de facturation</option>
+        <option class="option" id="CustomerAccountCommandList" url="/Customer/CustomerAccountCommandList">Dernières commandes</option>
+    </select>
+
+    @Html.Action(Model.itemSelectedId + "PartialView", "Customer")
+</div>
+
+
+<script defer>
+
+
+    $(function () {
+
+        $(".customerAccountMenuItem").removeClass('customerMenuItemSelected');
+        $('#@Model.itemSelectedId').addClass("customerMenuItemSelected");
+
+
+        $(".customerAccountMenuItem").click(function (e) {
+            e.stopPropagation();
+            Mjc.customer.handleClickCustomerAccountView(this);
+        });
+    });
+    
+</script>

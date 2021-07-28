@@ -1,0 +1,352 @@
+﻿html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: Verdana;
+    /*min-width: 1080px;
+    min-height: 570px;*/
+}
+
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.main-website {
+    width: 100%;
+    z-index: 2;
+    background-color: white;
+}
+
+    .main-website.expand {
+        transform: translate(-70%);
+        transition: 0.3s ease-in-out;
+        overflow: hidden;
+    }
+
+    .main-website.collapseMenu {
+        transform: translate(0px);
+        transition: 0.3s ease-in-out;
+        overflow: auto;
+    }
+
+.collapsible-btn {
+    cursor: pointer;
+    margin: 20px;
+}
+
+    .collapsible-btn:hover {
+        text-decoration: underline;
+    }
+
+
+.collapsible-menu {
+    height: 100%;
+    width: 70%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    right: 0;
+    overflow-y: auto;
+}
+
+
+.centuryFont {
+    font-family: 'Century Gothic','Verdana';
+}
+
+.smallFontSize {
+    font-size: 0.8em;
+}
+
+.blueBackColor {
+    background-color: #6993ea;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.greyBackColor {
+    background-color: #babcc1;
+}
+
+.orangeBackColor {
+    background-color: #d7c288;
+}
+
+.purpleBackColor {
+    background-color: #cb82af;
+}
+
+.redFont {
+    color: red;
+    font-family: 'Century Gothic','Verdana';
+}
+
+.courierFont {
+    font-family: 'Century Gothic','Verdana';
+}
+
+.smallPadding {
+    padding: 20px;
+}
+
+.borderRound {
+    padding: 3px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.fontColorWhite {
+    color: white;
+}
+
+.fontColorOrange {
+    color: #d7c288;
+}
+
+.imgAlignOnText {
+    vertical-align: middle;
+}
+
+.hoverSlower {
+}
+
+    .hoverSlower:hover {
+        transition-duration: 1s; /* delays for 1 second */
+        -webkit-transition-duration: 1s; /* for Safari & Chrome */
+    }
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+
+.displayNone {
+    display: none;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
+/* CSS Allowing displaying a popup window with modal */
+
+/* Outer */
+.popup {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.75);
+    z-index: 3000;
+}
+
+/* Inner */
+.popup-inner {
+    max-width: 700px;
+    width: 90%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 2px 6px rgba(0,0,0,1);
+    border-radius: 3px;
+    background: #fff;
+}
+
+/* Close Button */
+.popup-close {
+    width: 30px;
+    height: 30px;
+    padding-top: 4px;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transition: ease 0.25s all;
+    -webkit-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
+    border-radius: 1000px;
+    background: rgba(0,0,0,0.8);
+    font-family: Arial, Sans-Serif;
+    font-size: 20px;
+    text-align: center;
+    line-height: 100%;
+    color: #fff;
+}
+
+    .popup-close:hover {
+        -webkit-transform: translate(50%, -50%) rotate(180deg);
+        transform: translate(50%, -50%) rotate(180deg);
+        background: rgba(0,0,0,1);
+        text-decoration: none;
+    }
+
+.basicUrl {
+    text-decoration: none !important;
+    color: black;
+}
+
+    .basicUrl:hover {
+        text-decoration: underline !important;
+        color: black;
+    }
+
+
+.mandatoryField {
+    border-color: #ff6889;
+    background-color: #ffe0e7;
+}
+
+.maskLoading {
+    background-image: url(Images/ellipsis_small.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: white;
+    opacity: 0.5;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.maskLoadingBig {
+    background-image: url(Images/ellipsis_big.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: white;
+    opacity: 0.5;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.triangleCarouselLoadingMask {
+    background-image: url(Images/triangle.gif);
+    background-repeat: repeat;
+    background-color: white;
+    z-index: 10000;
+    pointer-events: none;
+    height: 50%;
+    width: 100%;
+    opacity: 0.3;
+}
+
+.textGreyLineThrough {
+    text-decoration: line-through;
+    color: gray;
+    font-weight: normal;
+}
+
+.displayTable {
+    /*display: table;*/
+}
+
+.accordionPanel {
+    transition: max-height 0.2s ease-out;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.beigeBackColor {
+    background-color: #f8f5bf;
+}
+
+.lowOpacity {
+    opacity: 0.2;
+}
+
+
+.modal-mask {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: black;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity .7s linear;
+}
+
+    .modal-mask.active {
+        z-index: 3;
+        display: block;
+        opacity: 0.5;
+        transform: translate(-70%);
+        transition: opacity .7s linear;
+    }
+
+.menu-accordion-item {
+    margin-bottom: auto;
+    margin-top: auto;
+    font-size: 10px;
+    margin-right: 20px;
+}
+
+    .menu-accordion-item::after {
+        content: "\02795"; /* Unicode character for "minus" sign (-) */
+        cursor: pointer;
+    }
+
+    .menu-accordion-item.opened::after {
+        content: "\2796"; /* Unicode character for "minus" sign (-) */
+        cursor: pointer;
+    }
+
+.menu-item-responsive {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-responsive-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub-menu-item-responsive {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+    .sub-menu-item-responsive > div {
+        margin-left: 80px;
+    }
+
+    .sub-menu-item-responsive .dropdown {
+        display: inline-block;
+        list-style: none;
+        padding: 10px;
+        font-family: 'Century Gothic','Verdana';
+        cursor: pointer;
+        font-size: 0.9em;
+    }
+
+
+
+.height-space-30 {
+    height: 30px;
+}

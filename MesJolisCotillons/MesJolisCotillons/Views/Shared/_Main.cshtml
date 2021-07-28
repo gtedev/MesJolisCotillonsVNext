@@ -1,0 +1,59 @@
+﻿@using MesJolisCotillons.ViewModels
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mes Jolis Cotillons | Site de Brocante et objets déco vintage</title>
+    <meta name="description" content="Hello je m'appelle Cécile ! Bienvenue sur ma boutique de brocante en ligne. Chineuse à mes heures perdues, j'ai créé cette plateforme afin de partager avec vous mes trouvailles lors de mes escapades en brocante" />
+
+    @if (ViewBag.FacebookSharingParameters != null)
+    {
+        var facebookSharingParameters = (FacebookSharingParametersViewModel)ViewBag.FacebookSharingParameters;
+
+        <meta property="og:locale" content="@Html.Encode(facebookSharingParameters.metaLocalProperty)" />
+        <meta property="og:type" content="@Html.Encode(facebookSharingParameters.metaTypeProperty)" />
+        <meta property="og:title" content="@facebookSharingParameters.metaTitleProperty" />
+        <meta property="og:description" content="@Html.Encode(facebookSharingParameters.metaDescriptionProperty)" />
+        <meta property="og:image" content="@Html.Encode(facebookSharingParameters.metaImageProperty)" />
+        <meta property="og:url" content="@Html.Encode(facebookSharingParameters.metaUrlProperty)" />
+        <meta property="og:image:width" content="450" />
+        <meta property="og:image:height" content="298" />
+    }
+    <link rel="icon" type="image/png" href="~/Content/Images/Icons/logoFavicon.png" />
+
+
+    <link rel="stylesheet" href="~/Content/bootstrap-4.1.3/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-4.1.3/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-4.1.3/css/bootstrap.min.css" />
+
+    @Styles.Render("~/Content/MesJolisCotillonsCssPackage")
+    @Scripts.Render("~/bundles/MjcTools")
+    <link rel="stylesheet" type="text/css" href="~/Content/fotorama/fotorama.css">
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="~/Content/jQuery/jquery-3.1.0.min.js"></script>
+
+    <script src="~/Content/bootstrap-4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="~/Content/garand-sticky-5cfc20c/jquery.sticky.js"></script>
+    <script src="~/Content/noty-2.3.8/js/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script src="~/Content/freewall/freewall.js"></script>
+    <script src="~/Content/fotorama/fotorama.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="main-website">
+            @if (ViewBag.ProductItemMessage != null)
+            {
+                <div>@ViewBag.ProductItemMessage</div>
+            }
+
+            @Html.Action("HeaderPartialView", "Home")
+            @RenderBody()
+            @RenderPage("~/Views/Shared/Footer.cshtml")
+        </div>
+        @Html.Action("CollapsibleMenuPartialView", "Home", CollapsibleMenuViewType.MenuItems)
+        @*<div class="modal-mask"></div>*@
+    </div>
+</body>
+</html>

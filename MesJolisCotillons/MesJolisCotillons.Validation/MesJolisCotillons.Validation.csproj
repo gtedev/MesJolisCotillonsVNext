@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.1.2" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MesJolisCotillons.Commands\MesJolisCotillons.Commands.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.Helpers\MesJolisCotillons.Helpers.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.Resources\MesJolisCotillons.Resources.csproj" />
+  </ItemGroup>
+
+</Project>

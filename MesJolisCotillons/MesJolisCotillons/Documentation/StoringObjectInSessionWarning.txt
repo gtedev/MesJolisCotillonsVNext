@@ -1,0 +1,25 @@
+﻿===========================================================
+Storing Object InSession Warning
+===========================================================
+
+If you store an object that encapsulates a repository, be careful because the context related to therepository will have a closed connection to database.
+
+So if you reuse a repository that has been deserialized from Session, you will have an error.
+
+For example if you have:
+
+public class A {
+
+	private Design_Repository repo = new Design_Repository();
+
+}
+
+if you do:
+
+var  testA = new A ();
+Session["A"] = testA;
+
+Later if you retrieve:
+var retrievedA = Session["A"];
+
+=> variable "repo", will have a Context lost, connexion to database will be closed, due to fact that we will be certainly in anotger HttpContext.

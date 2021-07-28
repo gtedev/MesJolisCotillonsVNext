@@ -1,0 +1,36 @@
+﻿===========================================================
+HOW TO FORCE HTTPS ON WHOLE WEBSITE
+===========================================================
+
+On II7 and last version:
+Add this code below in Web.config,   (see on http://stackoverflow.com/questions/47089/best-way-in-asp-net-to-force-https-for-an-entire-site fore more information)
+
+<system.webServer>
+        <rewrite>
+            <rules>
+                <rule name="HTTP to HTTPS redirect" stopProcessing="true">
+                    <match url="(.*)" />
+                    <conditions>
+                        <add input="{HTTPS}" pattern="off" ignoreCase="true" />
+                    </conditions>
+                    <action type="Redirect" url="https://{HTTP_HOST}/{R:1}"
+                        redirectType="Permanent" />
+                </rule>
+            </rules>
+            <outboundRules>
+                <rule name="Add Strict-Transport-Security when HTTPS" enabled="true">
+                    <match serverVariable="RESPONSE_Strict_Transport_Security"
+                        pattern=".*" />
+                    <conditions>
+                        <add input="{HTTPS}" pattern="on" ignoreCase="true" />
+                    </conditions>
+                    <action type="Rewrite" value="max-age=31536000" />
+                </rule>
+            </outboundRules>
+        </rewrite>
+    </system.webServer>
+
+	
+
+	There is also this website than can help:
+	http://tech.trailmax.info/2014/02/implemnting-https-everywhere-in-asp-net-mvc-application/

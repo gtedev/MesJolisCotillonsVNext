@@ -1,0 +1,46 @@
+@import "variables.scss";
+
+@font-face {
+  font-family: "ProximaNova";
+  src: url("assets/fonts/proxima-nova/ProximaNova-AltLight.otf");
+}
+@font-face {
+  font-family: "ProximaNova";
+  src: url("assets/fonts/proxima-nova/ProximaNova-AltBold.otf");
+  font-weight: bold;
+}
+
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: $font-family-sans-serif;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* 1rem = 10px */
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem !important;
+}
+
+// @font-face {
+//   font-family: "ProximaNova";
+//   src: url("fonts/DejaVuSans-Oblique.ttf");
+//   font-style: italic, oblique;
+// }
+// @font-face {
+//   font-family: "ProximaNova";
+//   src: url("fonts/DejaVuSans-BoldOblique.ttf");
+//   font-weight: bold;
+//   font-style: italic, oblique;
+// }
+
+

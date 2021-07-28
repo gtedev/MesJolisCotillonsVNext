@@ -1,0 +1,55 @@
+﻿@model MesJolisCotillons.ViewModels.ProductsViewModel
+@using MesJolisCotillons.Area.Controllers
+@using MesJolisCotillons.Models
+
+@{
+    var productsViewId = Guid.NewGuid().ToString("N");
+    productsViewId = Model.query.ProductsViewId;
+}
+
+<div class="productContainer" id='productsView-@productsViewId'>
+
+
+    @*<div class="producHeaderTitle"><div class="productTitle">- @Model.title- </div></div>*@
+    @{
+        string src = "";
+        if (Model.Etiquette != null)
+        {
+            var blobBinaryStreamArray = Model.Etiquette.Blob.Stream;
+            src = "data:image/jpg;base64," + Convert.ToBase64String(blobBinaryStreamArray);
+        }
+    }
+    <div class="producHeaderTitle">
+        <img height="70px" width="160px" alt="Etiquette non définie" src="@src"/>
+    </div>
+
+    @{
+        var pageRequest = Model.query;
+        var height = Model.height;
+        var width = Model.width;
+
+        pageRequest.ProductsViewId = productsViewId;
+    }
+
+    @*@Html.Action("ProductsGridPartialView", "Product", pageRequest)*@
+    <div id="productsGridLoading-@productsViewId"></div>
+</div>
+
+<script defer>
+
+    $(function() {
+
+        var height = '@height';
+        var width = '@width';
+        var productsViewId = '@productsViewId';
+        var productsPageRequest = @Html.Raw(Json.Encode(pageRequest));
+
+        Mjc.history.addPageRequestIntoIndexArray(productsPageRequest);
+        var currentHistoryState = history.state;
+        if (currentHistoryState != null) {
+            new Mjc.product.runProductsViewUtilitiesWithHistory(height, width, currentHistoryState, productsViewId);
+        } else {
+            Mjc.product.runProductsViewUtilities(height, width, productsViewId, productsPageRequest);
+        }
+    });
+</script>

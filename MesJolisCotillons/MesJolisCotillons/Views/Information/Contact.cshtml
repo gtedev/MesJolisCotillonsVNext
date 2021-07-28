@@ -1,0 +1,32 @@
+﻿@using MesJolisCotillons.ViewModels
+@model MesJolisCotillons.Area.Information.Controllers.InformationController.ContactForm
+
+
+<div class="informationContainer container-fluid">
+    @Html.Partial("LeftMenuAbout", new InformationLeftMenuViewModel { itemSelectedId = "ContactView" })
+    <div class="informationContent">
+        <div class="informationTitle">Contact</div>
+        <div class="informationSimpleText">
+            Une question ? Un commentaire ? Une commande particulière ?<br /> Envie de discuter ? <br /><br />
+            Vous pouvez nous écrire avec le formulaire ci-dessous.
+            <br /><br /><br />
+            @Html.Partial("ContactForm", Model)
+
+            <p>
+                Nous sommes également joignable via l'email suivant : <a title="mes.jolis.cotillons@gmail.com" href="mailto:mesjoliscotillons@gmail.com">mesjoliscotillons@gmail.com</a>
+
+                <br /><br />
+
+                On se fera un plaisir de répondre à votre demande !<br /><br />
+                See you soon !<br />
+                <b>L'équipe de Mes Jolis Cotillons</b>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

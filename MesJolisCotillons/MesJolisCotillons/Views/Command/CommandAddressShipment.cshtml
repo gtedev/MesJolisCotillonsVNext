@@ -1,0 +1,39 @@
+﻿@model MesJolisCotillons.ViewModels.CustomerAccountViewModel
+
+<form id="addressShipmentForm">
+    <br />
+    <br />
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="checkboxSameAddressThanInvoice" name="checkboxSameAddressThanInvoice">
+        <label class="custom-control-label" for="checkboxSameAddressThanInvoice">Utiliser l'adresse de facturation pour la livraison</label>
+    </div>
+    <br />
+
+    @Html.Action("Customer_AddressBasePartialView", "Customer", Model)
+
+</form>
+
+<div class="custom-control custom-radio">
+    <input type="radio" id="radioNormalShipment" name="radioShipmentOption" value="1" class="custom-control-input" checked>
+    <label class="custom-control-label" for="radioNormalShipment">Livraison standard</label>
+</div>
+<div class="custom-control custom-radio">
+    <input type="radio" id="radioOptionShipment" name="radioShipmentOption" value="2" class="custom-control-input">
+    <label title="Sécurisez votre envoi avec l'assurance" class="custom-control-label" for="radioOptionShipment">Livraison avec Signature*(<b> + @Model.OptionShipmentPrice €</b>)</label>
+    <div id="optionShipmentComment" class="shipmentComment">
+        <img height="24px" width="24px" class="iconCommentInner" src="~/Content/Images/info-button.png" alt=""/>
+        <div class="commentInner"> Livraison et remboursement en cas de perte ou d'avarie (voir conditions générales de ventes). </div></div>
+</div>
+<div class="custom-control custom-radio">
+    <input type="radio" id="radioShipmentNone" name="radioShipmentOption" value="3" class="custom-control-input">
+    <label title="Récupérer le produit chez MesJolisCotillons" class="custom-control-label" for="radioShipmentNone">Retrait chez Mes Jolis Cotillons (91120 Palaiseau)</label>
+</div>
+
+
+<script defer>
+    $(function () {
+        var optionShipmentPrice = parseFloat(@Model.OptionShipmentPrice);
+        Mjc.command.runCommandAddressShipmentUtilities(optionShipmentPrice);
+    });
+
+</script>

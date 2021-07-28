@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3712db6af8ef4e5d8db5cf9959bd0a6d" Name="_Main" ZoomLevel="74">
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Blob" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Category" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Command" Width="2.125" PointX="3.875" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.CommandProduct" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Country" Width="1.5" PointX="1.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Etiquette" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.KeyWord" Width="1.5" PointX="3.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Product" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Etiquette_ToBlob" ManuallyRouted="false" />
+        <AssociationConnector Association="MesJolisCotillons.Models.Product_Blob_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_CommandProduct_Command_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_CommandProduct_Product_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="MesJolisCotillons.Models.Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="MesJolisCotillons.Models.Product_KeyWord" ManuallyRouted="false" />
+        <AssociationConnector Association="MesJolisCotillons.Models.ProductBlob" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.User" Width="1.5" PointX="13.875" PointY="11.625" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Design_Config" Width="1.5" PointX="12.875" PointY="3.5" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Customer_User" Width="2" PointX="15.125" PointY="9.125" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Command_Customer_User" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Customer_User_User" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Admin_User" Width="1.5" PointX="11.5" PointY="10.25" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Admin_User_User" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Address" Width="1.5" PointX="11.5" PointY="6.75" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Address_Country_FK" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Command_History" Width="2.125" PointX="8.25" PointY="15.25" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Command_History_ToCommand" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Document" Width="1.5" PointX="8.875" PointY="8" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Document_Blob" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Command_Document" Width="1.5" PointX="1.375" PointY="10.5" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Command_Document_ToCommand" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Command_Document_ToDocument" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.CommandAddress" Width="1.5" PointX="8.25" PointY="11.75" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_CommandAddress_ToCommand" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_CommandAddress_ToAddress" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Category_ToEtiquette" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.CarouselImage" Width="1.5" PointX="3" PointY="16.125" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_CarrouselImage_ToBlob" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.CustomerAddress" Width="1.5" PointX="14.125" PointY="6.75" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_CustomerAddress_Address_FK" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_CustomerAddress_Customer_User" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.LaPosteColissimo" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+      <Diagram DiagramId="0c11ce04f1d7480dae9c82cfae661335" Name="Design" ZoomLevel="86" >
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Design_Config" Width="1.5" PointX="8.375" PointY="1.875" FillColor="Purple" />
+      </Diagram>
+      <Diagram DiagramId="dbe700fad9434c32bbb2595574c28b0a" Name="User" >
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.User" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Customer_User" Width="1.5" PointX="3.25" PointY="3.75" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Customer_User_User" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Admin_User" Width="1.5" PointX="6" PointY="3.875" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_Admin_User_User" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Address" Width="1.5" PointX="4.375" PointY="6.375" />
+      </Diagram>
+      <Diagram DiagramId="a32f1b2d63b84664804225667b4800ef" Name="Product" >
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Product" Width="1.5" PointX="7" PointY="1.375" FillColor="Green" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Blob" Width="1.5" PointX="3.75" PointY="1.875" FillColor="Green" />
+        <AssociationConnector Association="MesJolisCotillons.Models.Product_Blob_FK" />
+        <AssociationConnector Association="MesJolisCotillons.Models.ProductBlob" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Category" Width="1.5" PointX="10.125" PointY="2.875" FillColor="Green" />
+        <AssociationConnector Association="MesJolisCotillons.Models.Product_Category" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.KeyWord" Width="1.5" PointX="10.125" PointY="0.875" FillColor="Green" />
+        <AssociationConnector Association="MesJolisCotillons.Models.Product_KeyWord" />
+      </Diagram>
+      <Diagram DiagramId="2b9e68d532b447b490a6931ae0d45cf2" Name="Command" ZoomLevel="74" >
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Command" Width="3" PointX="6.875" PointY="0.5" FillColor="PeachPuff" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.CommandProduct" Width="1.5" PointX="4.625" PointY="3.625" FillColor="PeachPuff" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_CommandProduct_Command_FK" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.Product" Width="1.5" PointX="7" PointY="4.75" FillColor="PeachPuff" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_CommandProduct_Product_FK" />
+        <EntityTypeShape EntityType="MesJolisCotillons.Models.CommandAddress" Width="1.5" PointX="14.75" PointY="4.375" />
+        <AssociationConnector Association="MesJolisCotillons.Models.FK_CommandAddress_ToCommand" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

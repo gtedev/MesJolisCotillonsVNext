@@ -1,0 +1,63 @@
+﻿@model MesJolisCotillons.ViewModels.CommandViewModel
+@using MesJolisCotillons.Models
+
+<div style="width:60%;">
+    <table class="commandDetailsTableConfirmation" cellspacing="0" style="border-collapse:collapse;width:100%;">
+        <thead>
+            <tr>
+                <th width="200" style="padding: 10px;font-weight: bold;border: 0.5px solid; border-color: gainsboro;">Description</th>
+                <th width="100" style="padding: 10px;font-weight: bold;border: 0.5px solid; border-color: gainsboro;">Prix unitaire</th>
+                <th width="50" style="padding: 10px;font-weight: bold;border: 0.5px solid; border-color: gainsboro;">Qté</th>
+                <th width="100" style="padding: 10px;font-weight: bold;border: 0.5px solid; border-color: gainsboro;">Sous-total</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.Command.CommandProduct_Set)
+            {
+
+                var productId = item.Product.Product_ID;
+                var urlProduct = Model.BaseUrl + "/Product/GetProductView/" + productId;
+
+                <tr style="border-right: solid 0.5px;border-left: solid 0.5px;border-color: gainsboro;">
+                    <td width="200" style="padding: 10px;vertical-align: top;margin: -1px;border-right: solid 0.5px;border-bottom: solid 0.5px;border-color: gainsboro;">
+                        <div class="contentTd"><a class="basicUrl" href="@urlProduct">@item.Product.DisplayName</a></div>
+                    </td>
+                    <td width="100" style="padding: 10px;vertical-align: top;margin: -1px;border-right: solid 0.5px;border-bottom: solid 0.5px;border-color: gainsboro;">@item.ProductPrice €</td>
+                    <td width="50" style="padding: 10px;vertical-align: top;margin: -1px;border-right: solid 0.5px;border-bottom: solid 0.5px;border-color: gainsboro;">@item.Quantity</td>
+                    <td width="100" style="padding: 10px;vertical-align: top;margin: -1px;border-right: solid 0.5px;border-bottom: solid 0.5px;border-color: gainsboro;">@item.TotalCommandProduct €</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+    <div class="commandDetailsTotalContainer centuryFont" style="margin-bottom:20px;border-left: solid 0.5px;border-right: solid 0.5px;border-bottom: solid 0.5px;border-color: gainsboro;height:80px;width:100%;">
+        <div class="commandDetailsTotalColumn" style="float: right;">
+            <table cellspacing="0">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:5px;text-align: right;">Sous-Total</td>
+                        <td style="padding:5px;text-align: right;">@Model.Command.TotalCommand €</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:5px;text-align: right;"><b>Frais de livraison</b></td>
+                        <td style="padding:5px;text-align: right;">@Model.Command.DeliveryCharge €</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:5px;text-align: right;"><b>Total</b></td>
+                        <td style="padding:5px;text-align: right;">@Model.Command.TotalPrice €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

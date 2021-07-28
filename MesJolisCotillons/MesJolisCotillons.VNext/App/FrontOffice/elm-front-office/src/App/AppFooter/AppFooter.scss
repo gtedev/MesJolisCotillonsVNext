@@ -1,0 +1,45 @@
+.app-footer {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    border: 1px green solid;
+    height: 30rem;
+    // background-color: #333;
+    background-color: #262346;
+    z-index: -10;
+    height: 40rem;
+    color: white;
+
+    .footer-item {
+        text-align: center;
+
+        .footer-title {
+            padding-bottom: 2rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        // override the property defined in utils
+        .animated-left-to-right-link:before {
+            background-color: #4dffb8;
+        }
+
+        .footer-logo {
+            height: 3.5rem;
+            width: 3.5rem;
+            margin: 1rem;
+            cursor: pointer;
+        }
+    }
+}
+
+// adjust footer when screen are small, then we can still have the overlay effect
+@media only screen and (max-width: 84rem) {
+    .app-footer {
+        height: 47rem;
+    }
+}

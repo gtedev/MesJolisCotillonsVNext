@@ -1,0 +1,6 @@
+﻿==========================================================
+Why having private setter in ViewModel ?
+==========================================================
+
+==> Explicitely declaring Private setter allows automapper to set properties, as it can use reflection to get private properties
+and setr them. So the viewmodel will still exposing only getter.

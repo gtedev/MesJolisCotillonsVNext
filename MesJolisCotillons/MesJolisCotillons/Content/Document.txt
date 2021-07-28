@@ -1,0 +1,10 @@
+﻿===========================================================
+TO DO
+===========================================================
+
+
+- Sur la fiche produit, mettre un lien pour partager le produit sur les réseaux sociaux
+- Gérer les quantités lors de l'ajout de produit
+- Afficher une mention sur le produit, "Attention produit unique"
+- Gérer le timeout d'une session pour vider un panier non validé
+...

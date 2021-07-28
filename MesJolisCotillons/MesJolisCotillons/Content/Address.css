@@ -1,0 +1,22 @@
+﻿.adminHeaderCls {
+    background-color: white;
+}
+
+.greenTitle {
+    font-weight: bold;
+    color: #7ce6bd;
+}
+
+.bigTitle {
+    font-size: 1.5em;
+}
+
+.formFieldEditableCls .x-form-field {
+    background-color: #fcfbe0;
+}
+
+.fontBoldBlue {
+    background-color: #b7f5dd;
+    color:#2285c6;
+    /*font-weight:bold;*/
+}

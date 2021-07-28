@@ -1,0 +1,60 @@
+.app-container {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+
+    .bandeau-shipping-infos {
+        // background-color: #eeeeee;
+        background-color: #f1f3ff;
+        height: 34rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding: 5rem;
+
+        .bandeau-row {
+            align-items: center;
+            height: 100%;
+
+            .bandeau-box {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .bandeau-box-title {
+                    font-weight: bold;
+                    color: blueviolet;
+                    font-size: 2rem;
+                    margin-bottom: 1rem;
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .paypal-logo {
+        height: 8rem;
+        width: 8rem;
+        margin-bottom: 2rem;
+    }
+
+    .transport-logo {
+        position: relative;
+        left: 3rem;
+        z-index: 20;
+        height: 8rem;
+        width: 8rem;
+    }
+
+    .map-logo {
+        position: relative;
+        top: -3rem;
+        left: -1rem;
+        height: 10rem;
+        width: 10rem;
+    }
+}

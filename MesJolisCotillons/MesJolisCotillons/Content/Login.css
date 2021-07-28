@@ -1,0 +1,106 @@
+﻿.loginContainer {
+    margin-left: auto;
+    margin-right: auto;
+    /*height: 60%;*/
+    height: 50%;
+    width: 70%;
+    background-color: white;
+    /*font-family: 'Century Gothic','CookiesAndMilk','Verdana';*/
+    font-family: 'Century Gothic','Verdana';
+    margin-bottom: 30px;
+    min-height: 200px;
+}
+
+@media (min-width: 767px){
+
+    .loginContainer {
+        min-height: 350px;
+    }
+}
+
+
+.loginContainer .loginArea {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /*margin-top: 5%;*/
+    background-image: url("Images/Accueil_Slide4.jpg");
+    background-size: 100% 100%;
+}
+
+.userForm, .userInscriptionText {
+    background-color: white;
+    width: 40%;
+    min-width: 350px;
+    padding: 30px;
+    display: block;
+    background-color: white;
+    margin: auto;
+}
+
+.userForm-responsive {
+    min-width: 266px;
+    font-size: small;
+}
+
+.userForm .userFormTitle {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.greenSubmitButton {
+    background-color: #71d5af;
+    font-weight: normal;
+    font-size: 1.1em;
+    color: #ffffff;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    margin-top: 15px;
+    width: 50%;
+}
+
+    .greenSubmitButton:hover {
+        background-color: #7ce6bd;
+        cursor: pointer;
+    }
+
+
+.userForm .userTexfield {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 70%;
+}
+
+.userTexfield label {
+    display: inline-block;
+    text-align: left;
+    width: 30%;
+}
+
+.userTexfield input {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    text-indent: 10px;
+}
+
+.loginText {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.redefinePasswordText {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

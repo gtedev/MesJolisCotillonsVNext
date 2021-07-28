@@ -1,0 +1,17 @@
+:host {
+  grid-area: nav;
+  background-color: #262640;
+  border-right: 0.05rem solid e6e6e6;
+
+  nav {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-areas:
+      "main main main"
+      "main  main main"
+      "footer footer footer";
+    grid-template-rows: 1fr 5rem;
+    grid-template-columns: 1fr;
+  }
+}

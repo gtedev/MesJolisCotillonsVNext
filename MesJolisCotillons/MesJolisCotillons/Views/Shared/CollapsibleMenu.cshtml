@@ -1,0 +1,34 @@
+﻿@model MesJolisCotillons.ViewModels.CollapsibleMenuViewModel
+
+<div class="collapsible-menu d-md-none">
+    <div id="collapsible-btn" class="collapsible-btn centuryFont">
+        Fermer
+    </div>
+    <br />
+    <br />
+    @foreach (var item in Model.DesignConfigXmlData.Headers)
+    {
+        var dropdownCls = item.EnableClickFilter ? "dropdown itemMenuClickable" : "dropdown";
+
+        <div class="menu-item-responsive">
+            <div class="menu-item-responsive-row">
+                <div class="@dropdownCls d-inline-block" menuItemId="@item.MenuItemId">@item.Label</div>
+                @if (item.SubMenu_List.Count() > 0)
+                {
+                    <div class="menu-accordion-item d-inline-block"></div>
+                }
+            </div>
+
+            @if (item.SubMenu_List.Count() > 0)
+            {
+                <div class="sub-menu-item-responsive accordionPanel">
+                    @foreach (var subMenuItem in item.SubMenu_List)
+                    {
+                        var itemMenuCls = subMenuItem.EnableClickFilter ? "dropdown itemMenuClickable" : "dropdown";
+                        <div class="@itemMenuCls float-right" menuItemId="@subMenuItem.MenuItemId">@subMenuItem.Label</div>
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>

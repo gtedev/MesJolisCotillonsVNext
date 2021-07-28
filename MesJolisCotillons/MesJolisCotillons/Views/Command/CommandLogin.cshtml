@@ -1,0 +1,50 @@
+﻿@model MesJolisCotillons.ViewModels.CheckoutViewModel
+
+<div class="radioLoginCommandModeContainer">
+    <div class="commandLoginBlock">
+        <div class="custom-control custom-radio">
+            <input id="radioCustomerLoginMode" class="custom-control-input" type="radio" name="radioLoginCommandOption" value="1" checked>
+            <label class="custom-control-label" for="radioCustomerLoginMode">Se connecter à votre compte</label>
+        </div>
+
+        <form id="commandWithLogin">
+            
+            <div class="form-group">
+                <label for="eMailInput">Email</label>
+                <input type="text" class="form-control" id="eMailInput" name="eMail">
+            </div>
+            
+            <div class="form-group">
+                <label for="passwordInput">Mot de passe</label>
+                <input type="password" class="form-control" id="passwordInput" name="password">
+            </div>
+           
+            <input name="Save" id="loginSubmitButton" type="button" class="greenSubmitButton commandLoginButton" value="Se connecter"/>
+        </form>
+    </div>
+    <div id="commandWithoutLoginBlock" class="commandLoginBlock">
+        <div class="custom-control custom-radio">
+            <input id="radioNoLoginMode" class="custom-control-input" type="radio" name="radioLoginCommandOption" value="2">
+            <label class="custom-control-label" for="radioNoLoginMode" title="Sécurisez votre envoi avec l'assurance">Continuer vos achats sans compte</label>
+        </div>
+
+        <form id="commandWithoutLogin">
+            
+            <div class="form-group">
+                <label for="eMailInputNoLogin">Email</label>
+                <input type="text" class="form-control" id="eMailInputNoLogin" name="eMailNoLogin">
+            </div>
+        </form>
+        <button id="loginStepButton" class="commandGreenButton">Continuer</button>
+    </div>
+</div>
+
+
+<script defer>
+    $(function() {
+
+        Mjc.command.runCommandLoginUtilities();
+
+
+    });
+</script>

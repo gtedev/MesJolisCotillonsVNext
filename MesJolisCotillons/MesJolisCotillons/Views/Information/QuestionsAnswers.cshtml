@@ -1,0 +1,173 @@
+﻿@using MesJolisCotillons.ViewModels
+
+<div class="informationContainer container-fluid">
+    @Html.Partial("LeftMenuHelp", new InformationLeftMenuViewModel { itemSelectedId = "QuestionsAnswersView" })
+    <div class="informationContent">
+        <div class="informationTitle">Questions / Réponses</div>
+
+        <div class="informationSimpleText">
+            <div class="questionAnswersContainer">
+                <h4 class="font-weight-bold"> Mon compte</h4>
+
+                <h5>J’ai oublié mon mot de passe</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Pas de panique ! Cliquez sur <a href="/Login/PasswordForgottenView">Mot de passe oublié</a>.
+                        Saisissez votre adresse e-mail, puis validez. Vous recevrez par courriel un lien pour réinitialiser votre mot de passe.
+                    </div>
+                </div>
+
+                <h5>Je n’arrive pas à me connecter à mon compte</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        C’est ennuyeux…avez-vous bien vérifié votre adresse e-mail et votre mot de passe ? Toujours pas ? N’hésitez pas à nous contacter à l’adresse suivante : <a href="mailto:mesjoliscotillons@gmail.com">mesjoliscotillons@gmail.com</a> .
+                    </div>
+                </div>
+
+
+                <h5>Je voudrais modifier mes informations</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Facile !  Il suffit de vous connecter à votre espace personnel et de changer vos informations dans  « <a href="/Customer">Mes informations</a> ».
+                    </div>
+                </div>
+
+                @*<h5>Je voudrais modifier mon adresse de livraison</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        C’est possible si votre commande n’est pas encore en cours d’acheminement. Pour cela, il suffit d’aller dans votre espace personnel et de changer votre adresse de livraison <a href="/Information/Customer">« Mes informations »</a>.
+                    </div>
+                </div>*@
+
+
+                <h5>J’ai validé ma commande mais je voudrais changer mon adresse de livraison/facturation</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Pour cela, n’hésitez pas à nous en faire part à <a href="mailto:mesjoliscotillons@gmail.com">mesjoliscotillons@gmail.com</a>
+                    </div>
+                </div>
+
+
+                <h5>J’hésite à communiquer mes informations personnelles</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Mes Jolis Cotillons s’engage à ne pas divulguer d’informations personnelles et protéger l’ensemble des donnés personnelles des clients.
+                    </div>
+                </div>
+
+
+                <h4 class="font-weight-bold">Mes commandes</h4>
+
+                <h5>Comment  suivre ma commande ?</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Dès que vous validez votre commande, vous recevez un courriel accusant réception de celle-ci.
+                        Toutefois, il arrive qu'une faute de frappe dans votre adresse email empêche la bonne distribution de notre envoi.
+                        Pour vous assurer que votre commande a bien été enregistrée, il vous suffit de cliquer sur « Mon compte » Rubrique « Dernières commandes » et de vérifier si votre commande a bien été prise en compte.
+                        Si votre commande n'a pas été enregistrée, nous vous invitons à la renouveler ou à contacter Mes Jolis Cotillons : <a href="mailto:mesjoliscotillons@gmail.com">mesjoliscotillons@gmail.com</a>
+                    </div>
+                </div>
+
+
+
+                <h5>J’ai changé d’avis,  je voudrais retourner ma commande</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Les produits de Ma jolie Brocante ne sont ni repris, ni échangés.
+                        Pour les autres produits, conformément au droit de rétractation sur internet, vous disposez d'un délai de 14 jours ouvrables à compter de la date de livraison de votre commande pour retourner vos articles, en envoyant une demande à <a href="mailto:mesjoliscotillons@gmail.com">mesjoliscotillons@gmail.com</a>
+                    </div>
+                </div>
+
+
+                <h5> J’ai bien reçu mon colis mais OUPS il est abîmé</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        N’hésitez pas à nous en faire part : <a href="mailto:mesjoliscotillons@gmail.com">mesjoliscotillons@gmail.com</a>, on trouvera une solution !
+                    </div>
+                </div>
+
+
+                <h4 class="font-weight-bold">Livraison</h4>
+
+                <h5>Je voudrais connaître les différents modes de livraison </h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Votre commande est livrée par Colissimo avec un délai d'acheminement moyen de 96h ou retrait possible à l’entrepôt de Mes Jolis Cotillons (91120).
+                    </div>
+                </div>
+
+
+                <h5>Quels sont les délais de livraison ?</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        La date limite de livraison est indiquée sur la fiche article à laquelle s'ajoute le délai de traitement et d'acheminement. Ce délai d'acheminement ne peut en aucun cas excéder 14 jours ouvrés.
+                    </div>
+                </div>
+
+
+
+                <h5> Est-ce que je peux livrer à l’étranger ?</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Yes it’s possible ! Pour cela, n’hésitez pas à nous faire part de votre demande à l’adresse suivante : <a href="mailto:mesjoliscotillons@gmail.com">mesjoliscotillons@gmail.com</a>
+                    </div>
+                </div>
+
+
+                <h4 class="font-weight-bold">Paiement</h4>
+
+                <h5>Je voudrais connaître les modes de paiement possible ?</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Vous avez la possibilité de finaliser votre paiement soit par carte bancaire : MasterCard, Visa, Carte bancaire nationale, Aurore, Carte VPay, Cofinoga / Privilège, Cofidis 4 étoiles, American Express, Discover et Maestro (saisie sécurisée par cryptage SSL) ou par Paypal.
+                        Le débit de la carte n'est effectué qu'à la confirmation de la commande.
+                    </div>
+                </div>
+
+                <h5>Est-il nécessaire de créer un compte Paypal pour commander un article ?</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Vous n’avez pas besoin de créer un compte Paypal  pour finaliser votre commande, le paiement par carte bancaire directement sur le site de Paypal est possible.
+                    </div>
+                </div>
+
+                <h4 class="font-weight-bold">Mes Jolis Cotillons</h4>
+
+                <h5>C’est qui derrière tout ce bazar ?</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Nous vous invitons à découvrir la rubrique <a href="/Information/AboutView">"A propos"</a>.
+                    </div>
+                </div>
+
+                <h5>Les produits de Ma jolie Brocante</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        Comme dans toutes les brocantes, les produits de « Ma jolie Brocante » ne sont ni échangés, ni repris.
+                    </div>
+                </div>
+
+                <h5>Contacter Mes Jolis Cotillons</h5>
+                <div class="accordionPanel">
+                    <div class="answerContent">
+                        N’hésitez pas à nous envoyer un message à l'adresse suivante : <a href="mailto:mesjoliscotillons@gmail.com">mesjoliscotillons@gmail.com</a>  ou nous contacter par téléphone au 06.35.43.45.81. See you soon !
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script defer>
+    $(function () {
+        Mjc.information.runQuestionsAnwsersUtilites();
+    });
+
+</script>
+
+
+
+
+
+
+

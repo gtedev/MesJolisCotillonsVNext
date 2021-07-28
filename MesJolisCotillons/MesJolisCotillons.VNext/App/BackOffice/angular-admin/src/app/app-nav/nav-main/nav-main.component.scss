@@ -1,0 +1,27 @@
+:host {
+  grid-area: main;
+  color: white;
+
+  .nav-main-container {
+    display: flex;
+    flex-direction: column;
+
+    .nav-item-menu {
+      display: flex;
+      font-size: 1.4rem;
+      padding: 1rem 1rem 1rem 3rem;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: pointer;
+
+      &.selected {
+        color: #3399ff;
+        background-color: #313146;
+      }
+
+      &:hover {
+        background-color: #3f3f5a;
+      }
+    }
+  }
+}

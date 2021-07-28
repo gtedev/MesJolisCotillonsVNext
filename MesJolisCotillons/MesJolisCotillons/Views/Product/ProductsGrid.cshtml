@@ -1,0 +1,163 @@
+﻿@model MesJolisCotillons.ViewModels.ProductsGridViewModel
+
+@{
+    var productViewId = Guid.NewGuid().ToString("N");
+
+    var productGridCls = Model.query.productGridCls;
+    var displayPagingToolbar = Model.query.displayPagingToolbar;
+
+    if (productGridCls == null)
+    {
+        productGridCls = "productsGrid";
+    }
+    if (Model.query.ProductsViewId != null)
+    {
+        productViewId = Model.query.ProductsViewId;
+    }
+}
+<div class="maskLoading" id="productsGridContainer-@productViewId">
+
+    <section class="@productGridCls card-group products-frame" id="productsGrid-@productViewId">
+
+        @foreach (var item in Model.products)
+        {
+            <div productId="@item.Product_ID" class="card product-card productItemClickable">
+                @{
+                    var blobId = item.Blob_Set.FirstOrDefault()?.Blob_ID;
+                    var src = "";
+                    var blob = item.Blob_Set.FirstOrDefault();
+                    if (blob != null)
+                    {
+                        var blobBinaryStreamArray = item.Blob_Set.FirstOrDefault().Stream;
+                        string blobBinaryStream = Convert.ToBase64String(blobBinaryStreamArray);
+                        src = "data:image/jpg;base64," + @blobBinaryStream;
+                    }
+                }
+
+                <div class="image-container">
+                    <img class="card-img-top product-image" blobId="@blobId" src="@src" alt="Card image cap">
+                </div>
+                <div class="card-body product-info">
+                    <p class="card-text no-bottom-margin">
+                        <b>@item.Price €</b>
+                        <p>@item.ProductName</p>
+                    </p>
+
+                </div>
+
+
+            </div>
+        }
+
+    </section>
+
+    @if (displayPagingToolbar)
+    {
+        <div class="pagingGrid">
+            <div class="pageToolbar">
+
+                @{
+                    if (Model.pagingInfos.pageNumber > 1)
+                    {
+                        var previousPageNumber = @Model.pagingInfos.pageNumber - 1;
+                        <div class="pageNumber page-@productViewId" productViewId="@productViewId" pageNumber="@previousPageNumber"><</div>
+                    }
+
+                    for (var i = 1; i <= Model.pagingInfos.numberOfPages; i++)
+                    {
+                        var pageCls = "pageNumber";
+                        if (i == Model.pagingInfos.pageNumber)
+                        {
+                            pageCls += " pageSelected";
+                        }
+
+                        <div class="@pageCls page-@productViewId" productViewId="@productViewId" pageNumber="@i">@i</div>
+                    }
+                    if (Model.pagingInfos.pageNumber < Model.pagingInfos.numberOfPages)
+                    {
+                        var nextPageNumber = @Model.pagingInfos.pageNumber + 1;
+                        <div class="pageNumber page-@productViewId" productViewId="@productViewId" pageNumber="@nextPageNumber">></div>
+                    }
+                }
+            </div>
+        </div>
+    }
+
+
+    <script defer>
+
+        @*$.fn.scrollView = function () {
+            return this.each(function () {
+                $('html, body').animate({
+                    scrollTop: $(this).offset().top
+                }, 1000);
+            });
+        }
+
+
+        $("#productsGridContainer-@productViewId .productItemClickable").click(function () {
+
+            if(!$(this).hasClass("loadingMask")){
+                var productId = $(this).attr("productId");
+                Mjc.product.loadProductInfoPage(productId);
+            }
+        });
+
+        $(".page-@productViewId").click(function (e) {
+
+            if(!$(this).hasClass("loadingMask")){
+
+                var pageNumber = $(this).attr("pageNumber");
+                var productsPageRequest = @Html.Raw(Json.Encode(Model.query));
+                productsPageRequest.pageNumber = pageNumber;
+
+                var productViewId = $(this).attr("productViewId")
+                Mjc.util.mask("#productsGridContainer-@productViewId");
+                Mjc.util.opacity('.productItem');
+
+                $("#productsGridContainer-@productViewId .productImage").addClass("productImageNoScale");
+                $(".page-@productViewId").addClass("loadingMask");
+
+                e.stopPropagation();
+
+
+                var heightHeaderTitle = $("#productsGridContainer-@productViewId").prev(".producHeaderTitle").height();
+                var offSet2 = $("#productsGridContainer-@productViewId").prev(".producHeaderTitle").offset().top -heightHeaderTitle ;
+
+                var offset1 = $("#productsGridContainer-@productViewId").prev(".producHeaderTitle").offset();
+                var y = offset1.top + $(document.body).css( "border-top" );
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Product/ProductsGridPartialViewAjax',
+                    data: JSON.stringify(productsPageRequest),
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (htmlResult) {
+
+                        $('html, body').animate({
+                            scrollTop: offSet2
+                        }, 'slow');
+
+
+                        $("#productsGridContainer-@productViewId").replaceWith(htmlResult);
+                    }
+                });
+            }
+        });*@
+        
+        var productElement = document.getElementById('productsGrid-@productViewId');
+        if (productElement.classList.contains('otherInterestedProductGrid')) {
+            productElement.classList.add('other-products');
+        }
+
+        $(function() {
+
+            var productsPageRequest = @Html.Raw(Json.Encode(Model.query));
+            var productViewId = '@productViewId';
+
+            Mjc.product.runProductsGridUtilities(productViewId, productsPageRequest);
+
+        });
+
+    </script>
+</div>

@@ -1,0 +1,67 @@
+﻿===========================================================
+RESTORATION PROGRESSION
+===========================================================
+
+From JetBrains dotPeek (tool to decompile dll)
+- <RootNamespace>									  done
+- Ext.Direct.Mvc								      done
+- MesJoliesCotillons								  done
+- MesJolisCotillons.App_Start						  done
+- MesJolisCotillons.Area							  done
+- MesJolisCotillons.Area.Controllers				  in progress   (missing Product_Controller)
+- MesJolisCotillons.Area.Customer					  done
+- MesJolisCotillons.Area.Customer.Controllers         done
+
+- MesJolisCotillons.Area._Admin					      done
+		- AdminController         done
+		- AdminDirectController   done
+		- DesignConfig_XmlData    done
+		- DesignDirectController  done
+		- GridView                done
+		- ICategoryChecking       done
+		- IKeyWordChecking        done
+		- IProductViewModel       done
+		- MenuItem                done
+		- OneGridProductMenuItem  done
+		- ParametrizerEngine      done
+		- Parametrizer_PropertyManager done
+		- ProductView_TemplateEnum     done
+		- TwoGridProductMenuItem        done
+		- UrlItem        done
+
+-MesJolisCotillons.Area._Admin.Controllers.Direct      done
+        - ProductDirectController					   done
+
+- MesJolisCotillons.Area.Login.Models			      done
+- MesJolisCotillons.Controllers                       done (Home_Controller, no changes)
+- MesJolisCotillons.Extensions                        done (ImageUtils, no changes)
+- MesJolisCotillons.Extensions.CodeMessage            done (CodeMessage, no changes)
+- MesJolisCotillons.Extensions.Security               done (CryptographyUtils, no changes)
+- MesJolisCotillons.Extensions.XmlData				  done (XmlSerializer, no changes)
+
+- MesJolisCotillons.Models							  in progress
+		- Address         done, no changes
+		- Admin_User      done, no changes
+		- Blob            done, no changes
+		- Category        done
+	    - Command         done
+		- CommandProduct  done
+		- Country         done
+		- CurrentUserAbility done
+		- Customer_User      done
+		- Customer_User_Status done, no changes
+		- Design_Config        done
+		- Design_Config_Status done, no changes
+		- Design_Repository    done
+		- Etiquette            done, no changes
+		- ImageResult          done, no changes
+		- KeyWord              done
+		- MesJoliesCotillonsDBContextManager done, no changes
+		- MesJolisCotillonsEntities          done, no changes
+		- Product              done, no changes
+		- Product_Repository   done
+		- Product_Status
+		- Repository   done
+		- User         done
+
+- MesJolisCotillons.ViewModels			              done

@@ -1,0 +1,48 @@
+﻿@model MesJolisCotillons.ViewModels.CarouselViewModel
+
+@{
+    var heightComputed = ((double)Model.WidthScreen) * 0.35;
+    var heightComputedInt = (int)heightComputed;
+    var heightComputedPixel = heightComputedInt + "px";
+}
+@if (Model.hasCarouselImagesAnyElements)
+{
+    <div class="fotorama d-none d-md-block" data-fit="none" data-autoplay="true" data-width="100%" data-height="@heightComputedInt" data-transition="crossfade" data-transition-duration="1500">
+
+        @*@foreach (var carouselImage in Model.CarouselImage_Set)
+            {
+                var src = "";
+                var blobBinaryStreamArray = carouselImage.Blob.Stream;
+                if (blobBinaryStreamArray != null)
+                {
+                    string blobBinaryStream = Convert.ToBase64String(blobBinaryStreamArray);
+                    src = "data:image/jpg;base64," + blobBinaryStream;
+                }
+
+                <div><img  height="65%" width="100%" src=@src /></div>
+            }*@
+        @{
+            var countImage = Model?.DesignConfigXmlData?.HomePage?.CarousselImage_ID_Set?.Count;
+        }
+        @if (countImage != null)
+        {
+            for (int i = 0; i < countImage; i++)
+            {
+                <div><img style="width:100%;height:@heightComputedPixel" src=/Home/GetCarouselImage/@i /></div>
+            }
+        }
+
+    </div>
+            }
+
+
+@*<script type="text/javascript" defer>
+
+    //$(function () {
+
+    //    Mjc.header.runCarouselUtilities();
+
+    //});
+
+</script>*@
+

@@ -1,0 +1,76 @@
+﻿
+@using MesJolisCotillons.ViewModels
+@using MesJolisCotillons.Models
+@using MesJolisCotillons.Extensions.Security
+
+<div id="loadingCarousel" class="maskLoading"></div>
+
+<script>
+    $(function () {
+        var width = $('body').width();
+
+        var data = {
+            widthScreen: width
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/Home/CarouselPartialView',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            success: function (htmlResult) {
+                $("#loadingCarousel").replaceWith(htmlResult);
+                Mjc.header.runCarouselUtilities();
+            }
+        });
+    });
+
+</script>
+
+@{
+    var productRepository = new Product_Repository();
+
+    var isAnyNewProducts = productRepository.FindAllProduct().Any(item => item.Status == Product_Status.Enabled && item.KeyWord_Set.Any(k => k.Value == "Nouveautes"));
+
+
+    var designRepository = new Design_Repository();
+    var etiquetteNouveautes = designRepository.FindEtiquetteByName("Nouveautes");
+    var etiquetteToutVoir = designRepository.FindEtiquetteByName("ToutVoir");
+
+    var nouveautes = new ProductsViewModel
+    {
+        viewId = "Nouveautes",
+        title = "Nouveautes",
+        height = "20%",
+        Etiquette = etiquetteNouveautes,
+        query = new ProductsPageRequest
+        {
+            pageNumber = 1,
+            pageSize = 3,
+            filters = new List<ProductsPageRequest.QueryFilter>() { new ProductsPageRequest.QueryFilter { property = "KeyWord", value = "Nouveautes" } }
+        }
+    };
+    var toutVoir = new ProductsViewModel
+    {
+        viewId = "ToutVoir",
+        title = "Tout voir",
+        height = "80%",
+        Etiquette = etiquetteToutVoir,
+        query = new ProductsPageRequest
+        {
+            pageNumber = 1,
+            pageSize = 12,
+            filters = new List<ProductsPageRequest.QueryFilter>()
+        }
+    };
+
+    var viewIdToutVoir = toutVoir.getProductViewModelId();
+    var viewIdNouveautes = nouveautes.getProductViewModelId();
+}
+
+@if (isAnyNewProducts)
+{
+    @Html.Action("ProductsPartialView", "Product", nouveautes)
+}
+@Html.Action("ProductsPartialView", "Product", toutVoir)
+

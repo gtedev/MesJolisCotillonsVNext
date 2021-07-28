@@ -1,0 +1,43 @@
+﻿@model MesJolisCotillons.ViewModels.CustomerAccountViewModel
+
+<div class="customerAccountContent">
+    <div class="customerAccountForm">
+        <div class="customerAccountTitle">Gérer l'adresse de facturation</div>
+
+        @{
+            var returnUrl = Request.QueryString["ReturnUrl"];
+        }
+
+        <form id="customerAccountFormEdition" method="post">
+
+            <div class="form-group">
+                <label>Adresse</label>
+                <input type="text" name="address" class="form-control" value="@Model.Address" />
+            </div>
+
+            <div class="form-group">
+                <label>Code Postal</label>
+                <input type="text" name="zipCode" class="form-control" value="@Model.ZipCode" />
+            </div>
+
+            <div class="form-group">
+                <label>Ville</label>
+                <input type="text" name="city" class="form-control" value="@Model.City" />
+            </div>
+
+            <div class="form-group">
+                <label>Pays</label>
+
+                <div>@Html.CountryDropdownList(fieldName: "Country", countryIdSelected: Model.Country_FK)</div>
+            </div>
+            <input name="Save" class="customerAccountEditButton" type="submit" value="Sauvegarder"/>
+        </form>
+        <input name="Save" class="signOutButton" type="submit" value="Déconnexion"/>
+    </div>
+</div>
+
+<script defer>
+    $(function () {
+        Mjc.customer.runCustomerAccountAddressInvoiceFormUtilities();
+    });
+</script>

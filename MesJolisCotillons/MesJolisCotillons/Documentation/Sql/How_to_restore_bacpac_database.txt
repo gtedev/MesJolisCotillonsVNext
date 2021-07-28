@@ -1,0 +1,27 @@
+﻿===========================================================
+How to restore bacpac database to Azure
+===========================================================
+
+
+
+https://azure.microsoft.com/fr-fr/documentation/articles/sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage/
+
+
+Exécutez la commande sqlpackage.exe suivante avec les arguments ci-dessous pour votre environnement :
+
+sqlpackage.exe /a:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >
+
+
+Avec Visual Studio 2015, sqlpackage.exe se trouve dans:  C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\130
+
+Il se peut qu'il y ait une erreur du type: "Vous devez avoir  un utilisateur  avec le même mot de passe dans le master et dans la base de données"
+Pour cela, connecter vous au moins une fois à la base de données en saisissant login et mot de passe via Server Explorer de Visual studio.
+
+sqlpackage.exe /a:Import /tsn:mesjoliscotillons-test.database.windows.net /tdn:MesJolisCotillons /tu:supaJei /tp:Puipui2016 /sf:C:\Dev\MesJolisCotillonsBackUp.bacpac
+
+sqlpackage.exe /a:Import /tsn:mesjoliscotillons-dev.database.windows.net /tdn:mesjoliscotillons-dev /tu:supaCeicei /tp:Puipui2016 /sf:C:\Dev\MesJolisCotillonsBackUp\MesJolisCotillonsBackUp04112016.bacpac
+
+
+sqlpackage.exe /a:Import /tsn:mesjoliscotillons.database.windows.net /tdn:MesJolisCotillonsDev /tu:supaGei/tp:Puipui2016 /sf:mesjoliscotillons-dev-2017-1-1-15-8.bacpac
+
+

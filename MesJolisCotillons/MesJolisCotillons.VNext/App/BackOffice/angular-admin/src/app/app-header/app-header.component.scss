@@ -1,0 +1,10 @@
+:host {
+  grid-area: head;
+  background-color: #2f3c63;
+  color: white;
+
+  header {
+    height: 100%;
+    display: flex;
+  }
+}

@@ -1,0 +1,183 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="App\**" />
+    <Content Remove="App\**" />
+    <EmbeddedResource Remove="App\**" />
+    <None Remove="App\**" />
+    <TypeScriptCompile Remove="App\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App\BackOffice\angular-admin\angular.json" />
+    <Content Include="App\BackOffice\angular-admin\coverage\clover.xml" />
+    <Content Include="App\BackOffice\angular-admin\coverage\coverage-final.json" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\base.css" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\index.html" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\prettify.css" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\sort-arrow-sprite.png" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\src\app\app-routing.module.ts.html" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\src\app\app.component.ts.html" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\src\app\app.module.ts.html" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\src\app\index.html" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\src\environments\environment.prod.ts.html" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\src\environments\environment.ts.html" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\src\environments\index.html" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\src\index.html" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\src\main.ts.html" />
+    <Content Include="App\BackOffice\angular-admin\coverage\lcov-report\src\polyfills.ts.html" />
+    <Content Include="App\BackOffice\angular-admin\dist\angular-admin\favicon.ico" />
+    <Content Include="App\BackOffice\angular-admin\dist\angular-admin\index.html" />
+    <Content Include="App\BackOffice\angular-admin\e2e\tsconfig.json" />
+    <Content Include="App\BackOffice\angular-admin\package-lock.json" />
+    <Content Include="App\BackOffice\angular-admin\package.json" />
+    <Content Include="App\BackOffice\angular-admin\src\app\app.component.html" />
+    <Content Include="App\BackOffice\angular-admin\src\favicon.ico" />
+    <Content Include="App\BackOffice\angular-admin\src\index.html" />
+    <Content Include="App\BackOffice\angular-admin\tsconfig.app.json" />
+    <Content Include="App\BackOffice\angular-admin\tsconfig.json" />
+    <Content Include="App\BackOffice\angular-admin\tsconfig.spec.json" />
+    <Content Include="App\BackOffice\angular-admin\tslint.json" />
+    <Content Include="App\BackOffice\package-lock.json" />
+    <Content Include="App\FrontOffice\elm-front-office\elm-stuff\.elm-analyse\_shas\089b497529c2546385dff9225825d93ad309b573.json" />
+    <Content Include="App\FrontOffice\elm-front-office\elm-stuff\.elm-analyse\_shas\0be8d446dc299c72ee262bd26a15c67524a21bae.json" />
+    <Content Include="App\FrontOffice\elm-front-office\elm.json" />
+    <Content Include="App\FrontOffice\elm-front-office\package-lock.json" />
+    <Content Include="App\FrontOffice\elm-front-office\package.json" />
+    <Content Include="App\FrontOffice\elm-front-office\src\assets\images\logo.png" />
+    <Content Include="App\FrontOffice\elm-front-office\src\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.1.2" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.3" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.7.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MesJolisCotillons.Core\MesJolisCotillons.Core.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.DataAccess.Entities\MesJolisCotillons.DataAccess.Entities.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.DataAccess.Repositories\MesJolisCotillons.DataAccess.Repositories.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.Operations\MesJolisCotillons.Operations.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.Resources\MesJolisCotillons.Resources.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="App\BackOffice\angular-admin\.editorconfig" />
+    <None Include="App\BackOffice\angular-admin\.gitignore" />
+    <None Include="App\BackOffice\angular-admin\browserslist" />
+    <None Include="App\BackOffice\angular-admin\coverage\lcov-report\block-navigation.js" />
+    <None Include="App\BackOffice\angular-admin\coverage\lcov-report\prettify.js" />
+    <None Include="App\BackOffice\angular-admin\coverage\lcov-report\sorter.js" />
+    <None Include="App\BackOffice\angular-admin\coverage\lcov.info" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\main-es2015.js" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\main-es2015.js.map" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\main-es5.js" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\main-es5.js.map" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\polyfills-es2015.js" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\polyfills-es2015.js.map" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\polyfills-es5.js" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\polyfills-es5.js.map" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\runtime-es2015.js" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\runtime-es2015.js.map" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\runtime-es5.js" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\runtime-es5.js.map" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\styles-es2015.js" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\styles-es2015.js.map" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\styles-es5.js" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\styles-es5.js.map" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\vendor-es2015.js" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\vendor-es2015.js.map" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\vendor-es5.js" />
+    <None Include="App\BackOffice\angular-admin\dist\angular-admin\vendor-es5.js.map" />
+    <None Include="App\BackOffice\angular-admin\e2e\protractor.conf.js" />
+    <None Include="App\BackOffice\angular-admin\jest.config.js" />
+    <None Include="App\BackOffice\angular-admin\README.md" />
+    <None Include="App\BackOffice\angular-admin\src\app\app.component.scss" />
+    <None Include="App\BackOffice\angular-admin\src\assets\.gitkeep" />
+    <None Include="App\BackOffice\angular-admin\src\styles.scss" />
+    <None Include="App\FrontOffice\elm-front-office\.babelrc" />
+    <None Include="App\FrontOffice\elm-front-office\.gitignore" />
+    <None Include="App\FrontOffice\elm-front-office\elm-stuff\0.19.1\d.dat" />
+    <None Include="App\FrontOffice\elm-front-office\elm-stuff\0.19.1\i.dat" />
+    <None Include="App\FrontOffice\elm-front-office\elm-stuff\0.19.1\lock" />
+    <None Include="App\FrontOffice\elm-front-office\elm-stuff\0.19.1\Main.elmi" />
+    <None Include="App\FrontOffice\elm-front-office\elm-stuff\0.19.1\Main.elmo" />
+    <None Include="App\FrontOffice\elm-front-office\elm-stuff\0.19.1\o.dat" />
+    <None Include="App\FrontOffice\elm-front-office\LICENSE" />
+    <None Include="App\FrontOffice\elm-front-office\README.md" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\App.scss" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppContainer\AppContainer.scss" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppContainer\AppContainerView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppFooter\AppFooter.scss" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppFooter\AppFooterView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppHeader\AppHeader.scss" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppHeader\AppHeaderView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\AppMain.scss" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\AppMainView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\About\AboutView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\Contact\ContactView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\Faq\FaqView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\Home\HomeView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\Legals\LegalsView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\MyAccount\MyAccountView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\MyCommands\MyCommandsView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\MyInformations\MyInformationsView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\NeedHelp\NeedHelpView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\Product\Product.scss" />
+    <None Include="App\FrontOffice\elm-front-office\src\App\AppMain\Pages\Product\ProductView.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\assets\.gitkeep" />
+    <None Include="App\FrontOffice\elm-front-office\src\assets\images\.gitkeep" />
+    <None Include="App\FrontOffice\elm-front-office\src\Config.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\Decoders.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\index.js" />
+    <None Include="App\FrontOffice\elm-front-office\src\Main.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\Route.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\styles.scss" />
+    <None Include="App\FrontOffice\elm-front-office\src\style\bootstrap_custom.scss" />
+    <None Include="App\FrontOffice\elm-front-office\src\style\util.scss" />
+    <None Include="App\FrontOffice\elm-front-office\src\Types.elm" />
+    <None Include="App\FrontOffice\elm-front-office\src\Utils\Product\ProductUtils.elm" />
+    <None Include="App\FrontOffice\elm-front-office\tests\Example.elm" />
+    <None Include="App\FrontOffice\elm-front-office\webpack.config.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="App\BackOffice\angular-admin\e2e\src\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="App\BackOffice\angular-admin\e2e\src\app.po.ts" />
+    <TypeScriptCompile Include="App\BackOffice\angular-admin\src\app\app-routing.module.ts" />
+    <TypeScriptCompile Include="App\BackOffice\angular-admin\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="App\BackOffice\angular-admin\src\app\app.component.ts" />
+    <TypeScriptCompile Include="App\BackOffice\angular-admin\src\app\app.module.ts" />
+    <TypeScriptCompile Include="App\BackOffice\angular-admin\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="App\BackOffice\angular-admin\src\environments\environment.ts" />
+    <TypeScriptCompile Include="App\BackOffice\angular-admin\src\main.ts" />
+    <TypeScriptCompile Include="App\BackOffice\angular-admin\src\polyfills.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+</Project>

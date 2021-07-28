@@ -1,0 +1,60 @@
+﻿
+@*<form target="_new" method="post" action="/IPN/Receive">
+    <input type="hidden" name="payment_status" value="Completed" />
+    <input type="hidden" name="payment_date" value="Tue Mar 07 2017 20:10:07 GMT+0100 (Paris, Madrid)" />
+    <input type="hidden" name="payment_status" value="" />
+    <input type="hidden" name="payment_date" value="" />
+    <input type="hidden" name="address_status" value="" />
+    <input type="hidden" name="payer_status" value="" />
+    <input type="hidden" name="first_name" value="" />
+    <input type="hidden" name="last_name" value="" />
+    <input type="hidden" name="payer_email" value="" />
+    <input type="hidden" name="payer_id" value="" />
+    <input type="hidden" name="address_name" value="" />
+    <input type="hidden" name="address_country" value="" />
+    <input type="hidden" name="address_country_code" value="" />
+    <input type="hidden" name="address_zip" value="" />
+    <input type="hidden" name="address_state" value="" />
+    <input type="hidden" name="address_city" value="" />
+    <input type="hidden" name="address_street" value="" />
+    <input type="hidden" name="business" value="" />
+    <input type="hidden" name="receiver_email" value="cecile-facilitator@mesjoliscotillons.fr" />
+    <input type="hidden" name="receiver_id" value="" />
+    <input type="hidden" name="residence_country" value="" />
+    <input type="hidden" name="item_amount" value="13" />
+    <input type="hidden" name="item_name" value="" />
+    <input type="hidden" name="item_number" value="" />
+    <input type="hidden" name="quantity" value="" />
+    <input type="hidden" name="shipping" value="" />
+    <input type="hidden" name="tax" value="" />
+    <input type="hidden" name="mc_currency" value="EUR" />
+    <input type="hidden" name="mc_fee" value="" />
+    <input type="hidden" name="mc_gross" value="" />
+    <input type="hidden" name="mc_gross_1" value="" />
+    <input type="hidden" name="txn_type" value="" />
+    <input type="hidden" name="txn_id" value="" />
+    <input type="hidden" name="notify_version" value="" />
+    <input type="hidden" name="receipt_ID" value="" />
+    <input type="hidden" name="custom" value="111" />
+    <input type="hidden" name="invoice" value="" />
+    <input name="Save" class="greenSubmitButton" type="submit" value="Tester Paypal IPN" />
+</form>*@
+
+
+<input name="Save" class="greenSubmitButton" type="submit" value="Tester Paypal IPN" />
+
+
+<script>
+    $('.greenSubmitButton').click(function (e) {
+
+        $.ajax({
+            type: 'GET',
+            url: 'https://mesjoliscotillons-test.fr/Command/checkAwaitingPaymentCommand?email=gerard.te.85@gmail.com',
+            success: function (htmlResult) {
+
+                console.log(htmlResult);
+            }
+        });
+
+    });
+</script>

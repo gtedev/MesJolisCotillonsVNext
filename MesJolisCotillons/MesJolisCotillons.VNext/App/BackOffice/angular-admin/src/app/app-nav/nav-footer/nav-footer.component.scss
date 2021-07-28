@@ -1,0 +1,18 @@
+:host {
+  grid-area: footer;
+  color: white;
+
+  .nav-footer {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-areas: "main main main back";
+    grid-template-columns: 1fr 5rem;
+
+    .nav-back-icon {
+      padding: 0.5rem;
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+}

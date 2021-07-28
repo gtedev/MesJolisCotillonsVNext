@@ -1,0 +1,5 @@
+﻿====================================================================
+.NET Core 2.0 Autofac Register Class `InstancePerRequest` doesn't work
+====================================================================
+
+https://stackoverflow.com/questions/48705473/net-core-2-0-autofac-register-class-instanceperrequest-doesnt-work

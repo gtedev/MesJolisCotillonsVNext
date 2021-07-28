@@ -1,0 +1,45 @@
+﻿@model MesJolisCotillons.Area.Information.Controllers.InformationController.ContactForm
+
+<form id="contactForm" class="contactForm">
+    <div class="contactFormBaseRow">
+        <div class="contactFormTexfield">
+            <input type="text" name="FirstName" placeholder="Prénom" value="@Model.FirstName" />
+        </div>
+
+        <div class="contactFormTexfield">
+            <input type="text" name="LastName" placeholder="Nom" value="@Model.LastName" />
+        </div>
+    </div>
+    <div class="contactFormBaseRow">
+        <div class="contactFormTexfield">
+            <input type="text" name="Email" placeholder="Email" value="@Model.Email" />
+        </div>
+    </div>
+    <div class="contactFormBaseRow">
+        <div class="contactFormTexfield">
+            <input type="text" name="Object" placeholder="Objet" value="" />
+        </div>
+    </div>
+    <div class="contactFormBaseRow">
+        <div class="contactFormTexfield">
+            <input id="phoneInput" type="text" name="Phone" placeholder="Téléphone (facultatif)" value="@Model.Phone" />
+        </div>
+    </div>
+    <div class="contactFormBaseRow">
+        <div class="contactFormTexfield">
+            <textarea type="text" name="Message" placeholder="Message:" value=""></textarea>
+        </div>
+    </div>
+    <div class="contactFormSubmitButton">Envoyer</div>  
+</form>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script>
+<script defer>
+    $(function () {
+
+        Mjc.information.runContactFormUtilities();
+
+    });
+</script>
+
+

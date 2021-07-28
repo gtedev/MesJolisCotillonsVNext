@@ -1,0 +1,133 @@
+﻿@model MesJolisCotillons.ViewModels.MySessionCartModel
+@using MesJolisCotillons.Models
+
+@{
+    var isUserConnected = CurrentUser.User != null;
+}
+<div class="command-main-container">
+    <div class="myCartTitle myCommandTitle">Ma Commande</div>
+    <div class="commandContainer">
+        <div id="recap" class="recapStyle recap-sticky justify-content-center">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h5 class="d-flex card-title justify-content-center align-items-center">Récapitulatif</h5>
+                </div>
+                <div class="card-body">
+                    @foreach (var item in Model.commandProducts)
+                    {
+                        <div class="commandSumarryRow">
+                            <div title="@item.quantity x @item.product.DisplayName" class="commandRowDescription">
+                                <img style="vertical-align: middle" src="~/Content/Images/Icons/purple-filled-circle.png" alt=""/> @item.quantity x <a class="basicUrl" href="/Product/GetProductView/@item.product.Product_ID">@item.product.DisplayName</a>
+                            </div>
+                            <div class="commandRowPrice">@item.TotalCommandProduct €</div>
+                        </div>
+                    }
+                </div>
+                <div class="card-footer">
+
+                    <div class="d-flex justify-content-between">
+                        <div>Sous-Total</div>
+                        <div>@Model.TotalCommand €</div>
+                    </div>
+
+                    <div id="commandDeliveryPriceNormal" class="d-flex justify-content-between">
+                        <div>Frais de livraison</div>
+                        <div id="commandSummaryDeliveryPrice" value="@Model.DeliveryCharge">@Model.DeliveryCharge €</div>
+                    </div>
+
+                    <div id="commandSummaryRowTotal" class="d-flex justify-content-between">
+                        <div>Total</div>
+                        <div> @Model.TotalCommandWithDeliveryCharge €</div>
+                    </div>
+                    <div id="commandDeliveryPriceLineThrough" class="commandSumarryRow displayNone">
+                        <div class="commandRowDescription textGreyLineThrough">Frais de livraison</div>
+                        <div id="commandSummaryDeliveryPrice textGreyLineThrough" value="@Model.DeliveryCharge" class="commandRowPrice textGreyLineThrough">@Model.DeliveryCharge €</div>
+                    </div>
+                    <div id="commandSummaryRowOptionShipment" class="commandSumarryRow displayNone">
+                        <div class="commandRowDescription">
+                            <span style="font-style: italic; font-weight: normal;">+ Option livraison sécurité</span>
+                        </div>
+                        <div id="commandSummaryDeliveryPrice" value="@Model.OptionShipmentPrice" class="commandRowPrice">@Model.OptionShipmentPrice €</div>
+                    </div>
+
+                    <div id="commandSummaryRowTotalWithNoCharges" class="commandSumarryRow displayNone">
+                        <div class="commandRowDescription">Total</div>
+                        <div class="commandRowPrice">@Model.TotalCommand €</div>
+                    </div>
+
+                    @{
+                        var totalCommandWithOptionShipment = Model.TotalCommandWithDeliveryCharge + Model.OptionShipmentPrice;
+                    }
+                    <div id="commandSummaryRowTotalWithOptionShipment" class="commandSumarryRow displayNone">
+                        <div class="commandRowDescription">Total</div>
+                        <div class="commandRowPrice">@totalCommandWithOptionShipment €</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion commandSteps" id="accordionOrder">
+
+            @if (!isUserConnected)
+            {
+                <div id="cardLogin" class="card border-0">
+                    <div id="loginStep" class="btnStyle accordionB" data-toggle="collapse" data-target="#collapseLogin"
+                         aria-expanded="true" aria-controls="collapseLogin">
+                        Connexion
+                    </div>
+                    <div id="collapseLogin" class="collapse show formStyle panel" aria-labelledby="headingLogin" data-parent="#accordionOrder">
+
+                        @Html.Action("CommandLoginPartialView", "Command")
+
+                    </div>
+                </div>
+            }
+
+            <div id="card1" class="card border-0 disabled-button">
+                <div id="invoiceStep" class="btnStyle accordionB" data-target="#collapseOne"
+                     aria-expanded="false" aria-controls="collapseOne">
+                    Facturation
+                </div>
+                <div id="collapseOne" class="collapse formStyle panel" aria-labelledby="headingOne" data-parent="#accordionOrder">
+                    <form id="addressInvoiceForm">
+                        @Html.Action("CommandAddressInvoicePartialView", "Command")
+                    </form>
+
+                    <button id="invoiceStepButton" class="commandGreenButton">Continuer</button>
+                </div>
+            </div>
+
+            <div id="card2" class="card border-0 disabled-button">
+                <div id="shipmentStep" class="btnStyle accordionB" data-target="#collapseTwo"
+                     aria-expanded="false" aria-controls="collapseTwo">
+                    Livraison
+                </div>
+                <div id="collapseTwo" class="collapse formStyle panel" aria-labelledby="headingTwo" data-parent="#accordionOrder">
+                    @Html.Action("CommandAddressShipmentPartialView", "Command")
+                    <button id="shipmentStepButton" class="commandGreenButton">Continuer</button>
+                </div>
+            </div>
+
+            <div id="card3" class="card border-0 disabled-button">
+                <div id="checkoutStep" class="btnStyle accordionB" data-target="#collapseThree"
+                     aria-expanded="false" aria-controls="collapseThree">
+                    Paiement
+                </div>
+                <div id="collapseThree" class="collapse formStyle panel" aria-labelledby="headingThree" data-parent="#accordionOrder">
+                    @Html.Action("CommandCheckoutPartialView", "Command")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hidden"></div>
+<script>
+
+    $(function() {
+
+
+        var isUserConnected = @Json.Encode(isUserConnected);
+        Mjc.command.runStepsCheckoutHandlingOrReload(isUserConnected);
+    });
+</script>

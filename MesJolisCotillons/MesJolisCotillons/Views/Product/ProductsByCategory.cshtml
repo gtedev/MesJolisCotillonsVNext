@@ -1,0 +1,24 @@
+﻿@model MesJolisCotillons.ViewModels.CategoryViewModel
+@using MesJolisCotillons.ViewModels
+
+
+@{
+    var viewModel = new ProductsViewModel();
+
+    if (Model != null)
+    {
+        viewModel = new ProductsViewModel
+        {
+            title = Model.title,
+            Etiquette = Model.etiquette,
+            query = new ProductsPageRequest
+            {
+                pageNumber = 1,
+                filters = new List<ProductsPageRequest.QueryFilter>() {
+                    new ProductsPageRequest.QueryFilter { property = "Category_ID", value = Model.Category_ID.ToString() } }
+            }
+        };
+    }
+}
+
+@Html.Action("ProductsPartialView", "Product", viewModel)

@@ -1,0 +1,5 @@
+<section class="nav-main-container">
+   <div class="nav-item-menu" [ngClass]="{'selected': navItem.isSelected}" *ngFor="let navItem of navigationItems" (click)="navigateTo(navItem)">
+      {{ navItem.displayName }}
+   </div>
+</section>

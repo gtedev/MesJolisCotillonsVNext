@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Operations\Queries\**" />
+    <EmbeddedResource Remove="Operations\Queries\**" />
+    <None Remove="Operations\Queries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.1.2" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MesJolisCotillons.Contracts\MesJolisCotillons.Contracts.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.Core\MesJolisCotillons.Core.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.DataAccess.Repositories\MesJolisCotillons.DataAccess.Repositories.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.Executors\MesJolisCotillons.Executors.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.Response\MesJolisCotillons.Response.csproj" />
+    <ProjectReference Include="..\MesJolisCotillons.Validation\MesJolisCotillons.Validation.csproj" />
+  </ItemGroup>
+
+</Project>

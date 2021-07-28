@@ -1,0 +1,400 @@
+﻿
+.commandContainer {
+    display: inline-flex;
+    flex-flow: wrap;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: white;
+    min-height: 100%;
+    padding: 40px;
+    flex-direction: row-reverse;
+}
+
+@media only screen and (max-width: 980px) {
+    .myCommandTitle {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (min-width: 990px) {
+    .myCommandTitle {
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .command-main-container {
+        padding-right: 170px;
+        padding-left: 170px;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .command-main-container {
+        margin-right: 250px;
+        margin-left: 250px;
+    }
+}
+
+.commandSteps {
+    flex-grow: 10;
+    font-family: 'Century Gothic', 'Verdana';
+    font-size: 1em;
+}
+
+@media only screen and (min-width: 721px) {
+    .commandSteps {
+        max-width: 50%;
+        margin-left: 60px;
+        padding-right: 30px;
+        min-width: 330px;
+    }
+}
+
+@media only screen and (max-width:720px) {
+    .commandContainer {
+        display: block;
+    }
+
+    .recapStyle {
+        width: 100% !important;
+    }
+
+    .commandSteps {
+        min-width: 280px;
+    }
+}
+
+.commandGreenButton {
+    background-color: #71d5af;
+    font-weight: normal;
+    font-size: 1em;
+    color: #ffffff;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    min-width: 10em;
+    float: right;
+}
+
+.commandGreenButtonDisabled {
+    background-color: #a7d3c2;
+    font-weight: normal;
+    font-size: 1em;
+    color: #ffffff;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 150px;
+    float: right;
+    pointer-events: none;
+}
+
+.commandGreenButton:hover {
+    background-color: #7ce6bd;
+    cursor: pointer;
+}
+
+.radioGroupCheckoutMode {
+    margin: 20px;
+}
+
+.labelPaypal {
+    display: inline-block;
+}
+
+    .labelPaypal img {
+        vertical-align: middle;
+    }
+
+.commandSumarryContainer {
+    display: inline-flex;
+    flex-grow: 0;
+    vertical-align: top;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 30%;
+    padding: 0px;
+    background-color: white;
+    font-family: 'Century Gothic', 'Verdana';
+}
+
+.commandSumarryGrid {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 10px;
+    background-color: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+}
+
+.commandSumarryRow {
+    padding: 10px;
+    font-size: 0.9em;
+    height: 20px;
+}
+
+.commandRowDescription {
+    float: left;
+    white-space: nowrap;
+    width: 15em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.commandRowPrice {
+    float: right;
+}
+
+.commandSummaryHeader {
+    padding-left: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 1.2em;
+    color: #000000;
+    font-weight: bold;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.commandSumarryTable {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 50%;
+}
+
+.commandSummaryFooter {
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-family: 'Century Gothic', 'Verdana';
+    vertical-align: central;
+    color: #000000;
+    font-weight: bold;
+    border-top: 1px solid #e8e8e8;
+}
+
+.editableStep {
+}
+
+
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    button.accordionB.active, .editableStep:hover {
+        background-color: #000;
+        color: white;
+    }
+
+button.accordionB:hover {
+    background-color: #71d5af;
+    color: white;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+}
+
+.editableStep:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.editableStep.active:after {
+    content: '\2796'; /* Unicode character for " minus " sign (-) */
+}
+
+.hiddenForm {
+    display: none;
+}
+
+.maskPayment {
+    background-image: url(Images/ripple-loading.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+#commandSumarryGrid.summaryFixed {
+    position: fixed;
+    z-index: 200;
+    top: 13%;
+    width: 21%;
+}
+
+.commandDetailsTable {
+    margin-top: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+    .commandDetailsTable th {
+        padding: 10px;
+        border: none;
+        background-color: #c78ddb;
+        color: white;
+        font-weight: bold;
+        font-family: 'Century Gothic', 'Verdana';
+        font-size: 1em;
+        border-right: 0.5px solid;
+        border-color: white;
+    }
+
+    .commandDetailsTable td {
+        font-family: 'Century Gothic', 'Verdana';
+        padding: 10px;
+        vertical-align: top;
+        margin: -1px;
+        border-bottom: solid 0.5px;
+        border-color: gainsboro;
+        font-size: 1em;
+    }
+
+    .commandDetailsTable .contentTd {
+        display: inline-block;
+        vertical-align: top;
+        height: 50px;
+        margin-left: 40px;
+        width: 15em;
+        text-overflow: ellipsis;
+        resize: horizontal;
+    }
+
+.commandDetailsTotalColumn {
+    float: right;
+}
+
+.commandDetailsTotalContainer {
+    margin-bottom: 20px;
+    width: 80%;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+}
+
+.commandDetailsTotalColumn td {
+    text-align: right;
+    padding-right: 10px;
+    font-size: 1em;
+}
+
+.shipmentComment {
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 80%;
+    background-color: #f8f5bf;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-size: 0.9em;
+}
+
+.commentInner {
+    padding: 10px;
+    margin-left: 20px;
+    color: #000000;
+}
+
+.iconCommentInner {
+    vertical-align: middle;
+    float: left;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.radioLoginCommandModeContainer .userTexfield {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.commandLoginBlock {
+    margin: 5px;
+    padding: 20px;
+}
+
+.loginButtonDisabled {
+    background-color: #d6eae2;
+    pointer-events: none;
+}
+
+.btnStyle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #eeeeee;
+    color: darkgrey;
+    transition: 0.4s;
+}
+
+.formStyle {
+    padding: 20px;
+    background-color: #fdfdfd;
+}
+
+.recapStyle {
+    display: inline-flex;
+    width: 30%;
+    align-self: flex-start;
+    flex-grow: 8;
+    vertical-align: top;
+    padding-bottom: 20px;
+}
+
+@media only screen and (min-width: 989px) {
+    .recap-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 70px;
+        margin-right: 60px;
+    }
+}
+
+
+.disabled-button {
+    pointer-events: none;
+    opacity: .5;
+}
+
+.active.btnStyle {
+    background-color: #000000;
+    opacity: initial;
+    color: white;
+}
+
+.commandLoginButton {
+    min-width: 195px;
+}

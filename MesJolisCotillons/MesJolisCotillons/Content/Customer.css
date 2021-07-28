@@ -1,0 +1,254 @@
+﻿.customerAccountContainer {
+    display: inline-block;
+    min-height: 100%;
+    width: 100%;
+    margin: auto;
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+    background-color: white;
+    font-family: 'Century Gothic', 'CookiesAndMilk', 'Verdana';
+}
+
+.leftMenuAccountCustomer {
+    display: inline-flex;
+    vertical-align: top;
+    flex-grow: 0;
+    width: 25%;
+    height: 50%;
+    padding: 0;
+    margin: 0px 10px 0px 0px;
+    background-color: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+}
+
+.dropdownMenuAccountCustomer {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.customerAccountContent {
+    display: inline-flex;
+    padding: 0;
+    flex-grow: 10;
+    width: 70%;
+    background-color: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 767.5px) {
+    .customerAccountContent {
+        width: 100%;
+    }
+
+    .customerAccountContainer {
+        padding: 4%;
+    }
+}
+
+.customerAccountTitle {
+    text-align: center;
+    padding: 25px 10px;
+    font-size: 1.2em;
+    color: #000000;
+    font-weight: bold;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.customerAccountTitleMain {
+    text-align: center;
+    font-size: 1.2em;
+    color: #000000;
+    font-weight: bold;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 20px;
+    background-color: white;
+    font-family: 'Century Gothic', 'CookiesAndMilk', 'Verdana';
+}
+
+.customerAccountMenuItem {
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+.customerMenuItemSelected {
+    background-color: #f2f2f2;
+    color: #000000;
+    font-weight: bold;
+}
+
+.customerAccountMenuItem:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.customerAccountForm {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-color: white;
+}
+
+.customerTexfield {
+    /*padding: 20px;*/
+}
+
+.customerTexfield input, .customerTexfield select {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 30px;
+    /*margin-bottom: 20px;*/
+    width: 35%;
+    height: 30px;
+    text-indent: 10px;
+    box-sizing: border-box;
+}
+
+.customerTexfield .seperationLine {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-top: 1px solid #f2f2f2;
+}
+
+.customerAccountEditButton {
+    background-color: #71d5af;
+    margin-top: 20px;
+    font-weight: normal;
+    font-size: 1.1em;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    width: auto;
+}
+
+.customerAccountEditButton:hover {
+    background-color: #7ce6bd;
+    cursor: pointer;
+}
+
+.signOutButton {
+    float: right;
+    margin-bottom: 20px!important;
+    margin-right: 30px!important;
+    border: none;
+    background: none;
+}
+
+.signOutButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.customerAddressBase {
+    display: table;
+    width: 70%;
+    padding-top: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #000000;
+}
+
+.customerAddressBaseRow {
+    display: flex;
+    align-content: stretch;
+    height: 70px;
+    width: 100%;
+}
+
+.addressBaseTexfield {
+    width: 100%;
+    margin-left: 20px;
+    /*display: table-cell;*/
+    /*width: auto;*/
+    /*white-space: nowrap;*/
+}
+
+.addressBaseTexfield input /*,.addressBaseTexfield select*/
+{
+    width: 100%;
+    height: 30px;
+    text-indent: 10px;
+    box-sizing: border-box;
+}
+
+.addressBaseTexfield .addressLabel {
+    /*width: 50%;*/
+    /*font-weight: bold;*/
+}
+
+.myCustomerAccountLisCommand {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30%;
+    border: 1px dashed solid;
+    border-color: black;
+}
+
+.myCustomerAccountLisCommand th {
+    padding: 10px;
+    border: none;
+    /*background-color: #000000;*/
+    color: #000000;
+    font-weight: normal;
+    font-family: 'Century Gothic', 'CookiesAndMilk', 'Verdana';
+    font-size: 0.7em;
+    text-align: left;
+}
+
+.myCustomerAccountLisCommand td {
+    font-family: 'Century Gothic', 'CookiesAndMilk', 'Verdana';
+    padding: 10px;
+    vertical-align: top;
+    margin: -1px;
+    border-top: solid 0.5px;
+    border-color: gainsboro;
+    font-size: 0.7em;
+}
+
+.myCustomerAccountLisCommand .contentTd {
+    display: inline-block;
+    vertical-align: top;
+    height: 70px;
+    margin-left: 40px;
+    max-width: 14em;
+    text-overflow: ellipsis;
+}
+
+.detailsButton {
+    min-width: 5em;
+}
+
+.detailsButton:hover {
+    /*opacity:0.9;*/
+    -webkit-filter: brightness(110%);
+    cursor: pointer;
+}
+
+.rowExpander {
+    background-color: #d5dbf8;
+}
+
+.centerContent {
+    display: flex;
+    justify-content: center;
+}
+
+.table-font {
+    font-size: x-small;
+}
+
+#customerAccountFormEdition{
+    padding: 30px;
+}
+

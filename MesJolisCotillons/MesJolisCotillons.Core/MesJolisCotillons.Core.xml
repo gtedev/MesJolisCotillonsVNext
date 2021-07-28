@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MesJolisCotillons.Core</name>
+    </assembly>
+    <members>
+        <member name="M:MesJolisCotillons.Core.Framework.Builders.Command.ICommandBuilderStep`4.AddCommandBuilder(MesJolisCotillons.Commands.Builders.ICommandBuilder{`2,`0,`3})">
+            <summary>
+            Add CommandBuilder to decide how to build the command that will be consumed through next steps of operation like Validation or Execution.
+            </summary>
+            <param name="commandBuilder">CommandBuilder is the builder that builds the command.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MesJolisCotillons.Core.Framework.Builders.Executor.IExecutorBuilderStep`2.AddExecutorBuilder(MesJolisCotillons.Executors.Builder.IExecutorBuilder{`0})">
+            <summary>
+            Add ExecutionBuilder to provide sets of executors to run (eventually against the database) when the validation has passed successfully.
+            </summary>
+            <param name="operationExecutor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MesJolisCotillons.Core.Framework.Builders.Operation.IOperationBuilderStep`2.Build">
+            <summary>
+            <para>Build the running operation function that glues all different builders together (Adapter, CommandBuilder,  ValidationBuilder...).</para>
+            <para>The function is responsible to build the command, run the validation steps, run exectution steps if validation has passed and return a response when the operation finishes.</para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MesJolisCotillons.Core.Framework.Builders.Operation.IOperationBuilder`4">
+            <summary>
+            <para>Operation Builder is a class that allows the configuration of the workflow of the operation.</para>
+            <para> 5 main steps in the following order:</para>
+            <para> + (1) - Adapter: prepare the data that will be used to build the command. With the help of datas from the Request,
+            it loads necessary datas from the database. For example, if an email is provided in the Request, it can loads existing user from database.</para>
+            <para> + (2) - Command: build the command with data from the Adapter.</para>
+            <para> + (3) - Validation: validation of the command (this step is optional).</para>
+            <para> + (4) - Execution: if validation passed, execution of the executors. For example: an executor can add some records in database. </para>
+            <para> + (5) - Response: Return the response from the operation.</para>
+            </summary>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+            <typeparam name="TCommand"></typeparam>
+            <typeparam name="TAdapter"></typeparam>
+        </member>
+        <member name="M:MesJolisCotillons.Core.Framework.Builders.Operation.IOperationBuilder`4.AddAdapter(`3,`0)">
+            <summary>
+            Add Adapter to the operation to prepare data that will be consumed when building the Command.
+            </summary>
+            <param name="adapter">Adapter is a container that contains prepared / loaded datas from the database</param>
+            <param name="request">Request received by endpoint</param>
+            <returns></returns>
+        </member>
+        <member name="M:MesJolisCotillons.Core.Framework.Builders.Response.IResponseBuilderStep`2.AddResponseBuilder(MesJolisCotillons.Response.Builders.IResponseBuilder{`0,`1})">
+            <summary>
+            Add a ResponseBuilder to decide how to build the response of the Operation.
+            </summary>
+            <param name="responseBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MesJolisCotillons.Core.Framework.Builders.Response.IResponseBuilderStep`2.AddDefaultResponseBuilder">
+            <summary>
+            Add a Default response builder to get a default response like "{OperationName}" has been executed with success.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MesJolisCotillons.Core.Framework.Builders.Runner.IRunnerOperationStep`2.Run">
+            <summary>
+            Run the running operation function, it returns an operation response
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MesJolisCotillons.Core.Framework.Builders.Validation.IValidationBuilderStep`2.AddValidationBuilder(MesJolisCotillons.Validation.Builders.IValidationBuilder{`0})">
+            <summary>
+            Add ValidationBuilder to provide set of validation to check during the Operation.
+            </summary>
+            <param name="validationBuilder"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

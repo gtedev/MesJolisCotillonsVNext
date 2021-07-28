@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--<OutputType>Exe</OutputType>-->
+    <!--<TargetFramework>netcoreapp3.0</TargetFramework>-->
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Templates\*.cs" />
+    <Compile Include="Types.fs" />
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Compile Include="GenerationFileConfig.fs" />
+    <Compile Include="GenerateFile.fs" />
+    <Compile Include="GenerateOperation.fs" />
+    <!--<Compile Exclude="Templates\*.cs" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Templates\Template1\ITemplateExecutorBuilder.cs" />
+    <None Include="Templates\Template1\ITemplateResponseBuilder.cs" />
+    <None Include="Templates\Template1\TemplateAdapterTests.cs" />
+    <None Include="Templates\Template1\TemplateExecutorBuilder.cs" />
+    <None Include="Templates\Template1\TemplateOperation%271.cs" />
+    <None Include="Templates\Template1\TemplateResponseBuilder.cs" />
+    <None Include="Templates\Template1\TemplateResponseBuilderUnitTests.cs" />
+    <None Include="Templates\Template1\TemplateValidationBuilder.cs" />
+    <None Include="Templates\Template1\ITemplateValidationBuilder.cs" />
+    <None Include="Templates\Template1\TemplateCommandBuilder.cs" />
+    <None Include="Templates\Template1\ITemplateCommandBuilder.cs" />
+    <None Include="Templates\Template1\TemplateCommandBuilderUnitTests.cs" />
+    <None Include="Templates\Template1\TemplateCommandBuilder%271.cs" />
+    <None Include="Templates\Template1\ITemplateCommandBuilder%271.cs" />
+    <None Include="Templates\Template1\TemplateCommandBuilderUnitTests%271.cs" />
+    <None Include="Templates\Template1\ITemplateAdapter.cs" />
+    <None Include="Templates\Template1\TemplateAdapter.cs" />
+    <None Include="Templates\Template1\TemplateCommand.cs" />
+    <None Include="Templates\Template1\TemplateRequest.cs" />
+    <None Include="Templates\Template1\TemplateResponse.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.Data" Version="3.3.2" />
+  </ItemGroup>
+
+</Project>

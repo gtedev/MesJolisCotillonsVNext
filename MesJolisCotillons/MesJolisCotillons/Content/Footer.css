@@ -1,0 +1,56 @@
+﻿.footer {
+    width: 100%;
+    min-height: 25%;
+    margin-top: 30px;
+    background-color: black;
+    color: white;
+}
+
+.footer-content {
+    height: 100%;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-column-content {
+    font-size: 0.9em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+}
+
+    .footer-column-content a {
+        text-decoration: none;
+        color: #ffffff !important; /* have to put !important because of conflict of buttons.css from noty library */
+    }
+
+        .footer-column-content .title-large {
+            font-size: large;
+        }
+
+        .footer-column-content a:visited {
+            text-decoration: none;
+        }
+
+        .footer-column-content a:hover {
+            text-decoration: underline;
+        }
+
+
+.social-network-footer img {
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+#copyright {
+    margin-top: 50px;
+    font-size: 0.9em;
+    width: 100%;
+    text-align: right;
+}

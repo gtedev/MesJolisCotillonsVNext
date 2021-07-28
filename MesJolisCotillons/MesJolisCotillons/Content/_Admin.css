@@ -1,0 +1,246 @@
+﻿
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.x-viewport {
+    min-width: 1350px !important;
+    overflow-y: auto !important;
+}
+
+.x-body {
+    min-width: 1350px !important;
+    overflow-y: auto !important;
+}
+
+/*.overflowViewPort {
+    min-width: 1350px;
+    overflow-y: auto;
+}*/
+
+
+.maskLoading {
+    /*background-image: url(Images/ripple-loading.gif);*/
+    background-image: url(Images/ellipsis_small.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: white;
+    opacity: 0.5;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.adminHeaderCls {
+    background-color: white;
+}
+
+.greenTitle {
+    font-weight: bold;
+    color: #7ce6bd;
+}
+
+.bigTitle {
+    font-size: 1.5em;
+}
+
+.formFieldEditableCls .x-form-field {
+    background-color: #fcfbe0;
+}
+
+.fontBoldBlue {
+    background-color: #b7f5dd;
+    color: #2285c6;
+    /*font-weight:bold;*/
+}
+
+.blueImportantMessage {
+    color: #2285c6;
+}
+
+
+.greenBackground {
+    background: #7ce6bd;
+}
+
+.yellowBackground {
+    background: #e0c119;
+}
+
+.greyBackground {
+    background: #d8d8d8;
+    border-left-color: #d8d8d8;
+    border-right-color: #d8d8d8;
+    border-top-color: #d8d8d8;
+    border-bottom-color: #b2b2b2;
+}
+
+    .greyBackground .x-btn-inner {
+        color: black;
+    }
+
+    .greyBackground.x-btn-pressed span {
+        /*font-weight:bold !important;
+    font-size:13px !important;*/
+        color: white !important;
+    }
+
+.pinkBackground {
+    background: #ff00dc;
+}
+
+.inlineIcon {
+    padding-left: 25px;
+    /*padding-top: 2px;
+    padding-bottom: 2px;*/
+}
+
+.filterButtonCommandClsOver {
+    background-color: #b2b2b2;
+}
+
+.infoBox {
+    padding: 20px;
+}
+
+.infoCommandTitle {
+    width: 8em;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.infoCommandTotalTitle {
+    width: 200px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.infoCommand {
+    font-size: 1em;
+    /*padding: 5px;*/
+    /*margin: 5px;*/
+}
+
+.infoCommandStatus {
+    font-size: 1em;
+    /*padding: 5px;*/
+    /*margin: 5px;*/
+    line-height: 1.5em;
+    word-wrap: break-word;
+}
+
+.infoEmail {
+    font-style: italic;
+    color: #2285c6;
+    text-decoration: underline;
+}
+
+.infoPanelCls {
+    background-color: #b7f5dd;
+}
+
+.awaitingPaymentCls {
+    background-color: #e0c119;
+    color: white;
+    font-family: 'Courier New';
+    /*text-shadow: 2px 2px black;*/
+}
+
+.paymentSuccessCls {
+    background-color: green;
+    color: white;
+    font-family: 'Courier New';
+    /*text-shadow: 2px 2px black;*/
+}
+
+.deliveredCls {
+    background-color: #2285c6;
+    color: white;
+    font-family: 'Courier New';
+}
+
+.disableCls {
+    background-color: #b2b2b2;
+    color: black;
+    font-family: 'Courier New';
+}
+
+.expiredCls {
+    background-color: #f5bb8a;
+    color: black;
+    font-family: 'Courier New';
+}
+
+.declinedCls {
+    background-color: #e67ba6;
+    color: black;
+    font-family: 'Courier New';
+}
+
+
+.yellowButtonBackground {
+    background-color: #efdb60;
+    border-left-color: #efdb60;
+    border-right-color: #efdb60;
+    border-top-color: #efdb60;
+    border-bottom-color: #efdb60;
+}
+
+.yellowButtonBackgroundOver {
+    background-color: #d7c455;
+}
+
+.blueButtonBackground {
+    background-color: #b7f5dd;
+    border-left-color: #b7f5dd;
+    border-right-color: #b7f5dd;
+    border-top-color: #b7f5dd;
+    border-bottom-color: #b7f5dd;
+}
+
+.blueButtonBackgroundOver {
+    background-color: #a1dcc5;
+}
+
+.redButtonBackground {
+    background-color: #eddd7c;
+}
+
+.redButtonBackgroundOver {
+    background-color: #d5c76f;
+
+}
+.greyButtonBackground {
+    background: #d8d8d8;
+    border-left-color: #d8d8d8;
+    border-right-color: #d8d8d8;
+    border-top-color: #d8d8d8;
+    border-bottom-color: #b2b2b2;
+}
+
+.greyButtonBackgroundOver {
+    background-color: #b2b2b2;
+}
+
+.yellowButtonBackground .x-btn-inner, .blueButtonBackground .x-btn-inner, .greyButtonBackground .x-btn-inner, .redButtonBackground .x-btn-inner {
+    color: black;
+}
+
+.yellowButtonBackground.x-btn-pressed span, .blueButtonBackground.x-btn-pressed span, .greyButtonBackground.x-btn-pressed span, .redButtonBackground.x-btn-pressed span {
+    color: white !important;
+    font-size: 15px;
+    /*background: green !important;*/
+}
+
+.yellowButtonBackground.x-btn-pressed, .blueButtonBackground.x-btn-pressed, .greyButtonBackground.x-btn-pressed, .redButtonBackground.x-btn-pressed {
+    background-color: #32b74e !important;
+}
+
+
+.editableField {
+    background-color: #fff6c2;
+}
+
+.comment {
+    color: #b06c4a;
+}

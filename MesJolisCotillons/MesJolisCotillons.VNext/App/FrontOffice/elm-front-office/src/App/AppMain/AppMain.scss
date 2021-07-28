@@ -1,0 +1,9 @@
+.app-main {
+    @import "Pages/Home/Home.scss";
+    @import "Pages/Product/Product.scss";
+
+    grid-area: main;
+    // border: 1px blue solid;
+    background: white;
+    padding: 3rem 10rem 3rem 10rem;
+}

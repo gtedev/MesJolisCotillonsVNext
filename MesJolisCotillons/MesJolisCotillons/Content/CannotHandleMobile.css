@@ -1,0 +1,99 @@
+﻿html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: AleoBold,Tahoma,Arial,Helvetica,clean,sans-serif;
+}
+
+.container {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    height: 650px;
+    /*width: 100%;*/
+    /*background-color: #7690f6;*/
+    background-repeat: no-repeat;
+    background-image: url(Images/Accueil_Slide4.jpg);
+    background-size: 100% 100%;
+    padding:30px;
+    /*opacity:0.5;*/
+}
+
+.messageText {
+    color: #000000;
+    font-size: 1.7em;
+    padding: 20px;
+    background-color: white;
+    opacity: 0.7;
+    width: 40%;
+    height: 55%;
+    display: block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px !important;
+    margin-bottom: 50px;
+    text-align:center;
+}
+
+.leftArea li {
+    display: inline-block;
+    clear: both;
+    font-family: 'Century Gothic';
+    font-size: 1em;
+}
+
+.leftArea {
+    float: left;
+    margin: 5px;
+}
+
+.rightArea {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    margin-right: 30px;
+    color: white;
+}
+
+    .rightArea li {
+        display: inline-block;
+        padding: 0px;
+        margin: 0px;
+        vertical-align: middle;
+        clear: both;
+        font-family: 'Century Gothic';
+        font-size: 1em;
+    }
+
+    .rightArea a {
+        color: white;
+        text-decoration: none;
+    }
+
+.bandeau {
+    margin-top: 17px;
+    height: 250px;
+}
+
+
+    .bandeau img {
+        height: 200px;
+        width: 200px;
+        /*margin-left: -200px;
+        position: absolute;
+        left: 50%;*/
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+#paintBandeau {
+    height: 40px;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    width: 100%;
+}

@@ -1,0 +1,1737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BDF6860F-BC76-4714-9B2E-45E9D50D23F2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MesJolisCotillons</RootNamespace>
+    <AssemblyName>MesJolisCotillons</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44382</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ext.Direct.Mvc, Version=3.0.2.0, Culture=neutral, PublicKeyToken=2ec707a789ea209b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ext.Direct.Mvc4.3.0.2\lib\net40\Ext.Direct.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebHelpers.3.2.6\lib\net45\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalButtonManagerSDK, Version=2.10.109.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPalButtonManagerSDK.2.10.109\lib\net20\PayPalButtonManagerSDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PayPalCoreSDK, Version=1.7.0.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPalCoreSDK.1.7.0\lib\net451\PayPalCoreSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.5.4.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.6\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.6\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\MesJolisCotillons.mdf" />
+    <Content Include="App_Data\MesJolisCotillons_05032017Azure.mdf" />
+    <Content Include="App_Data\MesJolisCotillons_05032017Azure_log.ldf">
+      <DependentUpon>MesJolisCotillons_05032017Azure.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\MesJolisCotillons_log.ldf">
+      <DependentUpon>MesJolisCotillons.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap.css" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap-4.1.3\js\bootstrap.bundle.js" />
+    <Content Include="Content\bootstrap-4.1.3\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\bootstrap-4.1.3\js\bootstrap.js" />
+    <Content Include="Content\bootstrap-4.1.3\js\bootstrap.min.js" />
+    <Content Include="Content\extjs6\ext-all-6.2.0.js" />
+    <Content Include="Content\extjs6\ext-all-debug-6.2.0.js" />
+    <Content Include="Content\extjs6\ext-locale-fr.js" />
+    <Content Include="Content\garand-sticky-5cfc20c\.gitignore" />
+    <Content Include="Content\garand-sticky-5cfc20c\example-center.html" />
+    <Content Include="Content\garand-sticky-5cfc20c\example-header.html" />
+    <Content Include="Content\garand-sticky-5cfc20c\example-right.html" />
+    <Content Include="Content\garand-sticky-5cfc20c\jquery.sticky.js" />
+    <Content Include="Content\Images\29660_paypal--rapide-mais-_150906122701.jpg" />
+    <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\Apropos_back.jpg" />
+    <Content Include="Content\Images\ellipsis_big.gif" />
+    <Content Include="Content\Images\ellipsis_small.gif" />
+    <Content Include="Content\Images\hand-touching-tablet-screen.png" />
+    <Content Include="Content\Images\Icons\down-arrow.png" />
+    <Content Include="Content\Images\Icons\e-mail-envelope.png" />
+    <Content Include="Content\Images\Icons\empty-cart-green.png" />
+    <Content Include="Content\Images\Icons\empty-cart.png" />
+    <Content Include="Content\Images\Icons\general\album.png" />
+    <Content Include="Content\Images\Icons\general\album2.png" />
+    <Content Include="Content\Images\Icons\general\album_red.png" />
+    <Content Include="Content\Images\Icons\general\double-arrow.png" />
+    <Content Include="Content\Images\Icons\general\download.png" />
+    <Content Include="Content\Images\Icons\envelope.png" />
+    <Content Include="Content\Images\Icons\facebook-logo.png" />
+    <Content Include="Content\Images\Icons\general\add_file.png" />
+    <Content Include="Content\Images\Icons\general\arrow_large_right.png" />
+    <Content Include="Content\Images\Icons\general\box.png" />
+    <Content Include="Content\Images\Icons\general\clock.png" />
+    <Content Include="Content\Images\Icons\general\document-powerpoint.png" />
+    <Content Include="Content\Images\Icons\general\doc_pdf.png" />
+    <Content Include="Content\Images\Icons\general\edit.png" />
+    <Content Include="Content\Images\Icons\general\folder_blue.png" />
+    <Content Include="Content\Images\Icons\general\image_2.png" />
+    <Content Include="Content\Images\Icons\general\new-user.png" />
+    <Content Include="Content\Images\Icons\general\package_sent.png" />
+    <Content Include="Content\Images\Icons\general\page_excel.png" />
+    <Content Include="Content\Images\Icons\general\page_word.png" />
+    <Content Include="Content\Images\Icons\general\paypal.png" />
+    <Content Include="Content\Images\Icons\general\picture_red.png" />
+    <Content Include="Content\Images\Icons\general\remove_file.png" />
+    <Content Include="Content\Images\Icons\general\rubbish-bin-delete-black.png" />
+    <Content Include="Content\Images\Icons\general\tabs.png" />
+    <Content Include="Content\Images\Icons\general\Time-warn.png" />
+    <Content Include="Content\Images\Icons\grid.png" />
+    <Content Include="Content\Images\Icons\menu-button.png" />
+    <Content Include="Content\Images\Icons\menu.png" />
+    <Content Include="Content\Images\Icons\plant-pot.png" />
+    <Content Include="Content\Images\Icons\rubbish-bin-delete-button.png" />
+    <Content Include="Content\Images\Icons\user.png" />
+    <Content Include="Content\Images\Icons\pinterest-logo.png" />
+    <Content Include="Content\Images\Icons\shopping-cart-empty.png" />
+    <Content Include="Content\Images\Icons\shopping-cart_2.png" />
+    <Content Include="Content\Images\Icons\shopping-cart_3.png" />
+    <Content Include="Content\Images\Icons\vase-2.png" />
+    <Content Include="Content\Images\Icons\vase-3.png" />
+    <Content Include="Content\Images\Icons\vase-4.png" />
+    <Content Include="Content\Images\Icons\vase.png" />
+    <Content Include="Content\Images\info-button.png" />
+    <Content Include="Content\Images\Logo1902_SITE.png" />
+    <Content Include="Content\Images\Logo1902_SITE_2.png" />
+    <Content Include="Content\Images\logorond-ok3.jpg" />
+    <Content Include="Content\Images\LogositeSimple_150x50.png" />
+    <Content Include="Content\Images\open-laptop-computer.png" />
+    <Content Include="Content\Images\ripple-loading.gif" />
+    <Content Include="Content\Images\ripple-loading_big.gif" />
+    <Content Include="Content\Images\simpleLogo.png" />
+    <Content Include="Content\Images\small_paypal.png" />
+    <Content Include="Content\Images\smiling.png" />
+    <Content Include="Content\Images\triangle.gif" />
+    <Content Include="Content\Images\warning.png" />
+    <Content Include="Content\jqueryRow-expand\jquery.row-expand.js" />
+    <Content Include="Content\CannotHandleMobile.css" />
+    <Content Include="Content\Inscription.css" />
+    <Content Include="Documentation\Sql\How to delete all rows with resetting autoincrement.sql" />
+    <Content Include="Documentation\StoringObjectInSessionWarning.txt" />
+    <Content Include="Documentation\Release\5 - Scripts_CreationDatabase.sql" />
+    <Content Include="Documentation\Release\5 - Scripts_HowToTruncateAllTable.sql" />
+    <Content Include="Documentation\Release\Hebergeur\Ikoula\Identifiants.txt" />
+    <Content Include="Documentation\Release\HowToRestoreByScripts.txt" />
+    <Content Include="Documentation\SSLTunnel_Command.txt" />
+    <Content Include="Documentation\Release\4 - Category.sql" />
+    <Content Include="Documentation\Release\3 - Document.sql" />
+    <Content Include="Documentation\Release\2 - Command.sql" />
+    <Content Include="Documentation\Release\1 - Product.sql" />
+    <Content Include="Documentation\Release\ModificationDatabase.txt" />
+    <Content Include="Content\Command.css" />
+    <Content Include="Content\Customer.css" />
+    <Content Include="Content\Ext.ux.icon\Ext.ux.icon.js" />
+    <Content Include="Content\Ext.ux.window.Notification\Ext.ux.window.Notification.css" />
+    <Content Include="Content\Ext.ux.window.Notification\Ext.ux.window.Notification.js" />
+    <Content Include="Content\Ext.ux.window.Notification\images\fade-blue.png" />
+    <Content Include="Content\Ext.ux.window.Notification\images\fader.png" />
+    <Content Include="Content\Ext.ux.window.Notification\images\icon16_error.png" />
+    <Content Include="Content\Ext.ux.window.Notification\images\icon16_info.png" />
+    <Content Include="Content\extjs6\ext-all-debug.js" />
+    <Content Include="Content\extjs6\ext-all.js" />
+    <Content Include="Content\extjs6\ext\ext-watermark\demo-files\demo.css" />
+    <Content Include="Content\extjs6\ext\ext-watermark\demo-files\demo.js" />
+    <Content Include="Content\extjs6\ext\ext-watermark\demo.html" />
+    <Content Include="Content\extjs6\ext\ext-watermark\fonts\ext-watermark.svg" />
+    <Content Include="Content\extjs6\ext\ext-watermark\Read Me.txt" />
+    <Content Include="Content\extjs6\ext\ext-watermark\style.css" />
+    <Content Include="Content\extjs6\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\extjs6\font-ext\fonts\ExtJS.svg" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-arrow-open-rtl.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-arrow-open.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-arrow.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-scroll-left.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-scroll-right.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-split-arrow-open-rtl.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-split-arrow-open.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-split-arrow-over-rtl.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-split-arrow-over.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-split-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\breadcrumb\default-split-arrow.png" />
+    <Content Include="Content\extjs6\images\btn-group\btn-group-default-framed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn-group\btn-group-default-framed-notitle-corners.gif" />
+    <Content Include="Content\extjs6\images\btn-group\btn-group-default-framed-notitle-sides.gif" />
+    <Content Include="Content\extjs6\images\btn-group\btn-group-default-framed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-disabled-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-disabled-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-focus-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-focus-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-large-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-disabled-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-disabled-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-focus-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-focus-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-medium-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-disabled-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-disabled-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-focus-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-focus-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-small-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-disabled-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-disabled-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-focus-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-focus-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-large-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-disabled-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-disabled-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-focus-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-focus-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-medium-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-disabled-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-disabled-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-focus-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-focus-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-default-toolbar-small-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-large-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-large-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-large-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-large-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-large-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-large-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-large-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-large-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-medium-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-medium-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-medium-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-medium-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-medium-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-medium-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-medium-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-medium-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-small-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-small-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-small-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-small-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-small-over-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-small-over-sides.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-small-pressed-corners.gif" />
+    <Content Include="Content\extjs6\images\btn\btn-plain-toolbar-small-pressed-sides.gif" />
+    <Content Include="Content\extjs6\images\button\default-large-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-large-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-large-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-large-s-arrow-b.png" />
+    <Content Include="Content\extjs6\images\button\default-large-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-large-s-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-medium-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-medium-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-medium-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-medium-s-arrow-b.png" />
+    <Content Include="Content\extjs6\images\button\default-medium-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-medium-s-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-small-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-small-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-small-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-small-s-arrow-b.png" />
+    <Content Include="Content\extjs6\images\button\default-small-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-small-s-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-large-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-large-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-large-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-large-s-arrow-b.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-large-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-large-s-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-medium-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-medium-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-medium-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-medium-s-arrow-b.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-medium-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-medium-s-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-small-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-small-arrow.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-small-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-small-s-arrow-b.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-small-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\default-toolbar-small-s-arrow.png" />
+    <Content Include="Content\extjs6\images\button\grid-cell-small-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\grid-cell-small-arrow.png" />
+    <Content Include="Content\extjs6\images\button\grid-cell-small-s-arrow-b.png" />
+    <Content Include="Content\extjs6\images\button\grid-cell-small-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\grid-cell-small-s-arrow.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-large-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-large-arrow.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-large-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-large-s-arrow-b.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-large-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-large-s-arrow.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-medium-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-medium-arrow.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-medium-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-medium-s-arrow-b.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-medium-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-medium-s-arrow.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-small-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-small-arrow.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-small-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-small-s-arrow-b.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-small-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\images\button\plain-toolbar-small-s-arrow.png" />
+    <Content Include="Content\extjs6\images\datepicker\arrow-left.png" />
+    <Content Include="Content\extjs6\images\datepicker\arrow-right.png" />
+    <Content Include="Content\extjs6\images\datepicker\month-arrow.png" />
+    <Content Include="Content\extjs6\images\dd\drop-add.png" />
+    <Content Include="Content\extjs6\images\dd\drop-no.png" />
+    <Content Include="Content\extjs6\images\dd\drop-yes.png" />
+    <Content Include="Content\extjs6\images\editor\tb-sprite.png" />
+    <Content Include="Content\extjs6\images\fieldset\collapse-tool.png" />
+    <Content Include="Content\extjs6\images\form\checkbox.png" />
+    <Content Include="Content\extjs6\images\form\clear-trigger-rtl.png" />
+    <Content Include="Content\extjs6\images\form\clear-trigger.png" />
+    <Content Include="Content\extjs6\images\form\date-trigger-rtl.png" />
+    <Content Include="Content\extjs6\images\form\date-trigger.png" />
+    <Content Include="Content\extjs6\images\form\exclamation.png" />
+    <Content Include="Content\extjs6\images\form\radio.png" />
+    <Content Include="Content\extjs6\images\form\search-trigger-rtl.png" />
+    <Content Include="Content\extjs6\images\form\search-trigger.png" />
+    <Content Include="Content\extjs6\images\form\spinner-rtl.png" />
+    <Content Include="Content\extjs6\images\form\spinner.png" />
+    <Content Include="Content\extjs6\images\form\tag-field-item-close.png" />
+    <Content Include="Content\extjs6\images\form\trigger-rtl.png" />
+    <Content Include="Content\extjs6\images\form\trigger.png" />
+    <Content Include="Content\extjs6\images\grid-row-editor-buttons\grid-row-editor-buttons-default-bottom-corners.gif" />
+    <Content Include="Content\extjs6\images\grid-row-editor-buttons\grid-row-editor-buttons-default-bottom-sides.gif" />
+    <Content Include="Content\extjs6\images\grid-row-editor-buttons\grid-row-editor-buttons-default-top-corners.gif" />
+    <Content Include="Content\extjs6\images\grid-row-editor-buttons\grid-row-editor-buttons-default-top-sides.gif" />
+    <Content Include="Content\extjs6\images\grid\col-move-bottom.png" />
+    <Content Include="Content\extjs6\images\grid\col-move-top.png" />
+    <Content Include="Content\extjs6\images\grid\columns.png" />
+    <Content Include="Content\extjs6\images\grid\dd-insert-arrow-left.png" />
+    <Content Include="Content\extjs6\images\grid\dd-insert-arrow-right.png" />
+    <Content Include="Content\extjs6\images\grid\dirty-rtl.png" />
+    <Content Include="Content\extjs6\images\grid\dirty.png" />
+    <Content Include="Content\extjs6\images\grid\drop-no.png" />
+    <Content Include="Content\extjs6\images\grid\drop-yes.png" />
+    <Content Include="Content\extjs6\images\grid\filters\equals.png" />
+    <Content Include="Content\extjs6\images\grid\filters\find.png" />
+    <Content Include="Content\extjs6\images\grid\filters\greater_than.png" />
+    <Content Include="Content\extjs6\images\grid\filters\less_than.png" />
+    <Content Include="Content\extjs6\images\grid\group-by.png" />
+    <Content Include="Content\extjs6\images\grid\group-collapse.png" />
+    <Content Include="Content\extjs6\images\grid\group-expand.png" />
+    <Content Include="Content\extjs6\images\grid\hd-pop.png" />
+    <Content Include="Content\extjs6\images\grid\hmenu-asc.png" />
+    <Content Include="Content\extjs6\images\grid\hmenu-desc.png" />
+    <Content Include="Content\extjs6\images\grid\hmenu-lock.png" />
+    <Content Include="Content\extjs6\images\grid\hmenu-unlock.png" />
+    <Content Include="Content\extjs6\images\grid\loading.gif" />
+    <Content Include="Content\extjs6\images\grid\page-first.png" />
+    <Content Include="Content\extjs6\images\grid\page-last.png" />
+    <Content Include="Content\extjs6\images\grid\page-next.png" />
+    <Content Include="Content\extjs6\images\grid\page-prev.png" />
+    <Content Include="Content\extjs6\images\grid\pick-button.png" />
+    <Content Include="Content\extjs6\images\grid\refresh.png" />
+    <Content Include="Content\extjs6\images\grid\sort_asc.png" />
+    <Content Include="Content\extjs6\images\grid\sort_desc.png" />
+    <Content Include="Content\extjs6\images\loadmask\loading.gif" />
+    <Content Include="Content\extjs6\images\magnify.png" />
+    <Content Include="Content\extjs6\images\menu\default-checked.png" />
+    <Content Include="Content\extjs6\images\menu\default-group-checked.png" />
+    <Content Include="Content\extjs6\images\menu\default-menu-parent-left.png" />
+    <Content Include="Content\extjs6\images\menu\default-menu-parent.png" />
+    <Content Include="Content\extjs6\images\menu\default-scroll-bottom.png" />
+    <Content Include="Content\extjs6\images\menu\default-scroll-top.png" />
+    <Content Include="Content\extjs6\images\menu\default-unchecked.png" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-bottom-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-bottom-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-collapsed-bottom-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-collapsed-bottom-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-collapsed-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-collapsed-left-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-collapsed-left-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-collapsed-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-collapsed-right-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-collapsed-right-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-collapsed-top-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-collapsed-top-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-left-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-left-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-right-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-right-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-top-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-default-framed-top-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-bottom-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-bottom-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-collapsed-bottom-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-collapsed-bottom-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-collapsed-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-collapsed-left-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-collapsed-left-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-collapsed-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-collapsed-right-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-collapsed-right-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-collapsed-top-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-collapsed-top-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-left-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-left-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-right-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-right-sides.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-top-corners.gif" />
+    <Content Include="Content\extjs6\images\panel-header\panel-header-light-framed-top-sides.gif" />
+    <Content Include="Content\extjs6\images\panel\panel-default-framed-corners.gif" />
+    <Content Include="Content\extjs6\images\panel\panel-default-framed-sides.gif" />
+    <Content Include="Content\extjs6\images\panel\panel-light-framed-corners.gif" />
+    <Content Include="Content\extjs6\images\panel\panel-light-framed-sides.gif" />
+    <Content Include="Content\extjs6\images\shared\icon-error.png" />
+    <Content Include="Content\extjs6\images\shared\icon-info.png" />
+    <Content Include="Content\extjs6\images\shared\icon-question.png" />
+    <Content Include="Content\extjs6\images\shared\icon-warning.png" />
+    <Content Include="Content\extjs6\images\sizer\e-handle.png" />
+    <Content Include="Content\extjs6\images\sizer\ne-handle.png" />
+    <Content Include="Content\extjs6\images\sizer\nw-handle.png" />
+    <Content Include="Content\extjs6\images\sizer\s-handle.png" />
+    <Content Include="Content\extjs6\images\sizer\se-handle.png" />
+    <Content Include="Content\extjs6\images\sizer\sw-handle.png" />
+    <Content Include="Content\extjs6\images\slider\slider-bg.png" />
+    <Content Include="Content\extjs6\images\slider\slider-thumb.png" />
+    <Content Include="Content\extjs6\images\slider\slider-v-bg.png" />
+    <Content Include="Content\extjs6\images\slider\slider-v-thumb.png" />
+    <Content Include="Content\extjs6\images\tab-bar\default-plain-scroll-bottom.png" />
+    <Content Include="Content\extjs6\images\tab-bar\default-plain-scroll-left.png" />
+    <Content Include="Content\extjs6\images\tab-bar\default-plain-scroll-right.png" />
+    <Content Include="Content\extjs6\images\tab-bar\default-plain-scroll-top.png" />
+    <Content Include="Content\extjs6\images\tab-bar\default-scroll-bottom.png" />
+    <Content Include="Content\extjs6\images\tab-bar\default-scroll-left.png" />
+    <Content Include="Content\extjs6\images\tab-bar\default-scroll-right.png" />
+    <Content Include="Content\extjs6\images\tab-bar\default-scroll-top.png" />
+    <Content Include="Content\extjs6\images\tab\tab-default-bottom-active-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-bottom-focus-active-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-bottom-focus-over-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-bottom-over-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-close.png" />
+    <Content Include="Content\extjs6\images\tab\tab-default-left-active-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-left-focus-active-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-left-focus-over-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-left-over-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-right-active-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-right-focus-active-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-right-focus-over-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-right-over-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-top-active-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-top-focus-active-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-top-focus-over-fbg.gif" />
+    <Content Include="Content\extjs6\images\tab\tab-default-top-over-fbg.gif" />
+    <Content Include="Content\extjs6\images\tip\tip-default-corners.gif" />
+    <Content Include="Content\extjs6\images\tip\tip-default-sides.gif" />
+    <Content Include="Content\extjs6\images\tip\tip-form-invalid-corners.gif" />
+    <Content Include="Content\extjs6\images\tip\tip-form-invalid-sides.gif" />
+    <Content Include="Content\extjs6\images\toolbar\default-more-left.png" />
+    <Content Include="Content\extjs6\images\toolbar\default-more.png" />
+    <Content Include="Content\extjs6\images\toolbar\default-scroll-bottom.png" />
+    <Content Include="Content\extjs6\images\toolbar\default-scroll-left.png" />
+    <Content Include="Content\extjs6\images\toolbar\default-scroll-right.png" />
+    <Content Include="Content\extjs6\images\toolbar\default-scroll-top.png" />
+    <Content Include="Content\extjs6\images\toolbar\footer-more-left.png" />
+    <Content Include="Content\extjs6\images\toolbar\footer-more.png" />
+    <Content Include="Content\extjs6\images\toolbar\footer-scroll-left.png" />
+    <Content Include="Content\extjs6\images\toolbar\footer-scroll-right.png" />
+    <Content Include="Content\extjs6\images\tools\tool-sprites-dark.png" />
+    <Content Include="Content\extjs6\images\tools\tool-sprites.png" />
+    <Content Include="Content\extjs6\images\tree\arrows-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\arrows.png" />
+    <Content Include="Content\extjs6\images\tree\drop-above.png" />
+    <Content Include="Content\extjs6\images\tree\drop-add.gif" />
+    <Content Include="Content\extjs6\images\tree\drop-add.png" />
+    <Content Include="Content\extjs6\images\tree\drop-append.png" />
+    <Content Include="Content\extjs6\images\tree\drop-below.png" />
+    <Content Include="Content\extjs6\images\tree\drop-between.gif" />
+    <Content Include="Content\extjs6\images\tree\drop-between.png" />
+    <Content Include="Content\extjs6\images\tree\drop-no.gif" />
+    <Content Include="Content\extjs6\images\tree\drop-no.png" />
+    <Content Include="Content\extjs6\images\tree\drop-over.gif" />
+    <Content Include="Content\extjs6\images\tree\drop-over.png" />
+    <Content Include="Content\extjs6\images\tree\drop-under.gif" />
+    <Content Include="Content\extjs6\images\tree\drop-under.png" />
+    <Content Include="Content\extjs6\images\tree\drop-yes.gif" />
+    <Content Include="Content\extjs6\images\tree\drop-yes.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-end-minus-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-end-minus.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-end-plus-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-end-plus.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-end-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-end.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-line-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-line.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-minus-nl-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-minus-nl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-minus-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-minus.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-plus-nl-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-plus-nl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-plus-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-plus.png" />
+    <Content Include="Content\extjs6\images\tree\elbow-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\elbow.png" />
+    <Content Include="Content\extjs6\images\tree\folder-open-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\folder-open.png" />
+    <Content Include="Content\extjs6\images\tree\folder-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\folder.png" />
+    <Content Include="Content\extjs6\images\tree\leaf-rtl.png" />
+    <Content Include="Content\extjs6\images\tree\leaf.png" />
+    <Content Include="Content\extjs6\images\tree\loading.gif" />
+    <Content Include="Content\extjs6\images\util\splitter\mini-bottom.png" />
+    <Content Include="Content\extjs6\images\util\splitter\mini-left.png" />
+    <Content Include="Content\extjs6\images\util\splitter\mini-right.png" />
+    <Content Include="Content\extjs6\images\util\splitter\mini-top.png" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-bottom-corners.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-bottom-sides.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-collapsed-bottom-corners.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-collapsed-bottom-sides.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-collapsed-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-collapsed-left-corners.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-collapsed-left-sides.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-collapsed-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-collapsed-right-corners.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-collapsed-right-sides.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-collapsed-top-corners.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-collapsed-top-sides.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-left-corners.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-left-sides.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-right-corners.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-right-sides.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-top-corners.gif" />
+    <Content Include="Content\extjs6\images\window-header\window-header-default-top-sides.gif" />
+    <Content Include="Content\extjs6\images\window\toast\fade-blue.png" />
+    <Content Include="Content\extjs6\images\window\toast\fader.png" />
+    <Content Include="Content\extjs6\images\window\toast\icon16_error.png" />
+    <Content Include="Content\extjs6\images\window\toast\icon16_info.png" />
+    <Content Include="Content\extjs6\images\window\window-default-corners.gif" />
+    <Content Include="Content\extjs6\images\window\window-default-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\ext\ext-watermark\demo-files\demo.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\ext\ext-watermark\demo-files\demo.js" />
+    <Content Include="Content\extjs6\themes\theme-triton\ext\ext-watermark\demo.html" />
+    <Content Include="Content\extjs6\themes\theme-triton\ext\ext-watermark\fonts\ext-watermark.svg" />
+    <Content Include="Content\extjs6\themes\theme-triton\ext\ext-watermark\Read Me.txt" />
+    <Content Include="Content\extjs6\themes\theme-triton\ext\ext-watermark\style.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\extjs6\themes\theme-triton\font-ext\fonts\ExtJS.svg" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-arrow-open-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-arrow-open.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-scroll-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-scroll-right.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-split-arrow-open-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-split-arrow-open.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-split-arrow-over-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-split-arrow-over.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-split-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\breadcrumb\default-split-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn-group\btn-group-default-framed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn-group\btn-group-default-framed-notitle-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn-group\btn-group-default-framed-notitle-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn-group\btn-group-default-framed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-disabled-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-disabled-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-focus-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-focus-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-large-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-disabled-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-disabled-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-focus-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-focus-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-medium-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-disabled-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-disabled-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-focus-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-focus-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-small-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-disabled-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-disabled-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-focus-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-focus-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-large-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-disabled-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-disabled-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-focus-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-focus-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-medium-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-disabled-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-disabled-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-focus-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-focus-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-default-toolbar-small-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-large-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-large-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-large-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-large-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-large-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-large-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-large-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-large-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-medium-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-medium-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-medium-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-medium-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-medium-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-medium-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-medium-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-medium-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-small-focus-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-small-focus-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-small-focus-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-small-focus-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-small-over-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-small-over-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-small-pressed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\btn\btn-plain-toolbar-small-pressed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-large-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-large-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-large-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-large-s-arrow-b.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-large-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-large-s-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-medium-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-medium-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-medium-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-medium-s-arrow-b.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-medium-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-medium-s-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-small-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-small-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-small-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-small-s-arrow-b.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-small-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-small-s-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-large-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-large-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-large-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-large-s-arrow-b.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-large-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-large-s-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-medium-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-medium-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-medium-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-medium-s-arrow-b.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-medium-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-medium-s-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-small-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-small-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-small-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-small-s-arrow-b.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-small-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\default-toolbar-small-s-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\grid-cell-small-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\grid-cell-small-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\grid-cell-small-s-arrow-b.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\grid-cell-small-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\grid-cell-small-s-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-large-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-large-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-large-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-large-s-arrow-b.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-large-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-large-s-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-medium-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-medium-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-medium-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-medium-s-arrow-b.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-medium-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-medium-s-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-small-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-small-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-small-s-arrow-b-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-small-s-arrow-b.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-small-s-arrow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\button\plain-toolbar-small-s-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\datepicker\arrow-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\datepicker\arrow-right.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\datepicker\month-arrow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\dd\drop-add.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\dd\drop-no.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\dd\drop-yes.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\editor\tb-sprite.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\fieldset\collapse-tool.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\checkbox.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\clear-trigger-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\clear-trigger.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\date-trigger-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\date-trigger.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\exclamation.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\radio.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\search-trigger-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\search-trigger.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\spinner-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\spinner.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\tag-field-item-close.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\trigger-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\form\trigger.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid-row-editor-buttons\grid-row-editor-buttons-default-bottom-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid-row-editor-buttons\grid-row-editor-buttons-default-bottom-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid-row-editor-buttons\grid-row-editor-buttons-default-top-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid-row-editor-buttons\grid-row-editor-buttons-default-top-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\col-move-bottom.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\col-move-top.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\columns.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\dd-insert-arrow-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\dd-insert-arrow-right.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\dirty-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\dirty.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\drop-no.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\drop-yes.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\filters\equals.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\filters\find.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\filters\greater_than.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\filters\less_than.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\group-by.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\group-collapse.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\group-expand.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\hd-pop.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\hmenu-asc.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\hmenu-desc.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\hmenu-lock.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\hmenu-unlock.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\loading.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\page-first.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\page-last.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\page-next.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\page-prev.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\pick-button.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\refresh.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\sort_asc.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\grid\sort_desc.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\loadmask\loading.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\magnify.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\menu\default-checked.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\menu\default-group-checked.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\menu\default-menu-parent-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\menu\default-menu-parent.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\menu\default-scroll-bottom.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\menu\default-scroll-top.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\menu\default-unchecked.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-bottom-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-bottom-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-collapsed-bottom-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-collapsed-bottom-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-collapsed-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-collapsed-left-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-collapsed-left-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-collapsed-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-collapsed-right-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-collapsed-right-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-collapsed-top-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-collapsed-top-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-left-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-left-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-right-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-right-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-top-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-default-framed-top-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-bottom-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-bottom-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-collapsed-bottom-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-collapsed-bottom-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-collapsed-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-collapsed-left-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-collapsed-left-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-collapsed-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-collapsed-right-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-collapsed-right-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-collapsed-top-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-collapsed-top-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-left-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-left-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-right-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-right-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-top-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel-header\panel-header-light-framed-top-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel\panel-default-framed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel\panel-default-framed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel\panel-light-framed-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\panel\panel-light-framed-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\shared\icon-error.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\shared\icon-info.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\shared\icon-question.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\shared\icon-warning.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\sizer\e-handle.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\sizer\ne-handle.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\sizer\nw-handle.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\sizer\s-handle.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\sizer\se-handle.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\sizer\sw-handle.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\slider\slider-bg.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\slider\slider-thumb.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\slider\slider-v-bg.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\slider\slider-v-thumb.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab-bar\default-plain-scroll-bottom.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab-bar\default-plain-scroll-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab-bar\default-plain-scroll-right.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab-bar\default-plain-scroll-top.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab-bar\default-scroll-bottom.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab-bar\default-scroll-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab-bar\default-scroll-right.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab-bar\default-scroll-top.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-bottom-active-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-bottom-focus-active-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-bottom-focus-over-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-bottom-over-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-close.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-left-active-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-left-focus-active-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-left-focus-over-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-left-over-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-right-active-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-right-focus-active-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-right-focus-over-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-right-over-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-top-active-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-top-focus-active-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-top-focus-over-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tab\tab-default-top-over-fbg.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tip\tip-default-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tip\tip-default-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tip\tip-form-invalid-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tip\tip-form-invalid-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\toolbar\default-more-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\toolbar\default-more.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\toolbar\default-scroll-bottom.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\toolbar\default-scroll-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\toolbar\default-scroll-right.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\toolbar\default-scroll-top.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\toolbar\footer-more-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\toolbar\footer-more.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\toolbar\footer-scroll-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\toolbar\footer-scroll-right.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tools\tool-sprites-dark.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tools\tool-sprites.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\arrows-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\arrows.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-above.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-add.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-add.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-append.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-below.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-between.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-between.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-no.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-no.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-over.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-over.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-under.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-under.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-yes.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\drop-yes.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-end-minus-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-end-minus.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-end-plus-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-end-plus.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-end-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-end.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-line-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-line.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-minus-nl-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-minus-nl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-minus-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-minus.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-plus-nl-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-plus-nl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-plus-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-plus.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\elbow.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\folder-open-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\folder-open.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\folder-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\folder.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\leaf-rtl.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\leaf.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\tree\loading.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\util\splitter\mini-bottom.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\util\splitter\mini-left.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\util\splitter\mini-right.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\util\splitter\mini-top.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-bottom-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-bottom-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-collapsed-bottom-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-collapsed-bottom-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-collapsed-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-collapsed-left-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-collapsed-left-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-collapsed-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-collapsed-right-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-collapsed-right-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-collapsed-top-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-collapsed-top-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-left-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-left-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-left-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-right-corners-rtl.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-right-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-right-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-top-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window-header\window-header-default-top-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window\toast\fade-blue.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window\toast\fader.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window\toast\icon16_error.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window\toast\icon16_info.png" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window\window-default-corners.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\images\window\window-default-sides.gif" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all-debug.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all-debug_1.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all-debug_2.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all-rtl-debug.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all-rtl-debug_1.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all-rtl-debug_2.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all-rtl.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all-rtl_1.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all-rtl_2.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all_1.css" />
+    <Content Include="Content\extjs6\themes\theme-triton\theme-triton-all_2.css" />
+    <Content Include="Content\Fonts\CookiesAndMilk\dafont_cookiesmilk-01.png" />
+    <Content Include="Content\Images\Accueil_Slide1.jpg" />
+    <Content Include="Content\Images\Accueil_Slide2.jpg" />
+    <Content Include="Content\Images\Accueil_Slide3.jpg" />
+    <Content Include="Content\Images\Accueil_Slide4.jpg" />
+    <Content Include="Content\Images\Accueil_Slide5.jpg" />
+    <Content Include="Content\Images\Apropos.JPG" />
+    <Content Include="Content\Images\Boite.png" />
+    <Content Include="Content\Images\checked.png" />
+    <Content Include="Content\Images\createur.png" />
+    <Content Include="Content\Images\Cuisine.png" />
+    <Content Include="Content\Images\Electric Vintage.png" />
+    <Content Include="Content\Images\EtiquetteNewnoir.png" />
+    <Content Include="Content\Images\happy.png" />
+    <Content Include="Content\Images\Icons\Facebooknew.png" />
+    <Content Include="Content\Images\Icons\general\delete-cross.png" />
+    <Content Include="Content\Images\Icons\general\file.png" />
+    <Content Include="Content\Images\Icons\general\folder.png" />
+    <Content Include="Content\Images\Icons\general\add_purple.png" />
+    <Content Include="Content\Images\Icons\general\add.png" />
+    <Content Include="Content\Images\Icons\general\addGreen.png" />
+    <Content Include="Content\Images\Icons\general\add_green.png" />
+    <Content Include="Content\Images\Icons\general\back-arrow.png" />
+    <Content Include="Content\Images\Icons\general\close_red.png" />
+    <Content Include="Content\Images\Icons\general\cog-wheel-grey.png" />
+    <Content Include="Content\Images\Icons\general\cog-wheel-brown.png" />
+    <Content Include="Content\Images\Icons\general\error.png" />
+    <Content Include="Content\Images\Icons\general\exit.png" />
+    <Content Include="Content\Images\Icons\general\edit_image.png" />
+    <Content Include="Content\Images\Icons\general\delete_image.png" />
+    <Content Include="Content\Images\Icons\general\add_image.png" />
+    <Content Include="Content\Images\Icons\general\hashtag.png" />
+    <Content Include="Content\Images\Icons\general\html.png" />
+    <Content Include="Content\Images\Icons\general\layers.png" />
+    <Content Include="Content\Images\Icons\general\magic-button.png" />
+    <Content Include="Content\Images\Icons\general\menuItem.png" />
+    <Content Include="Content\Images\Icons\general\menuItem2.png" />
+    <Content Include="Content\Images\Icons\general\menuItem3.png" />
+    <Content Include="Content\Images\Icons\general\menuItem4.png" />
+    <Content Include="Content\Images\Icons\general\menuItem5.png" />
+    <Content Include="Content\Images\Icons\general\next.png" />
+    <Content Include="Content\Images\Icons\general\pencil.png" />
+    <Content Include="Content\Images\Icons\general\pixelated.png" />
+    <Content Include="Content\Images\Icons\general\plus.png" />
+    <Content Include="Content\Images\Icons\general\power-button_red.png" />
+    <Content Include="Content\Images\Icons\general\power-button.png" />
+    <Content Include="Content\Images\Icons\general\refresh.png" />
+    <Content Include="Content\Images\Icons\general\save.png" />
+    <Content Include="Content\Images\Icons\general\shuffle.png" />
+    <Content Include="Content\Images\Icons\general\shuffle_blue.png" />
+    <Content Include="Content\Images\Icons\general\steering-wheel.png" />
+    <Content Include="Content\Images\Icons\general\sticker.png" />
+    <Content Include="Content\Images\Icons\general\switch_on.png" />
+    <Content Include="Content\Images\Icons\general\switch_off.png" />
+    <Content Include="Content\Images\Icons\general\user-shape-yellow.png" />
+    <Content Include="Content\Images\Icons\instagramnew.png" />
+    <Content Include="Content\Images\Icons\panierVert.png" />
+    <Content Include="Content\Images\Icons\Pinterestnew.png" />
+    <Content Include="Content\Images\Icons\purple-filled-circle.png" />
+    <Content Include="Content\Images\Insolite.png" />
+    <Content Include="Content\Images\Lampe.png" />
+    <Content Include="Content\Images\logorond-1-aout.png" />
+    <Content Include="Content\Images\logo_paypal.gif" />
+    <Content Include="Content\Images\Maison.png" />
+    <Content Include="Content\Images\MajolieBrocante.png" />
+    <Content Include="Content\Images\miroircadre.png" />
+    <Content Include="Content\Images\Nouveautes.png" />
+    <Content Include="Content\Images\Objets déco.png" />
+    <Content Include="Content\Images\Objets de notre enfance.png" />
+    <Content Include="Content\Images\Papeterie.png" />
+    <Content Include="Content\Images\ToutVoir.png" />
+    <Content Include="Content\Images\Vaisselle.png" />
+    <Content Include="Content\Images\Vase.png" />
+    <Content Include="Content\Information.css" />
+    <Content Include="Content\jQuery\jquery-3.1.0.min.js" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\noty-2.3.8\demo\allLayouts.html" />
+    <Content Include="Content\noty-2.3.8\demo\allTypes.html" />
+    <Content Include="Content\noty-2.3.8\demo\animate.css" />
+    <Content Include="Content\noty-2.3.8\demo\api.html" />
+    <Content Include="Content\noty-2.3.8\demo\buttons.css" />
+    <Content Include="Content\noty-2.3.8\demo\consumingAlert.html" />
+    <Content Include="Content\noty-2.3.8\demo\customContainer.html" />
+    <Content Include="Content\noty-2.3.8\demo\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\noty-2.3.8\demo\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\noty-2.3.8\demo\index.html" />
+    <Content Include="Content\noty-2.3.8\demo\issue302.html" />
+    <Content Include="Content\noty-2.3.8\demo\jquery-1.7.2.min.js" />
+    <Content Include="Content\noty-2.3.8\demo\jquery-1.8.0.js" />
+    <Content Include="Content\noty-2.3.8\demo\killer.html" />
+    <Content Include="Content\noty-2.3.8\demo\notification_html.js" />
+    <Content Include="Content\noty-2.3.8\demo\themeBootstrap.html" />
+    <Content Include="Content\noty-2.3.8\demo\themeCss.html" />
+    <Content Include="Content\noty-2.3.8\demo\usingMaxVisible.html" />
+    <Content Include="Content\noty-2.3.8\demo\usingWithAnimate.css.html" />
+    <Content Include="Content\noty-2.3.8\demo\usingWithButtons.html" />
+    <Content Include="Content\noty-2.3.8\demo\usingWithButtons2.html" />
+    <Content Include="Content\noty-2.3.8\demo\usingWithModal.html" />
+    <Content Include="Content\noty-2.3.8\demo\usingWithOldOptions.html" />
+    <Content Include="Content\noty-2.3.8\Gruntfile.js" />
+    <Content Include="Content\noty-2.3.8\js\animate.css" />
+    <Content Include="Content\noty-2.3.8\js\noty\jquery.noty.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\bottom.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\bottomCenter.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\bottomLeft.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\bottomRight.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\center.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\centerLeft.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\centerRight.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\inline.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\top.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\topCenter.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\topLeft.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\layouts\topRight.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\packaged\jquery.noty.packaged.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\packaged\jquery.noty.packaged.min.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\promise.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\themes\bootstrap.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\themes\default.js" />
+    <Content Include="Content\noty-2.3.8\js\noty\themes\relax.js" />
+    <Content Include="Content\noty-2.3.8\LICENSE.txt" />
+    <Content Include="Content\Document.txt" />
+    <Content Include="Content\Cart.css" />
+    <Content Include="Content\Address.css" />
+    <Content Include="Content\_Admin.css" />
+    <Content Include="Content\fotorama\fotorama%402x.png" />
+    <Content Include="Content\fotorama\fotorama.css" />
+    <Content Include="Content\fotorama\fotorama.js" />
+    <Content Include="Content\fotorama\fotorama.png" />
+    <Content Include="Content\freewall\freewall.js" />
+    <Content Include="Content\hoverGridJs\jquery.hoverGrid.css" />
+    <Content Include="Content\hoverGridJs\jquery.hoverGrid.js" />
+    <Content Include="Content\Images\198736_brocante.jpg" />
+    <Content Include="Content\Images\198736_brocante_sepia.jpg" />
+    <Content Include="Content\Images\backgroundFooter.png" />
+    <Content Include="Content\Images\bandeau.png" />
+    <Content Include="Content\Images\Icons\Aquicon-Facebook.png" />
+    <Content Include="Content\Images\Icons\Aquicon-Instagram.png" />
+    <Content Include="Content\Images\Icons\Aquicon-Pinterest.png" />
+    <Content Include="Content\Images\Icons\cart-73-16.png" />
+    <Content Include="Content\Images\Icons\facebook.png" />
+    <Content Include="Content\Images\Icons\instagram.png" />
+    <Content Include="Content\Images\Icons\logoFavicon.png" />
+    <Content Include="Content\Images\Icons\pinterest.png" />
+    <Content Include="Content\Images\logoSiteAvecCercle.png" />
+    <Content Include="Content\Images\LogositeSimple.png" />
+    <Content Include="Content\Images\Logosite.png" />
+    <Content Include="Content\Images\Icons\Panier.png" />
+    <Content Include="Content\Images\LogositeSimpleRecadre.png" />
+    <Content Include="Content\Images\paintBandeau.png" />
+    <Content Include="Content\Images\Icons\panierRose.png" />
+    <Content Include="Content\_MesJolisCotillons.css" />
+    <Content Include="Documentation\Sql\How to set default value for column.sql" />
+    <Content Include="Documentation\Sql\How to set insert identity to ON.sql" />
+    <Content Include="Documentation\HowToRestoreBacpacToLocalDB.txt" />
+    <Content Include="Documentation\Sql\How_to_restore_bacpac_database.txt" />
+    <Content Include="Documentation\UtilQuestionsAnswers.txt" />
+    <Content Include="Documentation\extJs_gplVersion_Url.txt" />
+    <Content Include="Documentation\HowToHttpsOnWholeSite.txt" />
+    <Content Include="Documentation\WhereFindIcon.txt" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Nouveautes.css" />
+    <Content Include="Content\Products.css" />
+    <Content Include="Content\Footer.css" />
+    <Content Include="Content\Header.css" />
+    <Content Include="Models\MesJolisCotillons.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MesJolisCotillons.edmx</DependentUpon>
+      <LastGenOutput>MesJolisCotillons.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MesJolisCotillons.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MesJolisCotillons.edmx</DependentUpon>
+      <LastGenOutput>MesJolisCotillons.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\Admin\Admin_app.js" />
+    <Content Include="Scripts\Admin\Admin_util.js" />
+    <Content Include="Scripts\Admin\Admin_plugin.js" />
+    <Content Include="Scripts\Admin\Admin_ux.js" />
+    <Content Include="Scripts\Admin\Admin_Widget.js" />
+    <Content Include="Scripts\Admin\Command\Admin_store_Command.js" />
+    <Content Include="Scripts\Admin\Command\Admin_ux_Command.js" />
+    <Content Include="Scripts\Admin\Design\Admin_Design_store.js" />
+    <Content Include="Scripts\Admin\Design\Admin_Design_ux.js" />
+    <Content Include="Scripts\Admin\Document\Admin_store_Document.js" />
+    <Content Include="Scripts\Admin\Product\Admin_store_ProductManagement.js" />
+    <Content Include="Scripts\Admin\Product\Admin_ux_ProductManagement.js" />
+    <Content Include="Scripts\Admin\User\Admin_store_User.js" />
+    <Content Include="Scripts\Admin\User\Admin_ux_User.js" />
+    <Content Include="Scripts\Direct.js" />
+    <Content Include="Scripts\MjcTools.js" />
+    <Content Include="Scripts\Override.js" />
+    <Content Include="RestorationProgression.txt" />
+    <Content Include="ToDO.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Area\Cart\Controllers\Cart_Controller.cs" />
+    <Compile Include="Area\Cart\Service\CartViewService.cs" />
+    <Compile Include="Area\Cart\Service\ICartViewService.cs" />
+    <Compile Include="Area\Command\Models\Command_CustomEntities.cs" />
+    <Compile Include="Area\Command\Controllers\Command_Controller.cs" />
+    <Compile Include="Area\Command\Models\Command_Repository.cs" />
+    <Compile Include="Area\Command\Models\Command_XmlData.cs" />
+    <Compile Include="Area\Customer\Controllers\Customer_Controller.cs" />
+    <Compile Include="Area\Customer\Models\Customer_CustomEntities.cs" />
+    <Compile Include="Area\Customer\Models\Customer_XmlData.cs" />
+    <Compile Include="Area\Document\Models\Document_CustomEntities.cs" />
+    <Compile Include="Area\Document\Models\Document_Repository.cs" />
+    <Compile Include="Area\Information\Controllers\Information_Controller.cs" />
+    <Compile Include="Area\LaPosteColissimo\Controllers\LaPosteColissimo_Controller.cs" />
+    <Compile Include="Area\LaPosteColissimo\Models\LaPosteColissimo_Repository.cs" />
+    <Compile Include="Area\Paypal\Controllers\IPN_Controller.cs" />
+    <Compile Include="Area\Paypal\Controllers\Paypal_Controller.cs" />
+    <Compile Include="Area\Product\Models\IProductRepository.cs" />
+    <Compile Include="Area\Product\Models\Product_XmlData.cs" />
+    <Compile Include="Area\Product\Service\ProductItemViewService.cs" />
+    <Compile Include="Area\Product\Service\IProductItemViewService.cs" />
+    <Compile Include="Area\Util\Models\Util_Repository.cs" />
+    <Compile Include="Area\_Admin\Controllers\Direct\UserDirect_Controller.cs" />
+    <Compile Include="Area\_Admin\Controllers\Direct\CommandDirect_Controller.cs" />
+    <Compile Include="Area\_Admin\Controllers\Direct\DocumentDirect_Controller.cs" />
+    <Compile Include="Area\_Admin\Models\Design_Config_CustomEntities.cs" />
+    <Compile Include="Area\Home\Controllers\Home_Controller.cs" />
+    <Compile Include="Area\Login\Controllers\Login_Controller.cs" />
+    <Compile Include="Area\Login\Models\User_CustomEntities.cs" />
+    <Compile Include="Area\Login\Models\User_Repository.cs" />
+    <Compile Include="Area\Product\Controllers\Product_Controller.cs" />
+    <Compile Include="Area\Product\Models\Product_CustomEntities.cs" />
+    <Compile Include="Area\Product\Models\Product_Repository.cs" />
+    <Compile Include="Area\_Admin\Controllers\Admin_Controller.cs" />
+    <Compile Include="Area\_Admin\Controllers\Direct\AdminDirect_Controller.cs" />
+    <Compile Include="Area\_Admin\Controllers\Direct\DesignDirect_Controller.cs" />
+    <Compile Include="Area\_Admin\Controllers\Direct\ProductDirect_Controller.cs" />
+    <Compile Include="Area\_Admin\Models\DesignConfig_XmlData.cs" />
+    <Compile Include="Area\_Admin\Models\Design_Repository.cs" />
+    <Compile Include="Extensions\CodeMessage\CodeMessage.cs" />
+    <Compile Include="Extensions\CustomHtmlHelpers\CustomHmtlHelpers.cs" />
+    <Compile Include="Extensions\Date\DateTime.cs" />
+    <Compile Include="Extensions\EnumTranslation\EnumTranslation.cs" />
+    <Compile Include="Extensions\Ext.Mvc.Direct.cs" />
+    <Compile Include="Extensions\LaPoste\LaPosteAPI.cs" />
+    <Compile Include="Extensions\Paypal\PaypalAPI.cs" />
+    <Compile Include="Extensions\Product\ProductExtensions.cs" />
+    <Compile Include="Extensions\Request\Request.cs" />
+    <Compile Include="Extensions\Security\CurrentUser.cs" />
+    <Compile Include="Extensions\Security\Custom_AuthorizeAttribute.cs" />
+    <Compile Include="Extensions\Security\CryptographyUtils.cs" />
+    <Compile Include="Extensions\Image\ImageUtils.cs" />
+    <Compile Include="Extensions\Settings\Settings.cs" />
+    <Compile Include="Extensions\Util\Util.cs" />
+    <Compile Include="Extensions\XmlData\XmlSerializer.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Address.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin_User.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Blob.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CarouselImage.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CommanAddress_Type.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Command.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CommandAddress.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CommandProduct.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Command_Document.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Command_History.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Command_History_Action.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Command_Status.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerAddress.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerAddress_Type.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer_User.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer_User_Status.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Design_Config.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Design_Config_Status.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Document.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Etiquette.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImageResult.cs" />
+    <Compile Include="Models\KeyWord.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LaPosteColissimo.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MesJoliesCotillonsDBContextManager.cs" />
+    <Compile Include="Models\MesJolisCotillons.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MesJolisCotillons.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MesJolisCotillons.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MesJolisCotillons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MesJolisCotillons.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OptionShipmentType.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product_Flags.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product_Status.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository.cs" />
+    <Compile Include="Models\ShipmentType.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>MesJolisCotillons.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AddCartButtonViewModel.cs" />
+    <Compile Include="ViewModels\CountryViewModel.cs" />
+    <Compile Include="ViewModels\CartViewModel.cs" />
+    <Compile Include="ViewModels\CollapsibleMenuViewModel.cs" />
+    <Compile Include="ViewModels\CommandViewModel.cs" />
+    <Compile Include="ViewModels\CarouselViewModel.cs" />
+    <Compile Include="ViewModels\FacebookSharingParametersViewModel.cs" />
+    <Compile Include="ViewModels\ProductItemViewModel.cs" />
+    <Compile Include="ViewModels\ProductQuantityInfoViewModel.cs" />
+    <Compile Include="ViewModels\TokenLinkProcessModel.cs" />
+    <Compile Include="ViewModels\LeftMenuViewModel.cs" />
+    <Compile Include="ViewModels\HeaderViewModel.cs" />
+    <Compile Include="ViewModels\CheckoutViewModel.cs" />
+    <Compile Include="ViewModels\CustomerAccountViewModel.cs" />
+    <Compile Include="ViewModels\MyCartModel.cs" />
+    <Compile Include="ViewModels\ProductItemModel.cs" />
+    <Compile Include="ViewModels\ProductsViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Product\Products.cshtml" />
+    <Content Include="Views\Home\CarouselView.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Content\Fonts\CookiesAndMilk\cookies&amp;milk License.rtf" />
+    <Content Include="Content\Fonts\CookiesAndMilk\cookies&amp;milk-Italic.ttf" />
+    <Content Include="Content\Fonts\CookiesAndMilk\cookies&amp;milk-regular.ttf" />
+    <Content Include="Views\Product\ProductItem.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Main.cshtml" />
+    <Content Include="Views\Product\ProductsGrid.cshtml" />
+    <Content Include="Views\Cart\MyCart.cshtml" />
+    <Content Include="Views\Admin\Admin.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Content\noty-2.3.8\.gitignore" />
+    <Content Include="Content\noty-2.3.8\bower.json" />
+    <Content Include="Content\noty-2.3.8\composer.json" />
+    <Content Include="Content\noty-2.3.8\noty.jquery.json" />
+    <Content Include="Content\noty-2.3.8\package.json" />
+    <Content Include="Content\noty-2.3.8\README.markdown" />
+    <Content Include="Content\noty-2.3.8\demo\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\noty-2.3.8\demo\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\noty-2.3.8\demo\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\noty-2.3.8\demo\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Views\Product\ProductsByCategory.cshtml" />
+    <Content Include="Content\extjs6\themes\theme-triton\Readme.md" />
+    <Content Include="Content\extjs6\ext\ext-watermark\fonts\ext-watermark.eot" />
+    <Content Include="Content\extjs6\ext\ext-watermark\fonts\ext-watermark.ttf" />
+    <Content Include="Content\extjs6\ext\ext-watermark\fonts\ext-watermark.woff" />
+    <Content Include="Content\extjs6\ext\ext-watermark\selection.json" />
+    <Content Include="Content\extjs6\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\extjs6\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\extjs6\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\extjs6\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\extjs6\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\extjs6\font-ext\fonts\ExtJS.eot" />
+    <Content Include="Content\extjs6\font-ext\fonts\ExtJS.ttf" />
+    <Content Include="Content\extjs6\font-ext\fonts\ExtJS.woff" />
+    <Content Include="Content\extjs6\fonts\OpenSans-Bold.ttf" />
+    <Content Include="Content\extjs6\fonts\OpenSans-BoldItalic.ttf" />
+    <Content Include="Content\extjs6\fonts\OpenSans-ExtraBold.ttf" />
+    <Content Include="Content\extjs6\fonts\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="Content\extjs6\fonts\OpenSans-Italic.ttf" />
+    <Content Include="Content\extjs6\fonts\OpenSans-Light.ttf" />
+    <Content Include="Content\extjs6\fonts\OpenSans-LightItalic.ttf" />
+    <Content Include="Content\extjs6\fonts\OpenSans-Regular.ttf" />
+    <Content Include="Content\extjs6\fonts\OpenSans-Semibold.ttf" />
+    <Content Include="Content\extjs6\fonts\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\ext\ext-watermark\fonts\ext-watermark.eot" />
+    <Content Include="Content\extjs6\themes\theme-triton\ext\ext-watermark\fonts\ext-watermark.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\ext\ext-watermark\fonts\ext-watermark.woff" />
+    <Content Include="Content\extjs6\themes\theme-triton\ext\ext-watermark\selection.json" />
+    <Content Include="Content\extjs6\themes\theme-triton\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\extjs6\themes\theme-triton\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\extjs6\themes\theme-triton\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\extjs6\themes\theme-triton\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\extjs6\themes\theme-triton\font-ext\fonts\ExtJS.eot" />
+    <Content Include="Content\extjs6\themes\theme-triton\font-ext\fonts\ExtJS.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\font-ext\fonts\ExtJS.woff" />
+    <Content Include="Content\extjs6\themes\theme-triton\fonts\OpenSans-Bold.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\fonts\OpenSans-BoldItalic.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\fonts\OpenSans-ExtraBold.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\fonts\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\fonts\OpenSans-Italic.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\fonts\OpenSans-Light.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\fonts\OpenSans-LightItalic.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\fonts\OpenSans-Regular.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\fonts\OpenSans-Semibold.ttf" />
+    <Content Include="Content\extjs6\themes\theme-triton\fonts\OpenSans-SemiboldItalic.ttf" />
+    <EntityDeploy Include="Models\MesJolisCotillons.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MesJolisCotillons.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MesJolisCotillons.edmx.diagram">
+      <DependentUpon>MesJolisCotillons.edmx</DependentUpon>
+    </Content>
+    <Content Include="Documentation\bacpacBackup\mesjoliscotillons-dev-2017-1-1-15-8.bacpac" />
+    <Content Include="Content\garand-sticky-5cfc20c\bower.json" />
+    <Content Include="Content\garand-sticky-5cfc20c\LICENSE.md" />
+    <Content Include="Content\garand-sticky-5cfc20c\package.json" />
+    <Content Include="Content\garand-sticky-5cfc20c\README.md" />
+    <Content Include="Documentation\Report_analysis_SSL-TLS- BEAME-INSTA-SSL-MesJolisCotillons.pdf" />
+    <Content Include="Documentation\bacpacBackup\MesJolisCotillons_ExtractionDatabase_05032017.bacpac" />
+    <Content Include="Documentation\bacpacBackup\MesJolisCotillons_AzureExtract_13042017 %281%29.bacpac" />
+    <Content Include="Content\bootstrap-4.1.3\css\.DS_Store" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-4.1.3\css\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap-4.1.3\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap-4.1.3\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\bootstrap-4.1.3\js\bootstrap.js.map" />
+    <Content Include="Content\bootstrap-4.1.3\js\bootstrap.min.js.map" />
+    <None Include="Properties\PublishProfiles\Ikoula FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\LocalPublication.pubxml" />
+    <None Include="Properties\PublishProfiles\MesJolisCotillons %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MesJolisCotillons - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MesJolisCotillons - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\mesjoliscotillons - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MesJolisCotillons - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\MesJolisCotillons - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MesJolisCotillons - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\mesjoliscotillons - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MesJolisCotillons - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\MesJolisCotillons.pubxml" />
+    <Content Include="Views\Customer\CustomerAccount.cshtml" />
+    <Content Include="Views\Customer\CustomerAccountEmailPassword.cshtml" />
+    <Content Include="Views\Customer\CustomerAccountAddressShipmentForm.cshtml" />
+    <Content Include="Views\Customer\CustomerTokenLinkExpired.cshtml" />
+    <Content Include="Views\Customer\CustomerInscriptionFirstStepValidation.cshtml" />
+    <Content Include="Views\Information\About.cshtml" />
+    <Content Include="Views\Information\QuestionsAnswers.cshtml" />
+    <Content Include="Views\Information\GeneralSalesConditions.cshtml" />
+    <Content Include="Views\Information\LeftMenuHelp.cshtml" />
+    <Content Include="Views\Information\LegalNotices.cshtml" />
+    <Content Include="Views\Login\InscriptionFormView.cshtml" />
+    <Content Include="Views\Cart\MyCartGrid.cshtml" />
+    <Content Include="Views\Command\MyCommand.cshtml" />
+    <Content Include="Views\Customer\_CustomerAddressBase.cshtml" />
+    <Content Include="Views\Command\CommandAddressShipment.cshtml" />
+    <Content Include="Views\Command\CommandAddressInvoice.cshtml" />
+    <Content Include="Views\Command\CommandCheckout.cshtml" />
+    <Content Include="Views\Customer\CustomerAccountCommandList.cshtml" />
+    <Content Include="Views\Customer\CommandDetails.cshtml" />
+    <Content Include="Views\IPN\IPNFormTestView.cshtml" />
+    <Content Include="Views\Information\CannotHandleMobile.cshtml" />
+    <Content Include="Views\Login\PasswordForgotten.cshtml" />
+    <Content Include="Views\Customer\CustomerRedefinitionPasswordForm.cshtml" />
+    <Content Include="Views\Customer\CustomerRedefinePasswordValidation.cshtml" />
+    <Content Include="Views\Product\OtherInterestingProducts.cshtml" />
+    <Content Include="Views\Information\LeftMenuAbout.cshtml" />
+    <Content Include="Views\Information\Contact.cshtml" />
+    <Content Include="Views\Customer\CommandDetailsConfirmation.cshtml" />
+    <Content Include="Views\Customer\CustomerAccountAddressInvoiceForm.cshtml" />
+    <Content Include="Views\Customer\CustomerConfirmation.cshtml" />
+    <Content Include="Views\Command\CommandLogin.cshtml" />
+    <Content Include="Views\Information\ContactForm.cshtml" />
+    <Content Include="Views\Shared\CollapsibleMenu.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Ikoula.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Documentation\Release\Hebergeur\Ikoula\mesjoliscotillons-test.fr\" />
+    <Folder Include="Views\Address\" />
+    <Folder Include="Views\LaPosteColissimo_\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Ikoula|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54392</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54392/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!--<Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

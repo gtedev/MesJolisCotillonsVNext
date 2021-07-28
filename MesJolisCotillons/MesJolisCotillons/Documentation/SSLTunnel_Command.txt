@@ -1,0 +1,13 @@
+﻿===========================================================
+SSL Tunnel Commands
+===========================================================
+Allow to share localhost to web
+
+1) wigh NGROK (no SSL tunnel)
+ngrok http 54392 -host-header="localhost:54392"
+
+1) wigh BEAME-INSTA-SSL (with SSL tunnel, cf report analysis example)
+beame-insta-ssl tunnel make --dst 54392 --proto http
+GITHUP Folder: https://github.com/beameio/beame-insta-ssl/wiki/Beginner%E2%80%99s-Guide-to-Using-beame-insta-ssl
+
+

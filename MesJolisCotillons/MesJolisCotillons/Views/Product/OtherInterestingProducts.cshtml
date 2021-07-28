@@ -1,0 +1,38 @@
+﻿@model MesJolisCotillons.ViewModels.ProductsViewModel
+@using MesJolisCotillons.Area.Controllers
+@using MesJolisCotillons.Models
+
+@{
+    var productsViewId = Guid.NewGuid().ToString("N");
+}
+
+<div class="productContainer" id='productsView-@productsViewId'>
+
+
+    <div class="otherInterestedProductHeader"><div class="otherInterestedProductGridTitle"> @Model.title </div></div>
+
+
+    @{
+        var pageRequest = Model.query;
+        var height = Model.height;
+        var width = Model.width;
+    }
+
+    @*@Html.Action("ProductsGridPartialView", "Product", pageRequest)*@
+    <div id="productsGridLoading-@productsViewId"></div>
+</div>
+
+<script defer>
+
+    $(function () {
+
+        var height = '@height';
+        var width = '@width';
+        var productsViewId = '@productsViewId';
+        var productsPageRequest = @Html.Raw(Json.Encode(pageRequest));
+        //var productGridCls = 
+
+        Mjc.product.runProductsViewUtilities(height,width, productsViewId, productsPageRequest);
+
+    });
+</script>

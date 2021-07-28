@@ -1,0 +1,23 @@
+:host {
+  height: 100%;
+  width: 100%;
+
+  .loading-mask {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    opacity: 0.8;
+    background: white;
+
+    .mjc-spinner {
+      height: 8rem;
+      width: 8rem;
+    }
+  }
+}
